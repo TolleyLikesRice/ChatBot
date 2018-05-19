@@ -1,8 +1,6 @@
 exports.run = (client, message, args) => {
   let game = args.join(' ');
-  client.user.setGame(game)
-  console.log(`Set game to: ${game}`)
-  .catch(console.error);
+  client.user.setActivity(game, { type: 'PLAYING' });
   message.reply(`Set game to: ${game} :yum:`)
 };
 
