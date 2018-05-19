@@ -1,0 +1,9 @@
+{
+    "token":"YOUR-BOT-TOKEN-HERE",
+    "Join_Link":"YOUR-JOIN-LINK-HERE",
+    "prefix":";",
+    "modrolename":"MOD-ROLE-ID-HERE",
+    "adminrolename":"ADMIN-ROLE-ID-HERE",
+    "ownerid":"YOUR-ACCOUNT-ID-HERE",
+    "logid":"YOUR-LOG-CHANNEL-ID-HERE",
+}
