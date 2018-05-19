@@ -2,19 +2,13 @@
 
 ChatBot is a W.I.P All-In-One bot. I am aiming to add everything from Memes to Admin commands. It is designed to be highly configurable and to be as configurable as possible.
 
-Features (So far):
-* Moderation (kick, ban, mute)
-* Server Managment (purge, lockdown)
-
-To-Do:
-* Add more customization
-* Add module system
-* Add more fun commands
-* Fix setgame command
-* Youtube video post feed
-
-For information on how th install please refer the wiki
+For information on how please refer the wiki
   
+## Can be run on
+* Windows
+* Mac
+* Raspberry Pi 2/3/3B+ (Recomended)
+
 ## Built With
 
 * Node.js
