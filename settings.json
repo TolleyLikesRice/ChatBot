@@ -1,9 +1,9 @@
 {
-    "token":"YOUR-BOT-TOKEN-HERE",
-    "Join_Link":"YOUR-JOIN-LINK-HERE",
-    "prefix":";",
-    "modrolename":"MOD-ROLE-ID-HERE",
-    "adminrolename":"ADMIN-ROLE-ID-HERE",
-    "ownerid":"YOUR-ACCOUNT-ID-HERE",
-    "logid":"YOUR-LOG-CHANNEL-ID-HERE",
+    "token":"YOUR-BOT-TOKEN-HERE", // Your bot token 
+    "Join_Link":"YOUR-JOIN-LINK-HERE", //The link we generated
+    "prefix":";", // Your command prefix e.g if my prefix was - I would have to do -help
+    "modrolename":"MOD-ROLE-ID-HERE", //The id of the mod role (I know is says name but it means id)
+    "adminrolename":"ADMIN-ROLE-ID-HERE", //The id of the admin role (I know is says name but it means id)
+    "ownerid":"YOUR-ACCOUNT-ID-HERE", //The id of your acconnt
+    "logid":"YOUR-LOG-CHANNEL-ID-HERE" //The id of the log channel
 }
