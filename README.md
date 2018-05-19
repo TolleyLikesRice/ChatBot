@@ -13,9 +13,22 @@ To-Do:
 * Fix setgame command
 * Youtube video post feed
 
+## Contents
+* [ChatBot](https://github.com/TolleyB-J/ChatBot/blob/master/README.md#chatbot)
+* [Getting Started](https://github.com/TolleyB-J/ChatBot/blob/master/README.md#getting-started)
+  * [Installing Prerequisites](https://github.com/TolleyB-J/ChatBot/blob/master/README.md#installing-prerequisites)
+    * [Raspberry Pi](https://github.com/TolleyB-J/ChatBot/blob/master/README.md#raspberry-pi)
+    * [Windows](https://github.com/TolleyB-J/ChatBot/blob/master/README.md#windows)
+    * [Mac](https://github.com/TolleyB-J/ChatBot/blob/master/README.md#mac)
+  * [Installing](https://github.com/TolleyB-J/ChatBot/blob/master/README.md#installing)
+* [Commands](https://github.com/TolleyB-J/ChatBot/blob/master/README.md#commands)
+* [Built With](https://github.com/TolleyB-J/ChatBot/blob/master/README.md#built-with)
+* [License](https://github.com/TolleyB-J/ChatBot/blob/master/README.md#license)
+* [Acknowledgment](https://github.com/TolleyB-J/ChatBot/blob/master/README.md#acknowledgment)
+
 ## Getting Started
 
-These instructions will help you get the bot up and running on your system.
+These instructions will help you get ChatBot up and running on your system.
 
 ### Installing Prerequisites
 
@@ -64,7 +77,7 @@ Open a command line a navigate to the cloned folder and run the following comman
 npm install -g pm2
 npm install
 ```
-During ```npm install``` you may get some warnings just ignore them.
+> Note: During ```npm install``` you may get some warnings just ignore them.
 
 Go to https://discordapp.com/developers/applications/me
 Click on 'New App
@@ -89,9 +102,25 @@ To automaticly run the bot on start up do ```pm2 startup``` follow the on screen
 
 ## Commands
 
+> <> - Required [] - Optional
+
+* General
+  * help \[Command\] - Shows you all the commands or the spesific details of a command
+  * ping - Pings the bot.
+* Fun
+  * 8ball <Question\> - Gives you a magic 8ball responce
 * Moderation
-  * Kick <@Mention\> <Reason\>
-  
+  * ban <@User\> <Reason\> - Bans the mentioned user.
+  * kick <@User\> <Reason\> - Kicks the mentioned user.
+  * mute <@User> <Reason\> - Mutes or unmutes the mentioned user.
+  * unban <@User\> <Reason\> - Unbans the mentioned user.
+  * warn <@User\> <Reason\> - Issues a warning to the mentioned user.
+* Server Management
+  * lockdown <duration\> - This will lock a channel down for the set duration, be it in hours, minutes or seconds.
+  * purge <Number\> - Deletes X amount of messages from a given channel.
+* Bot Management
+  * reload <Command\> - Reloads the command file, if its been updated or modified.
+  * setgame <Game\> - Sets the game that the bot is playing.
   
 ## Built With
 
