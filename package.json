@@ -1,0 +1,17 @@
+{
+  "name": "chatmod",
+  "version": "1.0.0",
+  "description": "All-in-One Discord Bot",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Tolley",
+  "license": "MIT",
+  "dependencies": {
+    "chalk": "^2.0.1",
+    "discord.js": "^11.3.2",
+    "moment": "^2.18.1",
+    "ms": "^2.0.0"
+  }
+}
