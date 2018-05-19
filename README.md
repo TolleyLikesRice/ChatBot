@@ -98,6 +98,7 @@ Tick Public Bot
 Then next to token click 'Click to reveal' **WARNING: DO NOT SHOW YOUR TOKEN TO ANYONE, IF YOU ACCIDENTLY SHOW SOMEONE REGENERATE IT IMMEDIATELY**
 Edit your settings.json file and place your token in the appropriate slot.
 > Windows Users: Don't use notepad as this will mess up the json file. I recommend [Notepad++](https://notepad-plus-plus.org/)
+
 Back on the website click 'Generate OAuth2 Url'
 From the list tick the administrator box
 Click copy then paste in the join link box of settings.json
