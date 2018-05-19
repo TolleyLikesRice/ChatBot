@@ -13,7 +13,7 @@ To-Do:
 * Fix setgame command
 * Youtube video post feed
 
-For information on how th install please refer tho the wiki
+For information on how th install please refer the wiki
   
 ## Built With
 
