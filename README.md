@@ -26,6 +26,8 @@ To-Do:
 * [License](https://github.com/TolleyB-J/ChatBot/blob/master/README.md#license)
 * [Acknowledgment](https://github.com/TolleyB-J/ChatBot/blob/master/README.md#acknowledgment)
 
+> For infomation on how to customize you bot further go to 
+
 ## Getting Started
 
 These instructions will help you get ChatBot up and running on your system.
@@ -39,7 +41,7 @@ To run ChatBot you need: Node.js, NPM Package Manager and PM2.
 **WARNING: BACKUP YOUR SD CARD BEFORE INSTALLING, THERE IS A LOW CHANCE THAT THIS WILL CORUPT YOUR SD CARD**
 You will need:
 Raspberry Pi 2/3/3B+ with the latest Raspbian [(get here)](https://www.raspberrypi.org/downloads/) installed
-A Windows/Mac with [FileZilla] (https://filezilla-project.org/)and Putty or somesort of other ssh client installed.
+A Windows/Mac with Putty or somesort of other ssh client installed.
 
 Once connected via ssh run the following commands:
 ```
@@ -66,7 +68,16 @@ Now contine to the installing step.
 
 #### Windows
 
+Download and install the LTS version of Node.JS from https://nodejs.org/en/
+Now Download and install git from https://git-scm.com/downloads
+Open a command prompt and navagate to a folder to install the bot using ```cd foldername```
+Now run ```git clone https://github.com/TolleyB-J/ChatBot```
+
+Now your ready to continue to the installing step.
+
 #### Mac
+
+I dont't own a mac so it would be much appreciated if someone could tell me how to do it on a mac so I can write a guide
 
 ### Installing
 
@@ -86,6 +97,7 @@ Scroll down and click 'Create Bot User'
 Tick Public Bot
 Then next to token click 'Click to reveal' **WARNING: DO NOT SHOW YOUR TOKEN TO ANYONE, IF YOU ACCIDENTLY SHOW SOMEONE REGENERATE IT IMMEDIATELY**
 Edit your settings.json file and place your token in the appropriate slot.
+> Windows Users: Don't use notepad as this will mess up the json file. I recommend [Notepad++](https://notepad-plus-plus.org/)
 Back on the website click 'Generate OAuth2 Url'
 From the list tick the administrator box
 Click copy then paste in the join link box of settings.json
@@ -99,6 +111,7 @@ Your done! Now your ready to start the bot.
 
 Now run ```pm2 start app.js --name ChatBot```
 To automaticly run the bot on start up do ```pm2 startup``` follow the on screen instuctions then run ```pm2 save```
+> If you get an error check your settings.json with [this](http://json.parser.online.fr/) if its not json related raise an issue on github
 
 ## Commands
 
