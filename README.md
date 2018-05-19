@@ -70,7 +70,7 @@ Now contine to the installing step.
 
 ### Installing
 
-Now we've finished with the prerequisites now for installing and configuring the bot.
+Now we've finished with the prerequisites now we need to install and configure the bot.
 
 Open a command line a navigate to the cloned folder and run the following commands
 ```
