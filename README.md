@@ -1,10 +1,21 @@
 # ChatBot
 
-ChatBot
+ChatBot is a W.I.P All-In-One bot. I am aiming to add everything from Memes to Admin commands. It is designed to be highly configurable and to be as configurable as possible.
+
+Features (So far):
+* Moderation (kick, ban, mute)
+* Server Managment (purge, lockdown)
+
+To-Do:
+* Add more customization
+* Add module system
+* Add more fun commands
+* Fix setgame command
+* Youtube video post feed
 
 ## Getting Started
 
-These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See deployment for notes on how to deploy the project on a live system.
+These instructions will help you get the bot up and running on your system.
 
 ### Installing Prerequisites
 
@@ -67,15 +78,21 @@ From the list tick the administrator box
 Click copy then paste in the join link box of settings.json
 Also paste the link into your browser, this wil invite the bot to your server. Your bot will appear offline, don't worry this is normal.
 In the discord app, open your user settings then select appearance and turn on developer mode.
-Close settings.
+Go back to a text channel.
 Next to the chat there is a list of names, right click yours and click 'Copy ID'
 Paste this in the owner id section of settings.json
-Fill
+Fill in the rest of the options, to obtain a role id type \@rolename then copy the **NUMBER ONLY** and paste in the id box.
+Your done! Now your ready to start the bot.
 
 Now run ```pm2 start app.js --name ChatBot```
-To automaticly run on start up do ```pm2 startup``` follow the on screen instuctions then run ```pm2 save```
+To automaticly run the bot on start up do ```pm2 startup``` follow the on screen instuctions then run ```pm2 save```
 
+## Commands
 
+* Moderation
+  * Kick <@Mention\> <Reason\>
+  
+  
 ## Built With
 
 * Node.js
