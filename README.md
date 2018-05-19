@@ -65,6 +65,12 @@ Edit your settings.json file and place your token in the appropriate slot.
 Back on the website click 'Generate OAuth2 Url'
 From the list tick the administrator box
 Click copy then paste in the join link box of settings.json
+Also paste the link into your browser, this wil invite the bot to your server. Your bot will appear offline, don't worry this is normal.
+In the discord app, open your user settings then select appearance and turn on developer mode.
+Close settings.
+Next to the chat there is a list of names, right click yours and click 'Copy ID'
+Paste this in the owner id section of settings.json
+Fill
 
 Now run ```pm2 start app.js --name ChatBot```
 To automaticly run on start up do ```pm2 startup``` follow the on screen instuctions then run ```pm2 save```
@@ -78,7 +84,7 @@ To automaticly run on start up do ```pm2 startup``` follow the on screen instuct
 
 ## License
 
-This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details
 
 ## Acknowledgment
 
