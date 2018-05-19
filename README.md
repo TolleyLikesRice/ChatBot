@@ -2,7 +2,7 @@
 
 ChatBot is a W.I.P All-In-One bot. I am aiming to add everything from Memes to Admin commands. It is designed to be highly configurable and to be as configurable as possible.
 
-For information on how please refer the wiki
+For information please refer the wiki
   
 ## Can be run on
 * Windows
