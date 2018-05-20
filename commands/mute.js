@@ -6,7 +6,7 @@ exports.run = (client, message, args) => {
   let modlog = settings.logid
   let muteRole = client.guilds.get(message.guild.id).roles.find('name', 'muted');
   if (!modlog) return message.reply('I cannot find a log channel').catch(console.error);
-  if (!muteRole) return message.reply('I cannot find a mute role').catch(console.error);
+  if (!muteRole) return message.reply('I cannot find a muted role').catch(console.error);
   if (reason.length < 1) return message.reply('You must supply a reason for the mute.').catch(console.error);
   if (message.mentions.users.size < 1) return message.reply('You must mention someone to mute them.').catch(console.error);
   console.log(`New Unmute/Mute: Target:${user.tag} Moderator:${message.author.tag} Reason:${reason}`);
