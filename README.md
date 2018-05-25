@@ -19,6 +19,7 @@ For information please refer the wiki
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details
 
-## Acknowledgment
+## Acknowledgments
 
+* Thanks to Arslan Şahin for Artwork and logo designs
 * Thanks to [An Idiots Guide] (https://www.youtube.com/channel/UCLun-hgcYUgNvCCj4sIa-jA) for tutorials on discord.js
