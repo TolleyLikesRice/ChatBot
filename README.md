@@ -1,4 +1,4 @@
-# ChatBot
+[ChatBot](Artwork/ChatBot1080x1080.png)
 
 ChatBot is a W.I.P All-In-One bot. I am aiming to add everything from Memes to Admin commands. It is designed to be highly configurable and to be as configurable as possible.
 
