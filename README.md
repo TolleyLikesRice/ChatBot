@@ -15,11 +15,15 @@ For information please refer the wiki
 * NPM
 * Discord.js
 
+## Contributions
+
+Maintained and programmed by Tolley B-J
+Artwork by Arslanshn
+
 ## License
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details
 
 ## Acknowledgments
 
-* Thanks to Arslan Şahin for Artwork and logo designs
 * Thanks to [An Idiots Guide](https://www.youtube.com/channel/UCLun-hgcYUgNvCCj4sIa-jA) for tutorials on discord.js
