@@ -1,6 +1,6 @@
 {
   "name": "chatbot",
-  "version": "1.0.0",
+  "version": "2.4.1",
   "description": "All-in-One Discord Bot",
   "main": "app.js",
   "scripts": {
