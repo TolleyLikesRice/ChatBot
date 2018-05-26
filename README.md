@@ -17,8 +17,8 @@ For information please refer the wiki
 
 ## Contributions
 
-* Maintained and programmed by Tolley B-J
-* Artwork by Arslanshn
+Maintained and programmed by Tolley B-J  
+Artwork by Arslanshn
 
 ## License
 
