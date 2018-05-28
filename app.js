@@ -4,22 +4,26 @@ const settings = require('./settings.json');
 const chalk = require('chalk');
 const fs = require('fs');
 const moment = require('moment');
+
 require('./util/eventLoader')(client);
 
+function inittest() {
 console.log('Connecting...')
 
 const log = message => {
   console.log(`[${moment().format('YYYY-MM-DD HH:mm:ss')}] ${message}`);
 };
+}
 
+function cmdtest() {
 client.commands = new Discord.Collection();
 client.aliases = new Discord.Collection();
 fs.readdir('./commands/', (err, files) => {
   if (err) console.error(err);
-  log(`Loading a total of ${files.length} commands.`);
+  console.log(`Loading a total of ${files.length} commands.`);
   files.forEach(f => {
     let props = require(`./commands/${f}`);
-    log(`Loading Command: ${props.help.name}. 👌`);
+    console.log(`Loading Command: ${props.help.name}. 👌`);
     client.commands.set(props.help.name, props);
     props.conf.aliases.forEach(alias => {
       client.aliases.set(alias, props.help.name);
@@ -46,7 +50,9 @@ client.reload = command => {
     }
   });
 };
+}
 
+function eletest() {
 client.elevation = message => {
   /* This function should resolve to an ELEVATION level which
      is then sent to the command handler for verification*/
@@ -58,8 +64,9 @@ client.elevation = message => {
   if (message.author.id === settings.ownerid) permlvl = 4;
   return permlvl;
 };
+}
 
-
+function logtest() {
 var regToken = /[\w\d]{24}\.[\w\d]{6}\.[\w\d-_]{27}/g;
 // client.on('debug', e => {
 //   console.log(chalk.bgBlue.green(e.replace(regToken, 'that was redacted')));
@@ -72,5 +79,17 @@ client.on('warn', e => {
 client.on('error', e => {
   console.log(chalk.bgRed(e.replace(regToken, 'that was redacted')));
 });
+}
 
+module.exports = {
+  inittest: inittest,
+  cmdtest: cmdtest,
+  eletest: eletest,
+  logtest: logtest,
+};
+
+inittest()
+cmdtest()
+eletest()
+logtest()
 client.login(settings.token);

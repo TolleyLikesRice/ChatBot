@@ -4,17 +4,21 @@
   "description": "All-in-One Discord Bot",
   "main": "app.js",
   "scripts": {
-    "start": "nodemon"
+    "test": "mocha --reporter spec"
   },
   "repository": "https://github.com/TolleyB-J/ChatBot",
   "author": "Tolley-BJ",
   "license": "MIT",
   "dependencies": {
-    "chalk": "^2.0.1",
+    "chalk": "^2.4.1",
     "discord.js": "^11.3.2",
-    "moment": "^2.18.1",
-    "ms": "^2.0.0",
+    "moment": "^2.22.1",
+    "ms": "^2.1.1",
     "random-number": "0.0.9",
     "uws": "^10.148.0"
+  },
+  "devDependencies": {
+    "chai": "^4.1.2",
+    "mocha": "^5.2.0"
   }
 }
