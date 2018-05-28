@@ -4,6 +4,8 @@ const settings = require('./settings.json');
 const chalk = require('chalk');
 const fs = require('fs');
 const moment = require('moment');
+const logger = require('./logconfig.js')
+const winston = require('winston')
 
 require('./util/eventLoader')(client);
 
@@ -92,4 +94,4 @@ inittest()
 cmdtest()
 eletest()
 logtest()
-client.login(settings.token);
+  client.login(settings.token);
