@@ -10,8 +10,10 @@
   "author": "Tolley-BJ",
   "license": "MIT",
   "dependencies": {
+    "capture-console": "^1.0.1",
     "chalk": "^2.4.1",
     "discord.js": "^11.3.2",
+    "edit-json-file": "^1.0.8",
     "moment": "^2.22.1",
     "ms": "^2.1.1",
     "random-number": "0.0.9",
@@ -20,7 +22,6 @@
   },
   "devDependencies": {
     "chai": "^4.1.2",
-    "istanbul": "^0.4.5",
     "mocha": "^5.2.0"
   }
 }
