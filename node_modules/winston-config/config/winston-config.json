@@ -1,0 +1,10 @@
+{
+  "logging": {
+    "default": {
+      "console": {
+        "level": "info",
+        "colorize": true
+      }
+    }
+  }
+}
