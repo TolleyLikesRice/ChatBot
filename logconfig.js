@@ -1,9 +1,30 @@
-const settings = require('./settings.json')
-const path = require('path')
-const winstonConf = require('winston-config');
+const winston = require('winston');
+const settings = require('./settings.json');
 
-if (settings.debuglogging = false) {
-    winstonConf.fromFile(path.join(__dirname, 'logconfigs/reg.json'));
-} else {
-    winstonConf.fromFile(path.join(__dirname, 'logconfigs/debug.json'));
+winston.loggers.add('prolog', {
+  console: {
+    level: 'warn',
+    colorize: 'true',
+    label: 'MAIN'
+  },
+  file: {
+    filename: './dev.log',
+    level: 'silly',
+    json: false,
+    timestamp: true
+  },
+});
+const prolog = winston.loggers.get('prolog');
+prolog.info('Log Initilized');
+
+if (settings.debug = true) {
+    winston.loggers.add('devlog', {
+        console: {
+            level: 'silly',
+            colorize: 'true',
+            label: 'DEBUG'
+        }
+    })
 }
+const devlog = winston.loggers.get('devlog');
+devlog.error('Hi')
