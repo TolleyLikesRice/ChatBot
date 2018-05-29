@@ -1,0 +1,18 @@
+describe('LogLoad', function() {
+    it('Initalize', function() {
+      require('../logconfig')
+    });
+  
+    it('Init Commands', function() {
+       appjs.cmdtest()
+    });
+  
+    it('Elevate Roles', function() {
+      appjs.eletest()
+    });
+  
+    it('Define Logs', function() {
+      appjs.logtest()
+      process.exit()
+    });
+  });

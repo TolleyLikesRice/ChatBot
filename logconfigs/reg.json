@@ -1,0 +1,19 @@
+{
+  "logging": {
+    "application": {
+      "console": {
+        "level": "info",
+        "colorize": true,
+        "timestamp": true
+      },
+      "file": {
+        "timestamp": true,
+        "json": false,
+        "filename": "logs/log.log",
+        "maxfiles": 5,
+        "maxsize": 10485760,
+        "level": "info"
+      }
+    }
+  }
+}

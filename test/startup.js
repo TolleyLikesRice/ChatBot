@@ -5,9 +5,8 @@ const chalk = require('chalk');
 const fs = require('fs');
 const moment = require('moment');
 const appjs = require('../app.js')
-//require('../util/eventLoader')(client);
 
-describe('#Boot', function() {
+describe('startup', function() {
   it('Initalize', function() {
     appjs.inittest()
   });

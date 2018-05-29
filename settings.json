@@ -4,5 +4,6 @@
     "modrolename":"MOD-ROLE-ID-HERE",
     "adminrolename":"ADMIN-ROLE-ID-HERE",
     "ownerid":"YOUR-ACCOUNT-ID-HERE",
-    "logid":"YOUR-LOG-CHANNEL-ID-HERE"
+    "logid":"YOUR-LOG-CHANNEL-ID-HERE",
+    "debugconsole": "fasle"
 }

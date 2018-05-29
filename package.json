@@ -4,7 +4,8 @@
   "description": "All-in-One Discord Bot",
   "main": "app.js",
   "scripts": {
-    "test": "mocha --reporter spec"
+    "test": "node_modules/.bin/mocha --reporter spec",
+    "cover": "node_modules/istanbul/lib/cli.js cover node_modules/mocha/bin/_mocha -- -R spec test/*"
   },
   "repository": "https://github.com/TolleyB-J/ChatBot",
   "author": "Tolley-BJ",
@@ -20,6 +21,8 @@
   },
   "devDependencies": {
     "chai": "^4.1.2",
+    "coveralls": "^3.0.1",
+    "istanbul": "^0.4.5",
     "mocha": "^5.2.0"
   }
 }
