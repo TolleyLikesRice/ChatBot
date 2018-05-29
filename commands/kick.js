@@ -1,5 +1,7 @@
 const Discord = require('discord.js');
 const settings = require('../settings.json');
+const winston = require('winston')
+const prolog = winston.loggers.get('prolog');
 exports.run = (client, message, args) => {
   let reason = args.slice(1).join(' ');
   let user = message.mentions.users.first();
@@ -10,15 +12,15 @@ exports.run = (client, message, args) => {
 
   if (!message.guild.member(user).kickable) return message.reply('I cannot kick that member');
   message.guild.member(user).kick();
-  console.log(`New Kick: Target:${user.tag} Moderator:${message.author.tag} Reason:${reason}`);
+  prolog.info(`New Kick: Target:${user.tag} Moderator:${message.author.tag} Reason:${reason}`);
   const embed = new Discord.RichEmbed()
     .setColor("#ffff26")
     .setTimestamp()
     .addField('Action:', 'Kick')
     .addField('User:', `${user.tag} (${user.id})`)
     .addField('Moderator:', `${message.author.tag}`)
-    .addField('Reason', reason);  
-    return client.channels.get(modlog).send({ embed });
+    .addField('Reason', reason);
+  return client.channels.get(modlog).send({ embed });
 };
 
 exports.conf = {

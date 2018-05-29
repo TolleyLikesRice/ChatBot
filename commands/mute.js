@@ -1,5 +1,7 @@
 const Discord = require('discord.js');
 const settings = require('../settings.json');
+const winston = require('winston')
+const prolog = winston.loggers.get('prolog');
 exports.run = (client, message, args) => {
   let reason = args.slice(1).join(' ');
   let user = message.mentions.users.first();
@@ -9,7 +11,7 @@ exports.run = (client, message, args) => {
   if (!muteRole) return message.reply('I cannot find a muted role').catch(console.error);
   if (reason.length < 1) return message.reply('You must supply a reason for the mute.').catch(console.error);
   if (message.mentions.users.size < 1) return message.reply('You must mention someone to mute them.').catch(console.error);
-  console.log(`New Unmute/Mute: Target:${user.tag} Moderator:${message.author.tag} Reason:${reason}`);
+  prolog.log(`New Unmute/Mute: Target:${user.tag} Moderator:${message.author.tag} Reason:${reason}`);
   const embed = new Discord.RichEmbed()
     .setColor("#26ff46")
     .setTimestamp()

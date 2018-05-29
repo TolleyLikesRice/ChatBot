@@ -4,9 +4,9 @@ const settings = require('./settings.json');
 const chalk = require('chalk');
 const fs = require('fs');
 const moment = require('moment');
-const logger = require('./loginit.js')
-const winston = require('winston')
+const winston = require('winston');
 const prolog = winston.loggers.get('prolog');
+require('./loginit.js')
 
 require('./util/eventLoader')(client);
 
@@ -19,7 +19,7 @@ function cmdtest() {
   client.commands = new Discord.Collection();
   client.aliases = new Discord.Collection();
   fs.readdir('./commands/', (err, files) => {
-    if (err) console.error(err);
+    if (err) prolog.error(err);
     prolog.verbose(`Loading a total of ${files.length} commands.`);
     files.forEach(f => {
       let props = require(`./commands/${f}`);
@@ -77,4 +77,6 @@ cmdtest()
 eletest()
 if (settings.token != "YOUR-BOT-TOKEN-HERE") {
   client.login(settings.token);
+} else {
+  prolog.error('No token in settings.json. Aborting...')
 }

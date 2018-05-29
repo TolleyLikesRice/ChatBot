@@ -8,7 +8,7 @@ fs.stat('dev.log', function (err, stat) {
   if (err == null) {
     console.log('File exists');
     var newfile = true
-    fs.rename('dev.log', 'olddev.log', function (err) {
+    fs.rename('./logs/dev.log', './logs/olddev.log', function (err) {
       fs.stat('dev.log', function (err, stats) {
       });
     });
@@ -19,18 +19,42 @@ fs.stat('dev.log', function (err, stat) {
     console.log('Some other error: ', err.code);
   }
 });
+//Define colours
+const myCustomLevels = {
+  levels: {
+    error: 0,
+    warn: 1,
+    yay: 2,
+    info: 3,
+    verbose: 4,
+    debug: 5,
+    silly: 6
+  },
+  colors: {
+    error: 'bold red whiteBG',
+    warn: 'bold yellow',
+    yay: 'green',
+    info: 'white',
+    verbose: 'cyan',
+    debug: 'magenta',
+    silly: 'gray'
+  }
+};
+
+winston.addColors(myCustomLevels.colors);
 
 //Define logger Prolog
 function prologtest() {
   winston.loggers.add('prolog', {
+    levels: myCustomLevels.levels,
     console: {
-      level: 'warn',
-      colorize: 'true',
+      level: 'yay',
+      colorize: true,
       label: 'MAIN',
       json: false
     },
     file: {
-      filename: './dev.log',
+      filename: './logs/dev.log',
       level: 'silly',
       json: false,
       timestamp: true
@@ -39,9 +63,10 @@ function prologtest() {
 }
 
 //Define Logger DevLog
-function devlogtest() {
+/*function devlogtest() {
   if (settings.debug == true) {
     winston.loggers.add('devlog', {
+      levels : myCustomLevels,
       console: {
         level: 'silly',
         colorize: 'true',
@@ -49,7 +74,7 @@ function devlogtest() {
       }
     })
   }
-}
+}*/
 //const devlog = winston.loggers.get('devlog');
 //devlog.error('Hi')
 

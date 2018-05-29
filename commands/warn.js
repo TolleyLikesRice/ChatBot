@@ -1,5 +1,7 @@
 const Discord = require('discord.js');
 const settings = require('../settings.json');
+const winston = require('winston')
+const prolog = winston.loggers.get('prolog');
 exports.run = (client, message, args) => {
   let reason = args.slice(1).join(' ');
   let user = message.mentions.users.first();
@@ -7,7 +9,7 @@ exports.run = (client, message, args) => {
   if (modlog.length < 1) return message.reply('I cannot find a log channel');
   if (reason.length < 1) return message.reply('You must supply a reason for the warning.');
   if (message.mentions.users.size < 1) return message.reply('You must mention someone to warn them.').catch(console.error);
-  console.log(`New Warn: Target:${user.tag} Moderator:${message.author.tag} Reason:${reason}`);
+  prolog.verbose(`New Warn: Target:${user.tag} Moderator:${message.author.tag} Reason:${reason}`);
   const embed = new Discord.RichEmbed()
     .setColor("#ffff26")
     .setTimestamp()

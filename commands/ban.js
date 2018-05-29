@@ -1,5 +1,7 @@
 const Discord = require('discord.js');
 const settings = require('../settings.json');
+const winston = require('winston')
+const prolog = winston.loggers.get('prolog');
 exports.run = (client, message, args) => {
   let reason = args.slice(1).join(' ');
   let user = message.mentions.users.first();
@@ -10,7 +12,7 @@ exports.run = (client, message, args) => {
 
   if (!message.guild.member(user).bannable) return message.reply('I cannot ban that member');
   message.guild.ban(user, 2);
-  console.log(`New Ban: Target:${user.tag} Moderator:${message.author.tag} Reason:${reason}`);
+  prolog.info(`New Ban: Target:${user.tag} Moderator:${message.author.tag} Reason:${reason}`);
   const embed = new Discord.RichEmbed()
     .setColor('#ff0000')
     .setTimestamp()

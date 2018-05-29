@@ -1,4 +1,6 @@
 const ms = require('ms');
+const winston = require('winston')
+const prolog = winston.loggers.get('prolog');
 exports.run = (client, message, args) => {
   if (!client.lockit) client.lockit = [];
   let time = args.join(' ');
@@ -13,7 +15,7 @@ exports.run = (client, message, args) => {
       clearTimeout(client.lockit[message.channel.id]);
       delete client.lockit[message.channel.id];
     }).catch(error => {
-      console.log(error);
+      prolog.error(error);
     });
   } else {
     message.channel.overwritePermissions(message.guild.id, {
@@ -29,7 +31,7 @@ exports.run = (client, message, args) => {
         }, ms(time));
 
       }).catch(error => {
-        console.log(error);
+        prolog.error(error);
       });
     });
   }

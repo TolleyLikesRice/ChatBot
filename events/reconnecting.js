@@ -1,3 +1,5 @@
+const winston = require('winston')
+const prolog = winston.loggers.get('prolog');
 module.exports = client => {
-    console.log('Reconnecting at ' + new Date());
+    prolog.warn('Reconnecting at ' + new Date());
 };

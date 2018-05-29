@@ -1,3 +1,5 @@
+const winston = require('winston')
+const prolog = winston.loggers.get('prolog');
 module.exports = (guild, user) => {
-  console.log(`${user.tag} (${user.id})was just banned!`)
+  prolog.verbose(`${user.tag} (${user.id})was just banned!`)
 };
