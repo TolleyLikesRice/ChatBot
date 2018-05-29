@@ -6,15 +6,13 @@ const fs = require('fs');
 const moment = require('moment');
 const logger = require('./logconfig.js')
 const winston = require('winston')
+const applog = winston.loggers.get('application');
 
 require('./util/eventLoader')(client);
 
 function inittest() {
-console.log('Connecting...')
+applog.info('Connecting...')
 
-const log = message => {
-  console.log(`[${moment().format('YYYY-MM-DD HH:mm:ss')}] ${message}`);
-};
 }
 
 function cmdtest() {
@@ -22,10 +20,10 @@ client.commands = new Discord.Collection();
 client.aliases = new Discord.Collection();
 fs.readdir('./commands/', (err, files) => {
   if (err) console.error(err);
-  console.log(`Loading a total of ${files.length} commands.`);
+  applog.verbose(`Loading a total of ${files.length} commands.`);
   files.forEach(f => {
     let props = require(`./commands/${f}`);
-    console.log(`Loading Command: ${props.help.name}. 👌`);
+    applog.verbose(`Loading Command: ${props.help.name}. 👌`);
     client.commands.set(props.help.name, props);
     props.conf.aliases.forEach(alias => {
       client.aliases.set(alias, props.help.name);

@@ -5,6 +5,9 @@ const chalk = require('chalk');
 const fs = require('fs');
 const moment = require('moment');
 const appjs = require('../app.js')
+const logger = require('../logconfig.js')
+const winston = require('winston')
+const applog = winston.loggers.get('application');
 
 describe('startup', function() {
   it('Initalize', function() {
