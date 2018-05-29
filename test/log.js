@@ -25,14 +25,14 @@ describe('Winston Logging', function () {
         var stderr = capcon.captureStderr(function scope() {
             prolog.error('Error Test')
         });
-        expect(stderr).to.equal('error: [MAIN] Error Test')
+        expect(stderr).to.contain('error: [MAIN] Error Test')
     });
 
     it('Print a warning to prolog', function () {
         var stdout = capcon.captureStdout(function scope() {
             prolog.warn('Warn Test')
         });
-        expect(stdout).to.equal('warn: [MAIN] Warn Test')
+        expect(stdout).to.contain('warn: [MAIN] Warn Test')
     });
 
     it('Print silly to devlog', function () {
