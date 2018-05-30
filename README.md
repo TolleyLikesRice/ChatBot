@@ -1,6 +1,8 @@
 ![ChatBot](Artwork/ChatBotReadme.png)
 
-[![Build Status](https://travis-ci.org/TolleyB-J/ChatBot.svg?branch=master)](https://travis-ci.org/TolleyB-J/ChatBot)
+Travis-ci: [![Build Status](https://travis-ci.org/TolleyB-J/ChatBot.svg?branch=master)](https://travis-ci.org/TolleyB-J/ChatBot)
+AppVeyor: ![AppVeyor](https://img.shields.io/appveyor/ci/TolleyB-J/chatbot.svg)
+
 
 ChatBot is a W.I.P All-In-One bot. I am aiming to add everything from Memes to Admin commands. It is designed to be highly configurable and cutomisable.
 
