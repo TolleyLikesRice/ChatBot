@@ -5,7 +5,7 @@ node_js:
 
 install:
   - npm install
-  - npm install -g istanbull
+  - npm install -g istanbul
     npm install -g codecov
 
 script:
