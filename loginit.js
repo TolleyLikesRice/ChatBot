@@ -19,36 +19,12 @@ fs.stat('dev.log', function (err, stat) {
     console.log('Some other error: ', err.code);
   }
 });
-//Define colours
-const myCustomLevels = {
-  levels: {
-    error: 0,
-    warn: 1,
-    yay: 2,
-    info: 3,
-    verbose: 4,
-    debug: 5,
-    silly: 6
-  },
-  colors: {
-    error: 'bold red whiteBG',
-    warn: 'bold yellow',
-    yay: 'green',
-    info: 'white',
-    verbose: 'cyan',
-    debug: 'magenta',
-    silly: 'gray'
-  }
-};
-
-winston.addColors(myCustomLevels.colors);
 
 //Define logger Prolog
 function prologtest() {
   winston.loggers.add('prolog', {
-    levels: myCustomLevels.levels,
     console: {
-      level: 'yay',
+      level: 'warn',
       colorize: true,
       label: 'MAIN',
       json: false
@@ -63,10 +39,9 @@ function prologtest() {
 }
 
 //Define Logger DevLog
-/*function devlogtest() {
+function devlogtest() {
   if (settings.debug == true) {
     winston.loggers.add('devlog', {
-      levels : myCustomLevels,
       console: {
         level: 'silly',
         colorize: 'true',
@@ -74,7 +49,7 @@ function prologtest() {
       }
     })
   }
-}*/
+}
 //const devlog = winston.loggers.get('devlog');
 //devlog.error('Hi')
 

@@ -1,0 +1,34 @@
+2018-05-29T20:40:11.397Z - info: Hello new log file :)
+2018-05-29T20:40:11.619Z - info: Connecting...
+2018-05-29T20:40:11.619Z - error: No token in settings.json. Aborting...
+2018-05-29T20:40:11.619Z - verbose: Loading a total of 13 commands.
+2018-05-29T20:40:11.635Z - verbose: Loading Command: 8ball. 👌
+2018-05-29T20:40:11.639Z - verbose: Loading Command: ban. 👌
+2018-05-29T20:40:11.640Z - verbose: Loading Command: help. 👌
+2018-05-29T20:40:11.642Z - verbose: Loading Command: kick. 👌
+2018-05-29T20:40:11.645Z - verbose: Loading Command: lockdown. 👌
+2018-05-29T20:40:11.647Z - verbose: Loading Command: mute. 👌
+2018-05-29T20:40:11.648Z - verbose: Loading Command: ping. 👌
+2018-05-29T20:40:11.649Z - verbose: Loading Command: purge. 👌
+2018-05-29T20:40:11.651Z - verbose: Loading Command: random. 👌
+2018-05-29T20:40:11.652Z - verbose: Loading Command: reload. 👌
+2018-05-29T20:40:11.653Z - verbose: Loading Command: setgame. 👌
+2018-05-29T20:40:11.653Z - verbose: Loading Command: unban. 👌
+2018-05-29T20:40:11.654Z - verbose: Loading Command: warn. 👌
+2018-05-29T20:40:11.674Z - error: Error Test
+2018-05-29T20:40:11.679Z - warn: Warn Test
+2018-05-29T20:40:11.684Z - info: Connecting...
+2018-05-29T20:40:11.686Z - verbose: Loading a total of 13 commands.
+2018-05-29T20:40:11.686Z - verbose: Loading Command: 8ball. 👌
+2018-05-29T20:40:11.686Z - verbose: Loading Command: ban. 👌
+2018-05-29T20:40:11.686Z - verbose: Loading Command: help. 👌
+2018-05-29T20:40:11.686Z - verbose: Loading Command: kick. 👌
+2018-05-29T20:40:11.686Z - verbose: Loading Command: lockdown. 👌
+2018-05-29T20:40:11.686Z - verbose: Loading Command: mute. 👌
+2018-05-29T20:40:11.686Z - verbose: Loading Command: ping. 👌
+2018-05-29T20:40:11.686Z - verbose: Loading Command: purge. 👌
+2018-05-29T20:40:11.687Z - verbose: Loading Command: random. 👌
+2018-05-29T20:40:11.687Z - verbose: Loading Command: reload. 👌
+2018-05-29T20:40:11.687Z - verbose: Loading Command: setgame. 👌
+2018-05-29T20:40:11.687Z - verbose: Loading Command: unban. 👌
+2018-05-29T20:40:11.687Z - verbose: Loading Command: warn. 👌
