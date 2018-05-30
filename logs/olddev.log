@@ -1,34 +1,78 @@
-2018-05-29T20:38:59.608Z - info: Hello new log file :)
-2018-05-29T20:38:59.834Z - info: Connecting...
-2018-05-29T20:38:59.834Z - error: No token in settings.json. Aborting...
-2018-05-29T20:38:59.850Z - verbose: Loading a total of 13 commands.
-2018-05-29T20:38:59.850Z - verbose: Loading Command: 8ball. 👌
-2018-05-29T20:38:59.850Z - verbose: Loading Command: ban. 👌
-2018-05-29T20:38:59.850Z - verbose: Loading Command: help. 👌
-2018-05-29T20:38:59.850Z - verbose: Loading Command: kick. 👌
-2018-05-29T20:38:59.850Z - verbose: Loading Command: lockdown. 👌
-2018-05-29T20:38:59.866Z - verbose: Loading Command: mute. 👌
-2018-05-29T20:38:59.866Z - verbose: Loading Command: ping. 👌
-2018-05-29T20:38:59.866Z - verbose: Loading Command: purge. 👌
-2018-05-29T20:38:59.870Z - verbose: Loading Command: random. 👌
-2018-05-29T20:38:59.870Z - verbose: Loading Command: reload. 👌
-2018-05-29T20:38:59.871Z - verbose: Loading Command: setgame. 👌
-2018-05-29T20:38:59.872Z - verbose: Loading Command: unban. 👌
-2018-05-29T20:38:59.874Z - verbose: Loading Command: warn. 👌
-2018-05-29T20:38:59.904Z - error: Error Test
-2018-05-29T20:38:59.914Z - warn: Warn Test
-2018-05-29T20:38:59.921Z - info: Connecting...
-2018-05-29T20:38:59.922Z - verbose: Loading a total of 13 commands.
-2018-05-29T20:38:59.922Z - verbose: Loading Command: 8ball. 👌
-2018-05-29T20:38:59.922Z - verbose: Loading Command: ban. 👌
-2018-05-29T20:38:59.922Z - verbose: Loading Command: help. 👌
-2018-05-29T20:38:59.922Z - verbose: Loading Command: kick. 👌
-2018-05-29T20:38:59.922Z - verbose: Loading Command: lockdown. 👌
-2018-05-29T20:38:59.922Z - verbose: Loading Command: mute. 👌
-2018-05-29T20:38:59.923Z - verbose: Loading Command: ping. 👌
-2018-05-29T20:38:59.923Z - verbose: Loading Command: purge. 👌
-2018-05-29T20:38:59.923Z - verbose: Loading Command: random. 👌
-2018-05-29T20:38:59.923Z - verbose: Loading Command: reload. 👌
-2018-05-29T20:38:59.923Z - verbose: Loading Command: setgame. 👌
-2018-05-29T20:38:59.923Z - verbose: Loading Command: unban. 👌
-2018-05-29T20:38:59.923Z - verbose: Loading Command: warn. 👌
+2018-05-29T20:40:11.397Z - info: Hello new log file :)
+2018-05-29T20:40:11.619Z - info: Connecting...
+2018-05-29T20:40:11.619Z - error: No token in settings.json. Aborting...
+2018-05-29T20:40:11.619Z - verbose: Loading a total of 13 commands.
+2018-05-29T20:40:11.635Z - verbose: Loading Command: 8ball. 👌
+2018-05-29T20:40:11.639Z - verbose: Loading Command: ban. 👌
+2018-05-29T20:40:11.640Z - verbose: Loading Command: help. 👌
+2018-05-29T20:40:11.642Z - verbose: Loading Command: kick. 👌
+2018-05-29T20:40:11.645Z - verbose: Loading Command: lockdown. 👌
+2018-05-29T20:40:11.647Z - verbose: Loading Command: mute. 👌
+2018-05-29T20:40:11.648Z - verbose: Loading Command: ping. 👌
+2018-05-29T20:40:11.649Z - verbose: Loading Command: purge. 👌
+2018-05-29T20:40:11.651Z - verbose: Loading Command: random. 👌
+2018-05-29T20:40:11.652Z - verbose: Loading Command: reload. 👌
+2018-05-29T20:40:11.653Z - verbose: Loading Command: setgame. 👌
+2018-05-29T20:40:11.653Z - verbose: Loading Command: unban. 👌
+2018-05-29T20:40:11.654Z - verbose: Loading Command: warn. 👌
+2018-05-29T20:40:11.674Z - error: Error Test
+2018-05-29T20:40:11.679Z - warn: Warn Test
+2018-05-29T20:40:11.684Z - info: Connecting...
+2018-05-29T20:40:11.686Z - verbose: Loading a total of 13 commands.
+2018-05-29T20:40:11.686Z - verbose: Loading Command: 8ball. 👌
+2018-05-29T20:40:11.686Z - verbose: Loading Command: ban. 👌
+2018-05-29T20:40:11.686Z - verbose: Loading Command: help. 👌
+2018-05-29T20:40:11.686Z - verbose: Loading Command: kick. 👌
+2018-05-29T20:40:11.686Z - verbose: Loading Command: lockdown. 👌
+2018-05-29T20:40:11.686Z - verbose: Loading Command: mute. 👌
+2018-05-29T20:40:11.686Z - verbose: Loading Command: ping. 👌
+2018-05-29T20:40:11.686Z - verbose: Loading Command: purge. 👌
+2018-05-29T20:40:11.687Z - verbose: Loading Command: random. 👌
+2018-05-29T20:40:11.687Z - verbose: Loading Command: reload. 👌
+2018-05-29T20:40:11.687Z - verbose: Loading Command: setgame. 👌
+2018-05-29T20:40:11.687Z - verbose: Loading Command: unban. 👌
+2018-05-29T20:40:11.687Z - verbose: Loading Command: warn. 👌
+2018-05-30T06:32:23.579Z - info: Hello new log file :)
+2018-05-30T06:32:25.114Z - info: Connecting...
+2018-05-30T06:32:25.114Z - error: No token in settings.json. Aborting...
+2018-05-30T06:32:25.123Z - verbose: Loading a total of 13 commands.
+2018-05-30T06:32:25.124Z - verbose: Loading Command: 8ball. 👌
+2018-05-30T06:32:25.135Z - error: Error Test
+2018-05-30T06:32:25.135Z - warn: Warn Test
+2018-05-30T06:32:25.151Z - info: Connecting...
+2018-05-30T06:32:25.151Z - verbose: Loading a total of 13 commands.
+2018-05-30T06:32:25.151Z - verbose: Loading Command: 8ball. 👌
+2018-05-30T06:34:31.637Z - info: Hello new log file :)
+2018-05-30T06:34:31.858Z - info: Connecting...
+2018-05-30T06:34:31.858Z - error: No token in settings.json. Aborting...
+2018-05-30T06:34:31.874Z - verbose: Loading a total of 13 commands.
+2018-05-30T06:34:31.874Z - verbose: Loading Command: 8ball. 👌
+2018-05-30T06:34:31.874Z - verbose: Loading Command: ban. 👌
+2018-05-30T06:34:31.874Z - verbose: Loading Command: help. 👌
+2018-05-30T06:34:31.874Z - verbose: Loading Command: kick. 👌
+2018-05-30T06:34:31.895Z - verbose: Loading Command: lockdown. 👌
+2018-05-30T06:34:31.904Z - verbose: Loading Command: mute. 👌
+2018-05-30T06:34:31.905Z - verbose: Loading Command: ping. 👌
+2018-05-30T06:34:31.907Z - verbose: Loading Command: purge. 👌
+2018-05-30T06:34:31.913Z - verbose: Loading Command: random. 👌
+2018-05-30T06:34:31.915Z - verbose: Loading Command: reload. 👌
+2018-05-30T06:34:31.917Z - verbose: Loading Command: setgame. 👌
+2018-05-30T06:34:31.925Z - verbose: Loading Command: unban. 👌
+2018-05-30T06:34:31.930Z - verbose: Loading Command: warn. 👌
+2018-05-30T06:34:31.934Z - error: Error Test
+2018-05-30T06:34:31.949Z - warn: Warn Test
+2018-05-30T06:34:31.949Z - info: Connecting...
+2018-05-30T06:34:31.949Z - verbose: Loading a total of 13 commands.
+2018-05-30T06:34:31.949Z - verbose: Loading Command: 8ball. 👌
+2018-05-30T06:34:31.949Z - verbose: Loading Command: ban. 👌
+2018-05-30T06:34:31.949Z - verbose: Loading Command: help. 👌
+2018-05-30T06:34:31.949Z - verbose: Loading Command: kick. 👌
+2018-05-30T06:34:31.949Z - verbose: Loading Command: lockdown. 👌
+2018-05-30T06:34:31.949Z - verbose: Loading Command: mute. 👌
+2018-05-30T06:34:31.949Z - verbose: Loading Command: ping. 👌
+2018-05-30T06:34:31.949Z - verbose: Loading Command: purge. 👌
+2018-05-30T06:34:31.949Z - verbose: Loading Command: random. 👌
+2018-05-30T06:34:31.949Z - verbose: Loading Command: reload. 👌
+2018-05-30T06:34:31.949Z - verbose: Loading Command: setgame. 👌
+2018-05-30T06:34:31.949Z - verbose: Loading Command: unban. 👌
+2018-05-30T06:34:31.949Z - verbose: Loading Command: warn. 👌

@@ -4,12 +4,12 @@ const fs = require('fs')
 var newfile = false
 
 //Rotates Log File
-fs.stat('dev.log', function (err, stat) {
+fs.stat('./logs/dev.log', function (err, stat) {
   if (err == null) {
     console.log('File exists');
     var newfile = true
     fs.rename('./logs/dev.log', './logs/olddev.log', function (err) {
-      fs.stat('dev.log', function (err, stats) {
+      fs.stat('./logs/dev.log', function (err, stats) {
       });
     });
   } else if (err.code == 'ENOENT') {
@@ -40,15 +40,13 @@ function prologtest() {
 
 //Define Logger DevLog
 function devlogtest() {
-  if (settings.debug == true) {
-    winston.loggers.add('devlog', {
-      console: {
-        level: 'silly',
-        colorize: 'true',
-        label: 'DEBUG'
-      }
-    })
-  }
+  winston.loggers.add('devlog', {
+    console: {
+      level: 'silly',
+      colorize: 'true',
+      label: 'DEBUG'
+    }
+  })
 }
 //const devlog = winston.loggers.get('devlog');
 //devlog.error('Hi')
@@ -61,7 +59,9 @@ module.exports = {
 
 
 prologtest()
-devlogtest()
+if (settings.debug == true) {
+  devlogtest()
+}
 
 if (newfile = true) {
   const prolog = winston.loggers.get('prolog');
