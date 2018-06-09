@@ -1,6 +1,6 @@
-![ChatBot](Artwork/ChatBotReadme.png)
+![ChatBot](Assets/Assets/Assets/Artwork/ChatBotReadme.png)
 
-Travis-ci: [![Build Status](https://travis-ci.org/TolleyB-J/ChatBot.svg?branch=master)](https://travis-ci.org/TolleyB-J/ChatBot)
+Travis-CI: [![Build Status](https://travis-ci.org/TolleyB-J/ChatBot.svg?branch=master)](https://travis-ci.org/TolleyB-J/ChatBot)  
 AppVeyor: ![AppVeyor](https://img.shields.io/appveyor/ci/TolleyB-J/chatbot.svg)
 
 

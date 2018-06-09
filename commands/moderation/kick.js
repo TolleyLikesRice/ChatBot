@@ -1,14 +1,14 @@
 const Discord = require('discord.js');
-const settings = require('../settings.json');
+const config = require('../../defs/defineconfig').config;
 const winston = require('winston')
 const prolog = winston.loggers.get('prolog');
 exports.run = (client, message, args) => {
   let reason = args.slice(1).join(' ');
   let user = message.mentions.users.first();
-  let modlog = settings.logid
+  let modlog = config.Moderation.logid
   if (modlog.length < 1) return message.reply('I cannot find a log channel');
   if (reason.length < 1) return message.reply('You must supply a reason for the kick.');
-  if (message.mentions.users.size < 1) return message.reply('You must mention someone to kick them.').catch(console.error);
+  if (message.mentions.users.size < 1) return message.reply('You must mention someone to kick them.').catch(prolog.error);
 
   if (!message.guild.member(user).kickable) return message.reply('I cannot kick that member');
   message.guild.member(user).kick();
@@ -27,7 +27,7 @@ exports.conf = {
   enabled: true,
   guildOnly: false,
   aliases: [],
-  permLevel: 3
+  permLevel: config.Moderation.kickpermlevel
 };
 
 exports.help = {

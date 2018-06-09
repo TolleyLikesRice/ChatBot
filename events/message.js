@@ -1,9 +1,9 @@
-const settings = require('../settings.json');
+const config = require('../defs/defineconfig').config
 module.exports = message => {
   let client = message.client;
   if (message.author.bot) return;
-  if (!message.content.startsWith(settings.prefix)) return;
-  let command = message.content.split(' ')[0].slice(settings.prefix.length);
+  if (!message.content.startsWith(config.Bot.prefix)) return;
+  let command = message.content.split(' ')[0].slice(config.Bot.prefix.length);
   let params = message.content.split(' ').slice(1);
   let perms = client.elevation(message);
   let cmd;

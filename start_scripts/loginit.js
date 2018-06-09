@@ -1,12 +1,12 @@
 const winston = require('winston');
-const settings = require('./settings.json');
+const toml = require('toml')
 const fs = require('fs')
+const config = toml.parse(fs.readFileSync('./config.toml', 'utf-8'));
 var newfile = false
 
 //Rotates Log File
 fs.stat('./logs/dev.log', function (err, stat) {
   if (err == null) {
-    console.log('File exists');
     var newfile = true
     fs.rename('./logs/dev.log', './logs/olddev.log', function (err) {
       fs.stat('./logs/dev.log', function (err, stats) {
@@ -59,7 +59,7 @@ module.exports = {
 
 
 prologtest()
-if (settings.debug == true) {
+if (config.Logging.debug == true) {
   devlogtest()
 }
 
