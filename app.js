@@ -1,8 +1,6 @@
 const Discord = require('discord.js');
 const client = new Discord.Client();
-const chalk = require('chalk');
 const fs = require('fs');
-const moment = require('moment');
 
 //Get Logger
 require('./start_scripts/');
