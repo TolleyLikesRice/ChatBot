@@ -6,7 +6,7 @@ AppVeyor: ![AppVeyor](https://img.shields.io/appveyor/ci/TolleyB-J/chatbot.svg)
 
 ChatBot is a W.I.P All-In-One bot. I am aiming to add everything from Memes to Admin commands. It is designed to be highly configurable and cutomisable.
 
-For information please refer the wiki
+For information check out the Docs
   
 ## Can be run on
 * Windows

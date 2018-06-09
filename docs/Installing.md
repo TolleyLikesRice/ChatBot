@@ -16,18 +16,19 @@ Scroll down and click 'Create Bot User'
 Tick Public Bot  
 Then next to token click 'Click to reveal' **WARNING: DO NOT SHOW YOUR TOKEN TO ANYONE, IF YOU ACCIDENTLY SHOW SOMEONE REGENERATE IT IMMEDIATELY**  
 Edit the config.toml file and place your token in the appropriate slot.  
-> Windows Users: Don't use notepad as this will mess up the toml file. I recommend [Notepad++](https://notepad-plus-plus.org/)
+> Windows Users: Don't use notepad as this will mess up the toml file. I recommend [Notepad++](https://notepad-plus-plus.org/) for basic file editing
 
 Back on the website click 'Generate OAuth2 Url'  
-From the list tick the administrator box  
-Click copy then paste in the join link box of settings.json  
-Also paste the link into your browser, this wil invite the bot to your server. Your bot will appear offline, don't worry this is normal.  
+From the list tick the administrator box    
+Paste the link into your browser, this wil invite the bot to your server. Your bot will appear offline, don't worry this is normal.  
 In the discord app, open your user settings then select appearance and turn on developer mode.  
 Go back to a text channel.  
 Next to the chat there is a list of names, right click yours and click 'Copy ID'  
-Paste this in the owner id section of settings.json  
+Paste this in the ownerid section of config.toml  
 Complete the rest of config.toml, For more help with customization [Click Here](configuration.md)
 
 Now run ```pm2 start app.js --name ChatBot```  
 To automaticly run the bot on start up do ```pm2 startup``` follow the on screen instuctions then run ```pm2 save```
-> If you get an error check your settings.json with [this](http://json.parser.online.fr/) if its not json related raise an issue on github
+> If you get an error raise an issue in the issues tab.
+
+Enjoy your new bot :)

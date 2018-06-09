@@ -8,7 +8,7 @@ Features (So far):
 
 To-Do:
 * ~~Add more customization~~
-* Add module system
+* ~~Add module system~~
 * Add more fun commands
 * ~~Fix setgame command~~
 * Youtube video post feed

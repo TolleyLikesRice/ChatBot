@@ -1,12 +1,5 @@
 These instructions will help you get ChatBot up and running on your system.
 
-## Contents
-  * [Installing Prerequisites](https://github.com/TolleyB-J/ChatBot/wiki/Setup#installing-prerequisites)
-    * [Raspberry Pi](https://github.com/TolleyB-J/ChatBot/wiki/Setup#raspberry-pi)
-    * [Windows](https://github.com/TolleyB-J/ChatBot/wiki/Setup#windows)
-    * [Mac](https://github.com/TolleyB-J/ChatBot/wiki/Setup#mac)
-  * [Installing](https://github.com/TolleyB-J/ChatBot/wiki/Setup#installing)
-
 ### Installing Prerequisites
 
 To run ChatBot you need: Node.js, NPM Package Manager and PM2.
@@ -49,8 +42,4 @@ Open a command prompt and navigate to a folder to install the bot using ```cd fo
 Now run ```git clone https://github.com/TolleyB-J/ChatBot```  
 
 Now you are ready to continue to the installing step.
-
-#### Mac
-
-I don't own a mac so it would be much appreciated if someone could tell me how to do it on a mac so I can write a guide
 
