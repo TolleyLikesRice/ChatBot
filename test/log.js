@@ -1,7 +1,7 @@
 const expect = require('chai').expect
 const winston = require('winston')
 const capcon = require('capture-console');
-const config = require('../defs/defineconfig').config
+const config = require('../defs/definetests').config
 const loginit = require('../start_scripts/loginit')
 
 

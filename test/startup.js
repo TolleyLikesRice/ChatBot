@@ -1,6 +1,6 @@
 const Discord = require('discord.js');
 const client = new Discord.Client();
-const config = require('../defs/defineconfig').config;
+const config = require('../defs/definetests').config
 const chalk = require('chalk');
 const fs = require('fs');
 const moment = require('moment');
