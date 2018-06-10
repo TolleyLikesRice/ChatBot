@@ -4,6 +4,10 @@ about: Please fill this out if your bot is crashing or giving errors
 
 ---
 
+##Describe when the error happened
+
+
+
 ##Log
 ```
 Output of log.txt
