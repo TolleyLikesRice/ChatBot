@@ -18,6 +18,26 @@ function inittest() {
 function cmdtest() {
   client.commands = new Discord.Collection();
   client.aliases = new Discord.Collection();
+  /*
+  //Load all modules
+  fs.readdir('./commands/', (err, dirs) => {
+    if (err) prolog.error(err);
+    prolog.verbose(`Loading a total of ${dirs.length} modules.`);
+    dirs.forEach(d => {
+      fs.readdir(`./commands/${d}/`, (err, files) => {
+        if (err) prolog.error(err);
+        prolog.verbose(`Loading a total of ${files.length} ${d} commands.`);
+        files.forEach(f => {
+          let props = require(`./commands/${d}/${f}`);
+          prolog.verbose(`Loading ${d} Command: ${props.help.name}. 👌`);
+          client.commands.set(props.help.name, props);
+          props.conf.aliases.forEach(alias => {
+            client.aliases.set(alias, props.help.name);
+          });
+        });
+      });
+    });
+  });*/
   //Load main commands
   fs.readdir('./commands/main/', (err, files) => {
     if (err) prolog.error(err);
@@ -91,6 +111,8 @@ function cmdtest() {
       });
     });
   }
+
+  
   /*client.reload = command => {
     return new Promise((resolve, reject) => {
       try {
@@ -134,12 +156,7 @@ inittest()
 cmdtest()
 eletest()
 if (config.Bot.token != "YOUR-BOT-TOKEN-HERE") {
-  try {
-    client.login(config.Bot.token);
-  } catch (error) {
-    console.log(error)
-    process.exit(1)
-  }
+    client.login(config.Bot.token).catch(error => { prolog.error(`Error During Login. ${error}`); process.exit(1); });
 } else {
   prolog.error('No token in config.toml. Aborting...')
 }

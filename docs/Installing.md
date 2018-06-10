@@ -9,6 +9,7 @@ npm install
 ```
 > Note: During ```npm install``` you may get some warnings just ignore them.
 
+Rename ```example_config.toml``` to ```config.toml```
 Go to https://discordapp.com/developers/applications/me  
 Click on 'New App  
 Give your bot a name and press 'Create App'  

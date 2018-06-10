@@ -1,5 +1,5 @@
 const Datastore = require('nedb')
-const config = require('../defs/defineconfig').config
+const config = require('../../defs/defineconfig').config
 exports.run = (client, message, args) => {
     db = new Datastore({ filename: 'databases/userinfo.db', autoload: true })
 

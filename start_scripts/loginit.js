@@ -20,24 +20,44 @@ fs.stat('./logs/dev.log', function (err, stat) {
   }
 });
 
-//Define logger Prolog
-function prologtest() {
-  winston.loggers.add('prolog', {
-    console: {
-      level: 'warn',
-      colorize: true,
-      label: 'MAIN',
-      json: false
-    },
-    file: {
-      filename: './logs/dev.log',
-      level: 'silly',
-      json: false,
-      timestamp: true
-    },
-  });
+if (config.Logging.debug) {
+  function prologtest() {
+    winston.loggers.add('prolog', {
+      console: {
+        level: 'silly',
+        colorize: true,
+        label: 'DEBUG',
+        json: false
+      },
+      file: {
+        filename: './logs/dev.log',
+        level: 'silly',
+        json: false,
+        timestamp: true
+      },
+    });
+  }
+} else {
+  //Define logger Prolog
+  function prologtest() {
+    winston.loggers.add('prolog', {
+      console: {
+        level: 'warn',
+        colorize: true,
+        label: 'MAIN',
+        json: false
+      },
+      file: {
+        filename: './logs/dev.log',
+        level: 'silly',
+        json: false,
+        timestamp: true
+      },
+    });
+  }
 }
 
+/*
 //Define Logger DevLog
 function devlogtest() {
   winston.loggers.add('devlog', {
@@ -50,18 +70,15 @@ function devlogtest() {
 }
 //const devlog = winston.loggers.get('devlog');
 //devlog.error('Hi')
+*/
 
 module.exports = {
   prologtest: prologtest,
-  devlogtest: prologtest
 };
 
 
 
 prologtest()
-if (config.Logging.debug == true) {
-  devlogtest()
-}
 
 if (newfile = true) {
   const prolog = winston.loggers.get('prolog');

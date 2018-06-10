@@ -9,14 +9,9 @@ describe('Winston Define', function () {
     it('Define prolog', function () {
         loginit.prologtest()
     });
-
-    it('Define devlog', function () {
-        loginit.devlogtest()
-    });
 });
 require('../start_scripts/loginit')
 const prolog = winston.loggers.get('prolog');
-const devlog = winston.loggers.get('devlog');
 describe('Winston Prolog', function () {
     it('Print an error to prolog', function () {
         var stderr = capcon.captureStderr(function scope() {
@@ -33,33 +28,33 @@ describe('Winston Prolog', function () {
     });
 })
 if (config.Logging.debug == true) {
-describe('Winston Devlog', function () {
-    it('Print info to devlog', function () {
+describe('Winston Prolog debug', function () {
+    it('Print info to prolog', function () {
         var stdout = capcon.captureStdout(function scope() {
-            devlog.info('Info Test')
+            prolog.info('Info Test')
         });
         expect(stdout).to.contain('info: [DEBUG] Info Test')
     });
 
-    /* it('Print debug to devlog', function () {
+    /* it('Print debug to prolog', function () {
          var stdout = capcon.captureStdout(function scope() {
-             devlog.debug('Debug Test')
+             prolog.debug('Debug Test')
              console.log('Hello World :)')
          });
          expect(stdout).to.contain('debug: [DEBUG] Debug Test\r\n')
   });*/
 
-    it('Print vebose to devlog', function () {
+    it('Print vebose to prolog', function () {
         var stdout = capcon.captureStdout(function scope() {
-            devlog.verbose('Verbose Test')
+            prolog.verbose('Verbose Test')
         });
         expect(stdout).to.contain('verbose: [DEBUG] Verbose Test')
     });
 
 
-    it('Print silly to devlog', function () {
+    it('Print silly to prolog', function () {
         var stdout = capcon.captureStdout(function scope() {
-            devlog.silly('Silly Test')
+            prolog.silly('Silly Test')
         });
         expect(stdout).to.contain('silly: [DEBUG] Silly Test')
     });

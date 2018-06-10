@@ -2,10 +2,9 @@ const Discord = require('discord.js');
 const config = require('../../defs/defineconfig').config;
 const winston = require('winston')
 const prolog = winston.loggers.get('prolog');
-const devlog = winston.loggers.get('devlog');
 
 exports.run = (client, message, args) => {
-  devlog.silly(`${message.author} running the command ban`)
+  prolog.silly(`${message.author} running the command ban`)
   let reason = args.slice(1).join(' ');
   let user = message.mentions.users.first();
   let modlog = config.Moderation.logid
@@ -23,7 +22,7 @@ exports.run = (client, message, args) => {
     .addField('User:', `${user.tag} (${user.id})`)
     .addField('Moderator:', `${message.author.tag}`)
     .addField('Reason', reason); return client.channels.get(modlog).send({ embed });
-  devlog.silly(`${message.author} ran the command ban`)
+  prolog.silly(`${message.author} ran the command ban`)
 };
 
 exports.conf = {

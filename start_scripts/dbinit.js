@@ -1,4 +1,3 @@
-const capcon = require('capture-console')
 const Datastore = require('nedb')
 db = new Datastore({ filename: 'databases/userinfo.db', autoload: true })
 
