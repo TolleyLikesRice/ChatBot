@@ -52,7 +52,7 @@ function cmdtest() {
     });
   });
   //Load Giphy commands
-  if (config.Giphy.enable == true) {
+  if (config.Giphy.enable === true) {
     fs.readdir('./commands/giphy/', (err, files) => {
       if (err) prolog.error(err);
       prolog.verbose(`Loading a total of ${files.length} giphy commands.`);
@@ -112,7 +112,7 @@ function cmdtest() {
     });
   }
 
-  
+
   /*client.reload = command => {
     return new Promise((resolve, reject) => {
       try {
@@ -152,11 +152,14 @@ module.exports = {
   eletest: eletest,
 };
 
-inittest()
-cmdtest()
-eletest()
-if (config.Bot.token != "YOUR-BOT-TOKEN-HERE") {
+if (!fs.existsSync('./test.txt')) {
+  prolog.verbose('No test, starting ChatBot')
+  inittest()
+  cmdtest()
+  eletest()
+  if (config.Bot.token != "YOUR-BOT-TOKEN-HERE") {
     client.login(config.Bot.token).catch(error => { prolog.error(`Error During Login. ${error}`); process.exit(1); });
-} else {
-  prolog.error('No token in config.toml. Aborting...')
+  } else {
+    prolog.error('No token in config.toml. Aborting...')
+  }
 }

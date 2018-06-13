@@ -2,7 +2,7 @@ const winston = require('winston')
 const prolog = winston.loggers.get('prolog')
 const config = require('../../defs/defineconfig').config
 exports.run = (client, message) => {
-  if (config.Stats.enablestats == true) {
+  if (config.Stats.enablestats === true) {
     //Set Total User Count
     var guildmembers = message.guild.memberCount
     var channel = client.channels.get(config.Stats.tusersid)
@@ -18,7 +18,7 @@ exports.run = (client, message) => {
       var User = client.users.array()[Count];
       var id = User.id
       if (id != 1) {
-        if (User.bot == true) {
+        if (User.bot === true) {
           var bots = bots + 1
         }
       }

@@ -26,7 +26,7 @@ if (config.Logging.debug) {
       console: {
         level: 'silly',
         colorize: true,
-        label: 'DEBUG',
+        label: 'MAIN',
         json: false
       },
       file: {
