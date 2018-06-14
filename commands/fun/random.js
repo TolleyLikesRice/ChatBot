@@ -1,4 +1,3 @@
-const Discord = require('discord.js');
 const rn = require('random-number');
 exports.run = (client, message, args) => {
   let num1 = parseInt(args.join(' '));

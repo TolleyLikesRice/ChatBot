@@ -1,6 +1,6 @@
 const Datastore = require('nedb')
 const config = require('../../defs/defineconfig').config
-exports.run = (client, message, args) => {
+exports.run = (client) => {
     db = new Datastore({ filename: 'databases/userinfo.db', autoload: true })
 
     db.find({ "Role": "Owner" }, function (err, docs) {

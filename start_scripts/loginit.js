@@ -6,11 +6,11 @@ var newfile = false
 
 //Rotates Log File
 try {
-fs.stat('./logs/dev.log', function (err, stat) {
+fs.stat('./logs/dev.log', function (err) {
   if (err == null) {
-    var newfile = true
-    fs.rename('./logs/dev.log', './logs/olddev.log', function (err) {
-      fs.stat('./logs/dev.log', function (err, stats) {
+   newfile = true
+    fs.rename('./logs/dev.log', './logs/olddev.log', function () {
+      fs.stat('./logs/dev.log', function () {
       });
     });
   } else if (err.code == 'ENOENT') {

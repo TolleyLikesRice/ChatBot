@@ -16,7 +16,7 @@ exports.run = (client, message, args) => {
                 })
             })
             .catch((err) => {
-
+                message.reply(err)
             })
     } else if (parseInt(res) > 25) {
         return message.reply('Too many results. MAX: 25');

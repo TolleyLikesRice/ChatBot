@@ -19,11 +19,11 @@ exports.run = (client, message) => {
       var id = User.id
       if (id != 1) {
         if (User.bot === true) {
-          var bots = bots + 1
+          bots = bots + 1;
         }
       }
     }
-    var channel = client.channels.get(config.Stats.botsid)
+    channel = client.channels.get(config.Stats.botsid);
     channel.edit({ name: `${config.Stats.botstext} ${bots}` })
       .then(prolog.verbose)
       .catch(prolog.error);
@@ -31,7 +31,7 @@ exports.run = (client, message) => {
     prolog.info(`Set ${config.Stats.botstext} to ${bots}. For more info see verbose`)
     //Set Number of members
     var members = guildmembers - bots
-    var channel = client.channels.get(config.Stats.memberid)
+    channel = client.channels.get(config.Stats.memberid)
     channel.edit({name: `${config.Stats.membertext} ${members}`})
       .then(prolog.verbose)
       .catch(prolog.error)
