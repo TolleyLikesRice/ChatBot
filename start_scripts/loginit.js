@@ -5,6 +5,7 @@ const config = toml.parse(fs.readFileSync('./config.toml', 'utf-8'));
 var newfile = false
 
 //Rotates Log File
+try {
 fs.stat('./logs/dev.log', function (err, stat) {
   if (err == null) {
     var newfile = true
@@ -18,7 +19,12 @@ fs.stat('./logs/dev.log', function (err, stat) {
   } else {
     console.log('Some other error: ', err.code);
   }
-});
+})
+} catch(err) {
+  if (err.code == 'ENOENT') {
+    console.log('Creating new dev.log')
+  }
+};
 
 if (config.Logging.debug) {
   function prologtest() {
@@ -80,7 +86,7 @@ module.exports = {
 
 prologtest()
 
-if (newfile = true) {
+if (newfile) {
   const prolog = winston.loggers.get('prolog');
   prolog.info('Hello new log file :)')
 }
