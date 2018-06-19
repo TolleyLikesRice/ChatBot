@@ -1,10 +1,11 @@
-![ChatBot](Artwork/ChatBotReadme.png)
+![ChatBot](Assets/Artwork/ChatBotReadme.png)
 
-[![Build Status](https://travis-ci.org/TolleyB-J/ChatBot.svg?branch=master)](https://travis-ci.org/TolleyB-J/ChatBot)
+[![Build Status](https://travis-ci.org/TolleyB-J/ChatBot.svg?branch=master)](https://travis-ci.org/TolleyB-J/ChatBot)  [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+
 
 ChatBot is a W.I.P All-In-One bot. I am aiming to add everything from Memes to Admin commands. It is designed to be highly configurable and cutomisable.
 
-For information please refer the wiki
+For information check out the Docs
   
 ## Can be run on
 * Windows
