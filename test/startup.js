@@ -14,7 +14,6 @@ describe('Bot Startup', function () {
 
   it('Elevate Roles', function () {
     appjs.eletest()
-    process.exit
   });
   it('Cleaning up', function () {
     fs.unlink('./test.txt', (err) => {

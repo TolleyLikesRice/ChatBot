@@ -14,6 +14,12 @@ exports.run = (client, message, args) => {
                         .setImage(gifObject.images.original.gif_url)
                     message.channel.send({ embed });
                 })
+                message.channel.send({
+                    files: [{
+                        attachment: 'Assets/Giphy/giphyfooter.gif',
+                        name: 'Assets/Giphy/giphyfooter.gif'
+                    }]
+                })
             })
             .catch((err) => {
                 message.reply(err)
@@ -34,14 +40,14 @@ exports.run = (client, message, args) => {
                 })
                 message.channel.send({
                     files: [{
-                      attachment: 'Assets/Giphy/giphyfooter.gif',
-                      name: 'Assets/Giphy/giphyfooter.gif'
+                        attachment: 'Assets/Giphy/giphyfooter.gif',
+                        name: 'Assets/Giphy/giphyfooter.gif'
                     }]
-                  })
-                .catch(console.error)
+                })
+                    .catch(console.error)
             })
             .catch((err) => {
-
+                message.reply(err)
             })
     }
 };

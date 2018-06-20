@@ -4,4 +4,4 @@ config.toml
 *.log
 node_modules/**
 *.bat
-coverage/**
+**coverage/

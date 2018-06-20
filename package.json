@@ -4,8 +4,9 @@
   "description": "W.I.P All-in-One Discord Bot",
   "main": "app.js",
   "scripts": {
-    "_test": "nyc mocha --reporter spec",
-    "coverage": "istanbul cover ./node_modules/mocha/bin/_mocha --report lcovonly -- -R spec && cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js && rm -rf ./coverage"
+    "test": "mocha --reporter spec",
+    "coverage": "istanbul cover ./node_modules/mocha/bin/_mocha --report lcovonly -- -R spec && cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js && rm -rf ./coverage",
+    "devcover": "istanbul cover ./node_modules/mocha/bin/_mocha --report lcovonly -- -R spec"
   },
   "repository": "https://github.com/TolleyB-J/ChatBot",
   "author": "Tolley-BJ",

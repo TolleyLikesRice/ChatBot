@@ -22,7 +22,6 @@ exports.run = (client, message, args) => {
     .addField('User:', `${user.tag} (${user.id})`)
     .addField('Moderator:', `${message.author.tag}`)
     .addField('Reason', reason); return client.channels.get(modlog).send({ embed });
-  prolog.silly(`${message.author} ran the command ban`)
 };
 
 exports.conf = {
