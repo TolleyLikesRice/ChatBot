@@ -1,21 +1,21 @@
-'use strict';
+"use strict";
 exports.__esModule = true;
 /* eslint-disable */
 // Imports
-var admin = require("firebase-admin");
+//import * as admin from "firebase-admin";
 var fs = require("fs");
 var GphApiClient = require("giphy-js-sdk-core");
 var toml = require("toml");
 // import * as serviceAccount from "../firebasekey.json";
 // Define Vars
 var config = toml.parse(fs.readFileSync("./config/config.toml", "utf-8"));
-var serviceAccount = require("./firebasekey.json");
+//const serviceAccount = require("./firebasekey.json").catch(console.log('No Firebase Key'));
 var giphy = GphApiClient(config.Giphy.apikey);
 // Init
-admin.initializeApp({
-    credential: admin.credential.cert(serviceAccount)
-});
-var db = admin.firestore();
+/*admin.initializeApp({
+    credential: admin.credential.cert(serviceAccount),
+});*/
+//const db = admin.firestore();
 // Exports
 module.exports = {
     config: config,
@@ -28,49 +28,56 @@ module.exports = {
         var text = fs.readFileSync(path, "utf-8");
         var textByLine = text.split("\n");
         return textByLine;
-    },
+    }
+};
+/*
+module.exports = {
     // Firebase
-    setDoc: function (collection, doc, data) {
+    setDoc(collection: string, doc: string, data: JSON) {
         if (typeof collection !== "string") {
             throw new TypeError("Collection supplyed is not a string");
         }
         if (typeof doc !== "string") {
             throw new TypeError("Doc supplyed is not a string");
         }
-        var docRef = db.collection(collection).doc(doc);
-        var setdata = docRef.set(data);
+
+        const docRef = db.collection(collection).doc(doc);
+
+        const setdata = docRef.set(data);
     },
-    addDoc: function (collection, data) {
+    addDoc(collection: string, data: JSON) {
         if (typeof collection !== "string") {
             throw new TypeError("Collection supplyed is not a string");
         }
-        var adddoc = db.collection(collection).add(data);
+
+        const adddoc = db.collection(collection).add(data);
     },
-    listDocs: function (collection) {
+    listDocs(collection: string) {
         if (typeof collection !== "string") {
             throw new TypeError("Collection supplyed is not a string");
         }
         db.collection(collection).get()
-            .then(function (snapshot) {
-            snapshot.forEach(function (doc) {
-                console.log(doc.id, "=>", doc.data());
+            .then((snapshot) => {
+                snapshot.forEach((doc) => {
+                    console.log(doc.id, "=>", doc.data());
+                });
+            })
+            .catch((err) => {
+                throw new Error(`Error at listDocs: ${err}`);
             });
-        })["catch"](function (err) {
-            throw new Error("Error at listDocs: " + err);
-        });
     },
-    docExists: function (collection, doc) {
-        var collectionref = db.collection(collection).doc(doc);
-        var getdoc = collectionref.get()
-            .then(function (document) {
-            if (!document.exists) {
-                return false;
-            }
-            else {
-                return true;
-            }
-        })["catch"](function (err) {
-            throw new Error("Error at docExists: " + err);
-        });
-    }
-};
+    docExists(collection: string, doc: string) {
+        const collectionref = db.collection(collection).doc(doc);
+        const getdoc = collectionref.get()
+            .then((document) => {
+                if (!document.exists) {
+                    return false;
+                } else {
+                    return true;
+                }
+            })
+            .catch((err) => {
+                throw new Error(`Error at docExists: ${err}`);
+            });
+}
+}*/
