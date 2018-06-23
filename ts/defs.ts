@@ -1,6 +1,6 @@
 /* eslint-disable */
 // Imports
-import * as admin from "firebase-admin";
+//import * as admin from "firebase-admin";
 import * as fs from "fs";
 import * as GphApiClient from "giphy-js-sdk-core";
 import * as toml from "toml";
@@ -8,16 +8,16 @@ import * as toml from "toml";
 
 // Define Vars
 const config = toml.parse(fs.readFileSync("./config/config.toml", "utf-8"));
-const serviceAccount = require("./firebasekey.json");
+//const serviceAccount = require("./firebasekey.json").catch(console.log('No Firebase Key'));
 const giphy = GphApiClient(config.Giphy.apikey);
 
 // Init
 
-admin.initializeApp({
+/*admin.initializeApp({
     credential: admin.credential.cert(serviceAccount),
-});
+});*/
 
-const db = admin.firestore();
+//const db = admin.firestore();
 
 // Exports
 module.exports = {
@@ -31,7 +31,11 @@ module.exports = {
         const text = fs.readFileSync(path, "utf-8");
         const textByLine = text.split("\n");
         return textByLine;
-    },
+    }
+    
+};
+/*
+module.exports = {
     // Firebase
     setDoc(collection: string, doc: string, data: JSON) {
         if (typeof collection !== "string") {
@@ -79,6 +83,5 @@ module.exports = {
             .catch((err) => {
                 throw new Error(`Error at docExists: ${err}`);
             });
-
-    },
-};
+}
+}*/
