@@ -18,8 +18,8 @@
             }
         ],
         "linebreak-style": [
-            "error",
-            "windows"
+            "warn",
+            "unix"
         ],
         "quotes": [
             "warn",
