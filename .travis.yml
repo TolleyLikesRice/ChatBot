@@ -13,4 +13,5 @@ script:
   - mkdir logs
   - touch logs/dev.log
   - cp config/example_config.toml config/config.toml
+  - touch firebasekey.json
   - npm run coverage
