@@ -1,4 +1,4 @@
-const config = require('../../defs/defineconfig').config;
+const config = require('../../defs').config;
 exports.run = (client, message, params) => {
   if (!params[0]) {
     const commandNames = Array.from(client.commands.keys());

@@ -1,4 +1,4 @@
-const config = require('../defs/defineconfig').config
+const config = require('../defs').config
 module.exports = message => {
   let client = message.client;
   if (message.author.bot) return;

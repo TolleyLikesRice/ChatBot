@@ -7,9 +7,10 @@ install:
   - npm install
   - npm install -g mocha
   - npm install -g istanbul
+  - npm install -g codacy-coverage
 
 script:
   - mkdir logs
   - touch logs/dev.log
-  - cp example_config.toml config.toml
+  - cp config/example_config.toml config/config.toml
   - npm run coverage

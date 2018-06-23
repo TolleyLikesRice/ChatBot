@@ -1,4 +1,4 @@
-const config = require('../../defs/defineconfig').config
+const config = require('../../defs').config
 exports.run = (client, message, args) => {
   let reason = args.slice(1).join(' ');
   client.unbanReason = reason;

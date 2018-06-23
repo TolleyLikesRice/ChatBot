@@ -5,8 +5,9 @@
   "main": "app.js",
   "scripts": {
     "test": "mocha --reporter spec",
-    "coverage": "istanbul cover ./node_modules/mocha/bin/_mocha --report lcovonly -- -R spec && cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js && rm -rf ./coverage",
-    "devcover": "istanbul cover ./node_modules/mocha/bin/_mocha --report lcovonly -- -R spec"
+    "coverage": "istanbul cover ./node_modules/mocha/bin/_mocha --report lcovonly -- -R spec && cat ./coverage/lcov.info | codacy-coverage && rm -rf ./coverage",
+    "devcover": "istanbul cover ./node_modules/mocha/bin/_mocha --report lcovonly -- -R spec",
+    "tsc": "tsc ./ts/defs.ts --outDir ./"
   },
   "repository": "https://github.com/TolleyB-J/ChatBot",
   "author": "Tolley-BJ",
@@ -15,6 +16,7 @@
     "capture-console": "^1.0.1",
     "chalk": "^2.4.1",
     "discord.js": "^11.3.2",
+    "firebase-admin": "^5.12.1",
     "giphy-js-sdk-core": "^1.0.3",
     "moment": "^2.22.1",
     "ms": "^2.1.1",
@@ -22,10 +24,11 @@
     "random-number": "0.0.9",
     "toml": "^2.3.3",
     "uws": "^10.148.0",
-    "winston": "^2.4.2"
+    "winston": "^2.4.3"
   },
   "devDependencies": {
     "chai": "^4.1.2",
+    "codacy-coverage": "^3.0.0",
     "coveralls": "^3.0.1",
     "istanbul": "^0.4.5",
     "mocha": "^5.2.0",

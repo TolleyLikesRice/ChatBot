@@ -1,4 +1,4 @@
-const config = require('../../defs/defineconfig').config
+const config = require('../../defs').config
 exports.run = (client, message, args) => {
   let game = args.join(' ');
   client.user.setActivity(game, { type: 'PLAYING' });

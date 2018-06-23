@@ -1,7 +1,6 @@
 const winston = require('winston');
-const toml = require('toml')
 const fs = require('fs')
-const config = toml.parse(fs.readFileSync('./config.toml', 'utf-8'));
+const config = require('../defs.js').config
 var newfile = false
 
 //Rotates Log File

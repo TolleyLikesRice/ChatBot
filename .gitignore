@@ -5,3 +5,6 @@ config.toml
 node_modules/**
 *.bat
 **coverage/
+**test.txt
+**firebasekey.json
+**defs/

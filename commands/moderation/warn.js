@@ -1,5 +1,5 @@
 const Discord = require('discord.js');
-const config = require('../../defs/defineconfig').config
+const config = require('../../defs').config
 const winston = require('winston')
 const prolog = winston.loggers.get('prolog');
 exports.run = (client, message, args) => {

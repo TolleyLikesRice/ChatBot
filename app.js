@@ -7,15 +7,16 @@ require('./start_scripts/');
 const winston = require('winston');
 const prolog = winston.loggers.get('prolog');
 
-const config = require('./defs/defineconfig').config;
+const config = require('./defs').config;
 require('./util/eventLoader')(client);
 
-function inittest() {
-  prolog.info('Connecting...')
+function init() {
+  prolog.verbose('Compiling defs.js');
+  prolog.info('Connecting...');
 
 }
 
-function cmdtest() {
+function cmd() {
   client.commands = new Discord.Collection();
   client.aliases = new Discord.Collection();
   /*
@@ -134,7 +135,7 @@ function cmdtest() {
   };*/
 }
 
-function eletest() {
+function ele() {
   client.elevation = message => {
     /* This function should resolve to an ELEVATION level which
        is then sent to the command handler for verification */
@@ -147,19 +148,19 @@ function eletest() {
 }
 
 module.exports = {
-  inittest: inittest,
-  cmdtest: cmdtest,
-  eletest: eletest,
+  inittest: init,
+  cmdtest: cmd,
+  eletest: ele,
 };
 
 if (!fs.existsSync('./test.txt')) {
-  prolog.verbose('No test, starting ChatBot')
-  inittest()
-  cmdtest()
-  eletest()
-  if (config.Bot.token != "YOUR-BOT-TOKEN-HERE") {
+  prolog.verbose('No test, starting ChatBot');
+  init();
+  cmd();
+  ele();
+  if (config.Bot.token != 'YOUR-BOT-TOKEN-HERE') {
     client.login(config.Bot.token).catch(error => { prolog.error(`Error During Login. ${error}`); process.exit(1); });
   } else {
-    prolog.error('No token in config.toml. Aborting...')
+    prolog.error('No token in config.toml. Aborting...');
   }
 }
