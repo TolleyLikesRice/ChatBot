@@ -1,4 +1,4 @@
-const winston = require('winston')
+const winston = require('winston');
 const prolog = winston.loggers.get('prolog');
 module.exports = (guild, user) => {
 

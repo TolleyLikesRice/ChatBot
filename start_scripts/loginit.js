@@ -1,29 +1,29 @@
 const winston = require('winston');
-const fs = require('fs')
-const config = require('../defs.js').config
-var newfile = false
+const fs = require('fs');
+const config = require('../defs.js').config;
+var newfile = false;
 
 //Rotates Log File
 try {
-fs.stat('./logs/dev.log', function (err) {
-  if (err == null) {
-   newfile = true
-    fs.rename('./logs/dev.log', './logs/olddev.log', function () {
-      fs.stat('./logs/dev.log', function () {
+  fs.stat('./logs/dev.log', function (err) {
+    if (err == null) {
+      newfile = true;
+      fs.rename('./logs/dev.log', './logs/olddev.log', function () {
+        fs.stat('./logs/dev.log', function () {
+        });
       });
-    });
-  } else if (err.code == 'ENOENT') {
+    } else if (err.code == 'ENOENT') {
     // file does not exist
-    console.log('Creating new dev.log')
-  } else {
-    console.log('Some other error: ', err.code);
-  }
-})
+      console.log('Creating new dev.log');
+    } else {
+      console.log('Some other error: ', err.code);
+    }
+  });
 } catch(err) {
   if (err.code == 'ENOENT') {
-    console.log('Creating new dev.log')
+    console.log('Creating new dev.log');
   }
-};
+}
 
 if (config.Logging.debug) {
   function prologtest() {
@@ -83,9 +83,9 @@ module.exports = {
 
 
 
-prologtest()
+prologtest();
 
 if (newfile) {
   const prolog = winston.loggers.get('prolog');
-  prolog.info('Hello new log file :)')
+  prolog.info('Hello new log file :)');
 }

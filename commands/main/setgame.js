@@ -1,8 +1,8 @@
-const config = require('../../defs').config
+const config = require('../../defs').config;
 exports.run = (client, message, args) => {
   let game = args.join(' ');
   client.user.setActivity(game, { type: 'PLAYING' });
-  message.reply(`Set game to: ${game} :yum:`)
+  message.reply(`Set game to: ${game} :yum:`);
 };
 
 exports.conf = {

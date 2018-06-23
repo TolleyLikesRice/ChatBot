@@ -1,13 +1,13 @@
 const Discord = require('discord.js');
 const config = require('../../defs').config;
-const winston = require('winston')
+const winston = require('winston');
 const prolog = winston.loggers.get('prolog');
 
 exports.run = (client, message, args) => {
-  prolog.silly(`${message.author} running the command ban`)
+  prolog.silly(`${message.author} running the command ban`);
   let reason = args.slice(1).join(' ');
   let user = message.mentions.users.first();
-  let modlog = config.Moderation.logid
+  let modlog = config.Moderation.logid;
   if (modlog.length < 1) return message.reply('I cannot find a log channel');
   if (reason.length < 1) return message.reply('You must supply a reason for the ban.');
   if (message.mentions.users.size < 1) return message.reply('You must mention someone to ban them.').catch(prolog.error);

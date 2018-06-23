@@ -1,11 +1,11 @@
 const Discord = require('discord.js');
 const config = require('../../defs').config;
-const winston = require('winston')
+const winston = require('winston');
 const prolog = winston.loggers.get('prolog');
 exports.run = (client, message, args) => {
   let reason = args.slice(1).join(' ');
   let user = message.mentions.users.first();
-  let modlog = config.Moderation.logid
+  let modlog = config.Moderation.logid;
   let muteRole = client.guilds.get(message.guild.id).roles.find('name', 'muted');
   if (!modlog) return message.reply('I cannot find a log channel').catch(prolog.error);
   if (!muteRole) return message.reply('I cannot find a muted role').catch(prolog.error);
@@ -13,7 +13,7 @@ exports.run = (client, message, args) => {
   if (message.mentions.users.size < 1) return message.reply('You must mention someone to mute them.').catch(prolog.error);
   prolog.log(`New Unmute/Mute: Target:${user.tag} Moderator:${message.author.tag} Reason:${reason}`);
   const embed = new Discord.RichEmbed()
-    .setColor("#26ff46")
+    .setColor('#26ff46')
     .setTimestamp()
     .addField('Action:', 'Mute')
     .addField('User:', `${user.tag} (${user.id})`)
