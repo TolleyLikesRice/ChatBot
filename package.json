@@ -6,7 +6,7 @@
   "scripts": {
     "test": "mocha --reporter spec",
     "coverage": "istanbul cover ./node_modules/mocha/bin/_mocha --report lcovonly -- -R spec && cat ./coverage/lcov.info | codacy-coverage && rm -rf ./coverage",
-    "coverdev": "istanbul cover ./node_modules/mocha/bin/_mocha --report lcovonly -- -R spec",
+    "devcover": "tsc ./ts/defs.ts --outDir ./ && istanbul cover ./node_modules/mocha/bin/_mocha --report lcovonly -- -R spec",
     "tsc": "tsc ./ts/defs.ts --outDir ./"
   },
   "repository": "https://github.com/TolleyB-J/ChatBot",

@@ -9,8 +9,20 @@ describe('Bot Startup', function () {
     appjs.inittest();
   });
 
-  it('Init Commands', function () {
-    appjs.cmdtest();
+  it('Load main module', function () {
+    appjs.loadModule('main')
+  });
+  it('Load moderation module', function () {
+    appjs.loadModule('moderation')
+  });
+  it('Load fun module', function () {
+    appjs.loadModule('fun')
+  });
+  it('Load stats module', function () {
+    appjs.loadModule('stats')
+  });
+  it('Load giphy module', function () {
+    appjs.loadModule('giphy')
   });
 
   it('Elevate Roles', function () {

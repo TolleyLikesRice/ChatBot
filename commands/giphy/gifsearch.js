@@ -27,7 +27,7 @@ exports.run = (client, message, args) => {
   } else if (parseInt(res) > 25) {
     return message.reply('Too many results. MAX: 25');
   } else if (parseInt(res) > 0) {
-    num = 0;
+    let num = 0;
     giphy.search('gifs', { 'q': st, 'limit': parseInt(res), 'rating': 'pg' })
       .then((response) => {
         response.data.forEach((gifObject) => {

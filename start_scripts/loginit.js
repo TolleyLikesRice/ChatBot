@@ -1,7 +1,9 @@
+/* eslint-disable */
 const winston = require('winston');
 const fs = require('fs');
-const config = require('../defs.js').config;
+const config = require('../defs').config;
 var newfile = false;
+console.log(config.test)
 
 //Rotates Log File
 try {
@@ -13,13 +15,13 @@ try {
         });
       });
     } else if (err.code == 'ENOENT') {
-    // file does not exist
+      // file does not exist
       console.log('Creating new dev.log');
     } else {
       console.log('Some other error: ', err.code);
     }
   });
-} catch(err) {
+} catch (err) {
   if (err.code == 'ENOENT') {
     console.log('Creating new dev.log');
   }
@@ -42,6 +44,10 @@ if (config.Logging.debug) {
       },
     });
   }
+  module.exports = {
+    prologtest: prologtest,
+  };
+  prologtest();
 } else {
   //Define logger Prolog
   function prologtest() {
@@ -60,6 +66,10 @@ if (config.Logging.debug) {
       },
     });
   }
+  module.exports = {
+    prologtest: prologtest,
+  };
+  prologtest();
 }
 
 /*
@@ -77,13 +87,11 @@ function devlogtest() {
 //devlog.error('Hi')
 */
 
-module.exports = {
-  prologtest: prologtest,
-};
 
 
 
-prologtest();
+
+
 
 if (newfile) {
   const prolog = winston.loggers.get('prolog');

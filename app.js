@@ -16,29 +16,25 @@ function init() {
 
 }
 
-function cmd() {
+function loadModule(ModuleFolder) {
   client.commands = new Discord.Collection();
   client.aliases = new Discord.Collection();
-  /*
-  //Load all modules
-  fs.readdir('./commands/', (err, dirs) => {
+  fs.readdir(`./commands/${ModuleFolder}/`, (err, files) => {
     if (err) prolog.error(err);
-    prolog.verbose(`Loading a total of ${dirs.length} modules.`);
-    dirs.forEach(d => {
-      fs.readdir(`./commands/${d}/`, (err, files) => {
-        if (err) prolog.error(err);
-        prolog.verbose(`Loading a total of ${files.length} ${d} commands.`);
-        files.forEach(f => {
-          let props = require(`./commands/${d}/${f}`);
-          prolog.verbose(`Loading ${d} Command: ${props.help.name}. 👌`);
-          client.commands.set(props.help.name, props);
-          props.conf.aliases.forEach(alias => {
-            client.aliases.set(alias, props.help.name);
-          });
-        });
+    prolog.verbose(`Loading a total of ${files.length} ${ModuleFolder} commands.`);
+    files.forEach(f => {
+      let props = require(`./commands/${ModuleFolder}/${f}`);
+      prolog.verbose(`Loading ${ModuleFolder} Command: ${props.help.name}. 👌`);
+      client.commands.set(props.help.name, props);
+      props.conf.aliases.forEach(alias => {
+        client.aliases.set(alias, props.help.name);
       });
     });
-  });*/
+  });
+}
+/*function cmd() {
+  client.commands = new Discord.Collection();
+  client.aliases = new Discord.Collection();
   //Load main commands
   fs.readdir('./commands/main/', (err, files) => {
     if (err) prolog.error(err);
@@ -111,10 +107,10 @@ function cmd() {
         });
       });
     });
-  }
+  } 
 
 
-  /*client.reload = command => {
+  client.reload = command => {
     return new Promise((resolve, reject) => {
       try {
         delete require.cache[require.resolve(`./commands/${command}`)];
@@ -132,8 +128,8 @@ function cmd() {
         reject(e);
       }
     });
-  };*/
-}
+  };
+}*/
 
 function ele() {
   client.elevation = message => {
@@ -149,14 +145,18 @@ function ele() {
 
 module.exports = {
   inittest: init,
-  cmdtest: cmd,
+  loadModule: loadModule,
   eletest: ele,
 };
 
 if (!fs.existsSync('./test.txt')) {
   prolog.verbose('No test, starting ChatBot');
   init();
-  cmd();
+  loadModule('main');
+  if (config.Fun.enable) loadModule('fun');
+  if (config.Moderation.enable) loadModule('moderation');
+  if (config.Stats.enable) loadModule('stats');
+  if (config.Giphy.enable) loadModule('giphy');
   ele();
   if (config.Bot.token != 'YOUR-BOT-TOKEN-HERE') {
     client.login(config.Bot.token).catch(error => { prolog.error(`Error During Login. ${error}`); process.exit(1); });
