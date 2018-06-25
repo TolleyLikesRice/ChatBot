@@ -1,7 +1,7 @@
 /* eslint-disable */
 const winston = require('winston');
 const fs = require('fs');
-const config = require('../defs').config;
+const config = require('../maindefs').config;
 var newfile = false;
 console.log(config.test)
 

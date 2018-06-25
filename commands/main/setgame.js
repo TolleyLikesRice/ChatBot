@@ -1,4 +1,4 @@
-const config = require('../../defs').config;
+const config = require('../../maindefs').config;
 exports.run = (client, message, args) => {
   let game = args.join(' ');
   client.user.setActivity(game, { type: 'PLAYING' });

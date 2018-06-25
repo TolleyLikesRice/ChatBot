@@ -1,5 +1,5 @@
 const chalk = require('chalk');
-const config = require('../defs').config;
+const config = require('../maindefs').config;
 module.exports = client => {
   console.log(chalk.green('Connected!'));
   client.user.setActivity(config.Botcmd.bootgame, { type: 'PLAYING' });

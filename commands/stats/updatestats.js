@@ -1,6 +1,6 @@
 const winston = require('winston');
 const prolog = winston.loggers.get('prolog');
-const config = require('../../defs').config;
+const config = require('../../maindefs').config;
 exports.run = (client, message) => {
   if (config.Stats.enablestats === true) {
     //Set Total User Count

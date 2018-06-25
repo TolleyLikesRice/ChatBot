@@ -1,12 +1,12 @@
-#  ____        _      _____             __ _       
-# |  _ \      | |    / ____|           / _(_)      
-# | |_) | ___ | |_  | |     ___  _ __ | |_ _  __ _ 
+#  ____        _      _____             __ _
+# |  _ \      | |    / ____|           / _(_)
+# | |_) | ___ | |_  | |     ___  _ __ | |_ _  __ _
 # |  _ < / _ \| __| | |    / _ \| '_ \|  _| |/ _` |
 # | |_) | (_) | |_  | |___| (_) | | | | | | | (_| |
 # |____/ \___/ \__|  \_____\___/|_| |_|_| |_|\__, |
 #                                             __/ |
 #                                            |___/
-#                                            
+#
 # This is your ChatBot config file. Here you can customize you bot.
 # For more information on configuring your bot go to https://github.com/TolleyB-J/ChatBot
 # Note: The permlevels are:
@@ -32,9 +32,9 @@
 'adminrole' = 'ADMIN-ROLE-ID-HERE' # The role which you give to your moderators
 'devusers' = ['ID1', 'ID2'] # WARNING: PUTTING A USER'S ID IN THE DEVUSERS ARRAY WILL GIVE THEM FULL PERMISSIONS, DO THIS WITH CAUTION
 
-#  __  __           _       _         _____             __ _       
-# |  \/  |         | |     | |       / ____|           / _(_)      
-# | \  / | ___   __| |_   _| | ___  | |     ___  _ __ | |_ _  __ _ 
+#  __  __           _       _         _____             __ _
+# |  \/  |         | |     | |       / ____|           / _(_)
+# | \  / | ___   __| |_   _| | ___  | |     ___  _ __ | |_ _  __ _
 # | |\/| |/ _ \ / _` | | | | |/ _ \ | |    / _ \| '_ \|  _| |/ _` |
 # | |  | | (_) | (_| | |_| | |  __/ | |___| (_) | | | | | | | (_| |
 # |_|  |_|\___/ \__,_|\__,_|_|\___|  \_____\___/|_| |_|_| |_|\__, |
@@ -63,14 +63,14 @@
 # Enable the gifhy module
 # NOTE: IF YOU PLAN TO USE THIS BOT ON MORE THAN 2 SERVERS
 # APPLY FOR A PRODUCTION KEY. FOR MORE INFO GO TO https://github.com/TolleyB-J/ChatBot
-'enable' = false # Whether or not to enable the git commands
+'enable' = false # Whether or not to enable the giphy commands
 'apikey' = 'YOUR-API-KEY-HERE'
 
 [Botcmd]
 # The config for the bot commands
 # This module must be enabled
 'setgameenable' = 'true' # Whether to enable the the setgame command
-'setgamelevel' = '4' # Permlevel for setgame command 
+'setgamelevel' = '4' # Permlevel for setgame command
 'bootgame' = 'This bot is by TolleyB-J' # The bots default game on boot
 
 [Stats]
@@ -88,13 +88,13 @@
 # The configuration for the per-server settings database
 'enable' = false
 
-#  ______           _          __    _____             __ _       _ 
+#  ______           _          __    _____             __ _       _
 # |  ____|         | |        / _|  / ____|           / _(_)     | |
 # | |__   _ __   __| |   ___ | |_  | |     ___  _ __ | |_ _  __ _| |
 # |  __| | '_ \ / _` |  / _ \|  _| | |    / _ \| '_ \|  _| |/ _` | |
 # | |____| | | | (_| | | (_) | |   | |___| (_) | | | | | | | (_| |_|
 # |______|_| |_|\__,_|  \___/|_|    \_____\___/|_| |_|_| |_|\__, (_)
-#                                                            __/ |  
+#                                                            __/ |
 #                                                           |___/
 
 

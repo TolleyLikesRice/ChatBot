@@ -1,8 +1,8 @@
 exports.run = (client, message) => {
-  const funcs = require('../../defs');
-  var responces = funcs.textToArray('../../config/facts.txt');
+  const funcs = require('../../maindefs');
+  var responces = funcs.textToArray('config/facts.txt');
   var show = responces[Math.floor(Math.random() * responces.length)];
-  message.reply(show);
+  message.reply(`Did you Know? ${show}`);
 };
 
 exports.conf = {
@@ -13,7 +13,7 @@ exports.conf = {
 };
 
 exports.help = {
-  name: '8ball',
-  description: 'Ask the magic 8 ball',
-  usage: '8ball <question>'
+  name: 'randomfact',
+  description: 'Gives you a random fact',
+  usage: 'randomfact'
 };

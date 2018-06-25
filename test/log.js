@@ -1,8 +1,8 @@
-/* eslint-disable */
+/* eslint no-undef: 0 */
 const expect = require('chai').expect;
 const winston = require('winston');
 const capcon = require('capture-console');
-const config = require('../defs/definetests').config;
+const config = require('../maindefs').config;
 const loginit = require('../start_scripts/loginit');
 
 

@@ -7,11 +7,10 @@ require('./start_scripts/');
 const winston = require('winston');
 const prolog = winston.loggers.get('prolog');
 
-const config = require('./defs').config;
+const config = require('./maindefs').config;
 require('./util/eventLoader')(client);
 
 function init() {
-  prolog.verbose('Compiling defs.js');
   prolog.info('Connecting...');
 
 }

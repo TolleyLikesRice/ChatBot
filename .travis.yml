@@ -7,12 +7,14 @@ install:
   - npm install
   - npm install -g mocha
   - npm install -g istanbul
+  - npm install -g typescript
   - npm install -g codacy-coverage
 
 script:
   - mkdir logs
   - touch logs/dev.log
-  - cp config/example_config.toml config/config.toml
+  - cp test/testconfig.toml config/config.toml
   - touch firebasekey.json
   - echo "{app:\ "Hello World\", test:\ "Active\"} > firebasekey.json"
+  - npm run tsc
   - npm run coverage

@@ -1,35 +1,23 @@
-'use strict';
+"use strict";
 exports.__esModule = true;
 /* eslint-disable */
-// Imports
 var admin = require("firebase-admin");
-var fs = require("fs");
-var GphApiClient = require("giphy-js-sdk-core");
-var toml = require("toml");
-// import * as serviceAccount from "../firebasekey.json";
-// Define Vars
-var config = toml.parse(fs.readFileSync("./config/config.toml", "utf-8"));
-exports.config = config;
-var giphy = GphApiClient(config.Giphy.apikey);
-exports.giphy = giphy;
-function textToArray(path) {
-    if (typeof path !== "string") {
-        throw new TypeError("Path supplyed is not a string");
-    }
-    var text = fs.readFileSync(path, "utf-8");
-    var textByLine = text.split("\n");
-    return textByLine;
-}
-exports.textToArray = textToArray;
+var maindefs_1 = require("./maindefs");
 var db;
-var serviceAccount;
-if (config.PerServerDB.enable === true) {
-    serviceAccount = require("./firebasekey.json");
+if (maindefs_1.config.PerServerDB.enable !== true) {
+    throw new Error("PerServerDB is disabled");
+}
+function init(filename) {
+    if (typeof filename !== "string") {
+        throw new TypeError("filename is not a string");
+    }
+    var serviceAccount = require("./" + filename);
     admin.initializeApp({
         credential: admin.credential.cert(serviceAccount)
     });
     db = admin.firestore();
 }
+exports.init = init;
 function setDoc(collection, doc, data) {
     if (typeof collection !== "string") {
         throw new TypeError("Collection supplyed is not a string");
