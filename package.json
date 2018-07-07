@@ -5,7 +5,7 @@
   "main": "app.js",
   "scripts": {
     "test": "mocha --reporter spec",
-    "coverage": "istanbul cover ./node_modules/mocha/bin/_mocha --report lcovonly -- -R spec && cat ./coverage/lcov.info | codacy-coverage && rm -rf ./coverage",
+    "coverage": "istanbul cover ./node_modules/mocha/bin/_mocha --report lcovonly -- -R spec && cat ./coverage/lcov.info | coveralls && rm -rf ./coverage",
     "devcover": "tsc ./ts/maindefs ./ts/fbdefs --outDir ./ && istanbul cover ./node_modules/mocha/bin/_mocha --report lcovonly -- -R spec",
     "tsc": "tsc ./ts/maindefs ./ts/fbdefs --outDir ./"
   },
@@ -28,8 +28,7 @@
   },
   "devDependencies": {
     "chai": "^4.1.2",
-    "codacy-coverage": "^3.0.0",
-    "coveralls": "^3.0.1",
+    "coveralls": "^3.0.2",
     "istanbul": "^0.4.5",
     "mocha": "^5.2.0",
     "mocha-lcov-reporter": "^1.3.0",

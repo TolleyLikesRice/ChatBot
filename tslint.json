@@ -7,7 +7,8 @@
     "rules": {
         "no-console": false,
         "no-require-imports": false,
-        "no-var-requires": false
+        "no-var-requires": false,
+        "object-literal-sort-keys": false
     },
     "rulesDirectory": []
 }

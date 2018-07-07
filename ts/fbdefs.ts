@@ -1,7 +1,7 @@
 /* eslint-disable */
 import * as admin from "firebase-admin";
+import { exists, writeFileSync } from "fs";
 import { config } from "./maindefs";
-declare var __dirname;
 let db;
 
 if (config.PerServerDB.enable !== true) {
@@ -9,15 +9,29 @@ if (config.PerServerDB.enable !== true) {
 }
 
 export function init(filename: string) {
-  if (typeof filename !== "string") {
-    throw new TypeError("filename is not a string");
-  }
-  const serviceAccount = require(`./${filename}`);
-
-  admin.initializeApp({
-    credential: admin.credential.cert(serviceAccount),
+  const file = ".fb_use_env";
+  exists(file, (exist) => {
+    if (exist) {
+      console.log("Using env var");
+      admin.initializeApp({
+        credential: admin.credential.cert({
+          projectId: process.env.fbid,
+          clientEmail: process.env.fbe,
+          privateKey: process.env.fbpk,
+        }),
+      });
+    } else {
+      console.log("No env var");
+      if (typeof filename !== "string") {
+        throw new TypeError("filename is not a string");
+      }
+      const serviceAccount = require(`./${filename}`);
+      admin.initializeApp({
+        credential: admin.credential.cert(serviceAccount),
+      });
+      db = admin.firestore();
+    }
   });
-  db = admin.firestore();
 }
 
 export function setDoc(collection: string, doc: string, data: JSON) {
