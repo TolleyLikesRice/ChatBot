@@ -7,3 +7,4 @@ node_modules/**
 **coverage/
 **test.txt
 **firebasekey.json
+**temp.js

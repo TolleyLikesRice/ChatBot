@@ -9,10 +9,19 @@ const prolog = winston.loggers.get('prolog');
 
 const config = require('./maindefs').config;
 require('./util/eventLoader')(client);
+//Print out lettering
+prolog.verbose('  _                     _ _             ');
+prolog.verbose(' | |                   | (_)            ');
+prolog.verbose(' | |     ___   __ _  __| |_ _ __   __ _ ');
+prolog.verbose(' | |    / _ \\ / _` |/ _` | | \'_ \\ / _` |');
+prolog.verbose(' | |___| (_) | (_| | (_| | | | | | (_| |');
+prolog.verbose(' |______\\___/ \\__,_|\\__,_|_|_| |_|\\__, |');
+prolog.verbose('                                   __/ |');
+prolog.verbose('                                  |___/');
+prolog.verbose('------------------------------------------------');
 
 function init() {
   prolog.info('Connecting...');
-
 }
 
 function loadModule(ModuleFolder) {
@@ -29,6 +38,7 @@ function loadModule(ModuleFolder) {
         client.aliases.set(alias, props.help.name);
       });
     });
+    prolog.verbose('------------------------------------------------');
   });
 }
 /*function cmd() {
@@ -149,13 +159,17 @@ module.exports = {
 };
 
 if (!fs.existsSync('./test.txt')) {
-  prolog.verbose('No test, starting ChatBot');
+  prolog.debug('No test, starting ChatBot');
   init();
-  loadModule('main');
+  prolog.verbose('------------------------------------------------');
+  //Load in alphebetical order
+
   if (config.Fun.enable) loadModule('fun');
+  if (config.Giphy.enable) loadModule('giphy');
+  loadModule('main');
   if (config.Moderation.enable) loadModule('moderation');
   if (config.Stats.enable) loadModule('stats');
-  if (config.Giphy.enable) loadModule('giphy');
+  loadModule('utilites');
   ele();
   if (config.Bot.token != 'YOUR-BOT-TOKEN-HERE') {
     client.login(config.Bot.token).catch(error => { prolog.error(`Error During Login. ${error}`); process.exit(1); });

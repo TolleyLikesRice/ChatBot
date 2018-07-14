@@ -8,12 +8,12 @@ exports.run = (client, message) => {
 exports.conf = {
   enabled: true,
   guildOnly: false,
-  aliases: [],
+  aliases: [''],
   permLevel: 1
 };
 
 exports.help = {
   name: 'ping',
   description: 'Ping/Pong command. I wonder what this does? /sarcasm',
-  usage: 'ping'
+  usage: 'ping',
 };
