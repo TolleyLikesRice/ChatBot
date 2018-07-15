@@ -1,9 +1,9 @@
 exports.run = (client, message, args) => {
+  const request = require('request');
+  const fx = require('money');
   const amount = parseInt(args.join(' '));
   const fromarg = args.slice(1).join(' ').split(' ')[0];
   const toarg = args.slice(1).join(' ').split(' ')[1];
-  const request = require('request');
-  const fx = require('money');
   request('https://www.mycurrency.net/service/rates', { json: true }, (err, res, body) => {
     if (err) return console.log(err);
     var codes = body.map(value => value.currency_code);
@@ -16,7 +16,7 @@ exports.run = (client, message, args) => {
     try {
       out = fx.convert(amount, { from: fromarg, to: toarg });
     } catch (err) {
-      return message.reply('One of your aruments is in valid');
+      return message.reply('One of your aruments is in valid. Please use this format cm <amount> <from> <to>');
     }
     message.reply(`${amount} ${fromarg} is ${out} ${toarg}`);
   });
