@@ -19,3 +19,6 @@ script:
   - touch .fb_use_env
   - npm run tsc
   - npm run coverage
+  
+notifications:
+  webhooks: https://chatbot-travis-webhook.herokuapp.com/webhook
