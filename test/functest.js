@@ -1,4 +1,4 @@
-/* eslint no-undef: 0 */
+/* eslint-env node, mocha */
 const expect = require('chai').expect;
 const funcs = require('../maindefs');
 

@@ -1,4 +1,4 @@
-/* eslint no-undef: 0 */
+/* eslint-env node, mocha */
 const expect = require('chai').expect;
 const winston = require('winston');
 const capcon = require('capture-console');

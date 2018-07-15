@@ -1,6 +1,5 @@
-"use strict";
+'use strict';
 exports.__esModule = true;
-/* eslint-disable */
 // Imports
 var fs = require("fs");
 var GphApiClient = require("giphy-js-sdk-core");
