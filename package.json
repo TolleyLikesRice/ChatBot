@@ -7,7 +7,7 @@
     "test": "mocha --reporter spec",
     "coverage": "istanbul cover ./node_modules/mocha/bin/_mocha --report lcovonly -- -R spec && cat ./coverage/lcov.info | coveralls && rm -rf ./coverage",
     "devcover": "tsc ./ts/maindefs ./ts/fbdefs --outDir ./ && istanbul cover ./node_modules/mocha/bin/_mocha --report lcovonly -- -R spec",
-    "tsc": "tsc ./ts/maindefs ./ts/fbdefs --outDir ./"
+    "tsc": "tsc ./ts/maindefs --outDir ./"
   },
   "repository": "https://github.com/TolleyB-J/ChatBot",
   "author": "Tolley-BJ",
@@ -18,8 +18,9 @@
     "chalk": "^2.4.1",
     "discord.js": "^11.3.2",
     "firebase-admin": "^5.12.1",
-    "giphy-js-sdk-core": "^1.0.3",
-    "moment": "^2.22.1",
+    "get-urls": "^7.2.0",
+    "giphy-js-sdk-core": "^1.0.5",
+    "moment": "^2.22.2",
     "money": "^0.2.0",
     "ms": "^2.1.1",
     "nedb": "^1.8.0",
@@ -27,7 +28,7 @@
     "request": "^2.87.0",
     "sync-request": "^6.0.0",
     "toml": "^2.3.3",
-    "uws": "^10.148.0",
+    "uws": "^10.148.1",
     "winston": "^2.4.3"
   },
   "devDependencies": {
