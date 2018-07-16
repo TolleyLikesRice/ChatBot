@@ -1,12 +1,10 @@
 "use strict";
 exports.__esModule = true;
-/* eslint-disable */
 // Imports
 var fs_1 = require("fs");
 var GphApiClient = require("giphy-js-sdk-core");
 var request_1 = require("request");
 var toml_1 = require("toml");
-// import * as serviceAccount from "../firebasekey.json";
 // Define Vars
 var config = toml_1.parse(fs_1.readFileSync("./config/config.toml", "utf-8"));
 exports.config = config;
@@ -43,7 +41,7 @@ function checkLink(link) {
             throw console.log(err);
         }
         if (body !== {}) {
-            return body;
+            return body.threatType;
         }
         else if (body === {}) {
             return null;

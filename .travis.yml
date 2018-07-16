@@ -14,11 +14,8 @@ script:
   - mkdir logs
   - touch logs/dev.log
   - cp test/testconfig.toml config/config.toml
-  - touch firebasekey.json
-  - echo "{app:\ "Hello World\", test:\ "Active\"} > firebasekey.json"
-  - touch .fb_use_env
   - npm run tsc
   - npm run coverage
-  
+
 notifications:
   webhooks: https://chatbot-travis-webhook.herokuapp.com/webhook

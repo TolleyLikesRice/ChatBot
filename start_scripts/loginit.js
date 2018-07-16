@@ -1,9 +1,9 @@
-/* eslint-disable */
+/* eslint no-inner-declarations: 0 */
 const winston = require('winston');
 const fs = require('fs');
 const config = require('../maindefs').config;
 var newfile = false;
-console.log(config.test)
+console.log(config.test);
 
 //Rotates Log File
 try {

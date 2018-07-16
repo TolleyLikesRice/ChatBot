@@ -1,10 +1,8 @@
-/* eslint-disable */
 // Imports
 import { readFileSync } from "fs";
 import * as GphApiClient from "giphy-js-sdk-core";
 import { post } from "request";
 import { parse } from "toml";
-// import * as serviceAccount from "../firebasekey.json";
 
 // Define Vars
 const config = parse(readFileSync("./config/config.toml", "utf-8"));
