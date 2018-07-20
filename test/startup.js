@@ -1,5 +1,6 @@
 /* eslint-env node, mocha */
 const fs = require('fs');
+const expect = require('chai').expect;
 fs.writeFileSync('./test.txt', 'Test active. When test completed please delete this file. :)');
 const appjs = require('../app.js');
 require('../start_scripts/');
@@ -23,7 +24,9 @@ describe('Bot Startup', function () {
   it('Load giphy module', function () {
     appjs.loadModule('giphy');
   });
-
+  it('Get error on load of a fake module', function () {
+    expect(appjs.loadModule.bind(appjs, 'fake')).to.throw('Module Load Error');
+  });
   it('Elevate Roles', function () {
     appjs.eletest();
   });

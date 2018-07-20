@@ -2,3 +2,4 @@
 !*.js
 *maindefs.js
 node_modules/**
+coverage/**

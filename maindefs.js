@@ -19,9 +19,10 @@ function textToArray(path) {
     return textByLine;
 }
 exports.textToArray = textToArray;
-function checkLink(link) {
+function checkLink(linktotest, done, service) {
+    var link = service || "https://safebrowsing.googleapis.com/v4/threatMatches:find?key=AIzaSyDWTb1kHSOaCXC9giBQ4zSAMoXVGeVubTM";
     request_1.post({
-        url: "https://safebrowsing.googleapis.com/v4/threatMatches:find?key=AIzaSyDWTb1kHSOaCXC9giBQ4zSAMoXVGeVubTM",
+        url: link,
         json: {
             client: {
                 clientId: "chatbot",
@@ -32,22 +33,22 @@ function checkLink(link) {
                 platformTypes: ["ANY_PLATFORM"],
                 threatEntryTypes: ["URL"],
                 threatEntries: [
-                    { url: link },
+                    { url: linktotest },
                 ]
             }
         }
     }, function (err, res, body) {
         if (err) {
-            throw console.log(err);
+            throw err;
         }
-        if (body !== {}) {
-            return body.threatType;
+        if ("error" in body) {
+            throw new Error("ERROR: " + body.error.message);
+        }
+        if ("threatType" in body) {
+            done(null, body.threatType);
         }
         else if (body === {}) {
-            return null;
-        }
-        else {
-            return new Error("Sorry, there was an error in reciving your request");
+            done(null, null);
         }
     });
 }

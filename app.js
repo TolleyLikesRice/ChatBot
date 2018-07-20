@@ -27,19 +27,22 @@ function init() {
 function loadModule(ModuleFolder) {
   client.commands = new Discord.Collection();
   client.aliases = new Discord.Collection();
-  fs.readdir(`./commands/${ModuleFolder}/`, (err, files) => {
-    if (err) prolog.error(err);
-    prolog.verbose(`Loading a total of ${files.length} ${ModuleFolder} commands.`);
-    files.forEach(f => {
-      let props = require(`./commands/${ModuleFolder}/${f}`);
-      prolog.verbose(`Loading ${ModuleFolder} Command: ${props.help.name}. 👌`);
-      client.commands.set(props.help.name, props);
-      props.conf.aliases.forEach(alias => {
-        client.aliases.set(alias, props.help.name);
-      });
+  let files;
+  try {
+    files = fs.readdirSync(`./commands/${ModuleFolder}/`);
+  } catch (error) {
+    throw new Error('Module Load Error');
+  }
+  prolog.verbose(`Loading a total of ${files.length} ${ModuleFolder} commands.`);
+  files.forEach(f => {
+    let props = require(`./commands/${ModuleFolder}/${f}`);
+    prolog.verbose(`Loading ${ModuleFolder} Command: ${props.help.name}. 👌`);
+    client.commands.set(props.help.name, props);
+    props.conf.aliases.forEach(alias => {
+      client.aliases.set(alias, props.help.name);
     });
-    prolog.verbose('------------------------------------------------');
   });
+  prolog.verbose('------------------------------------------------');
 }
 /*function cmd() {
   client.commands = new Discord.Collection();
@@ -141,6 +144,7 @@ function loadModule(ModuleFolder) {
 }*/
 
 function ele() {
+  /* istanbul ignore next */
   client.elevation = message => {
     /* This function should resolve to an ELEVATION level which
        is then sent to the command handler for verification */
@@ -158,19 +162,24 @@ module.exports = {
   eletest: ele,
 };
 
-if (!fs.existsSync('./test.txt')) {
-  prolog.debug('No test, starting ChatBot');
-  init();
-  prolog.verbose('------------------------------------------------');
-  //Load in alphebetical order
 
-  if (config.Fun.enable) loadModule('fun');
-  if (config.Giphy.enable) loadModule('giphy');
-  loadModule('main');
-  if (config.Moderation.enable) loadModule('moderation');
-  if (config.Stats.enable) loadModule('stats');
-  loadModule('utilites');
-  ele();
+prolog.debug('No test, starting ChatBot');
+init();
+prolog.verbose('------------------------------------------------');
+//Load in alphebetical order
+/* istanbul ignore next */
+if (config.Fun.enable) loadModule('fun');
+/* istanbul ignore next */
+if (config.Giphy.enable) loadModule('giphy');
+loadModule('main');
+/* istanbul ignore next */
+if (config.Moderation.enable) loadModule('moderation');
+/* istanbul ignore next */
+if (config.Stats.enable) loadModule('stats');
+loadModule('utilites');
+ele();
+/* istanbul ignore next */
+if (!fs.existsSync('./test.txt')) {
   if (config.Bot.token != 'YOUR-BOT-TOKEN-HERE') {
     client.login(config.Bot.token).catch(error => { prolog.error(`Error During Login. ${error}`); process.exit(1); });
   } else {

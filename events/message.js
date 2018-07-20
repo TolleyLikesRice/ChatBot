@@ -5,11 +5,13 @@ module.exports = message => {
   let urls = Array.from(getUrls(message.content));
   if (urls !== []) {
     urls.forEach(url => {
-      let check = checkLink(url);
-      if (check !== null) {
-        message.delete();
-        return message.channel.send(`${message.author.username}#${message.author.discriminator}'s message contained a link to an unsafe site and has been deleted. This offence has been logged`);
-      }
+      checkLink(url, function (err, data) {
+        if (err) throw err;
+        if (data !== null) {
+          message.delete();
+          return message.channel.send(`${message.author.username}#${message.author.discriminator}'s message contained a link to an unsafe site and has been deleted. This offence has been logged`);
+        }
+      });
     });
   }
   if (message.author.bot) return;

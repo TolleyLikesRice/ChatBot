@@ -5,4 +5,4 @@ config.toml
 node_modules/**
 *.bat
 **coverage/
-**temp.js
+**temp.*
