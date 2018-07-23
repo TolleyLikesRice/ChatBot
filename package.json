@@ -23,7 +23,7 @@
     "random-number": "0.0.9",
     "request": "^2.87.0",
     "toml": "^2.3.3",
-    "uws": "^9.14.0",
+    "uws": "^10.148.2",
     "winston": "^2.4.3"
   },
   "devDependencies": {
