@@ -1,6 +1,6 @@
 const log4js = require('log4js');
 const fs = require('fs');
-const config = require('../maindefs').config;
+const config = require('../mainDefs').config;
 const logdir = './logs';
 let consoleLevel = null;
 

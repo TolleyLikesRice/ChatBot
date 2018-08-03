@@ -23,8 +23,8 @@
     {
       "type": "node",
       "request": "launch",
-      "name": "nodemon",
-      "runtimeExecutable": "nodemon",
+      "name": "chatbot",
+      "runtimeExecutable": "node",
       "program": "${workspaceFolder}/app.js",
       "restart": true,
       "console": "integratedTerminal",

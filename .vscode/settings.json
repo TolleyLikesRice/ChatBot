@@ -1,0 +1,10 @@
+{
+  "git.ignoreLimitWarning": true,
+  "spellright.language": "en",
+  "spellright.documentTypes": [
+    "latex"
+  ],
+  "cSpell.words": [
+    "maindefs"
+  ]
+}

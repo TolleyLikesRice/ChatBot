@@ -1,5 +1,5 @@
-const config = require('../maindefs').config;
-const checkLink = require('../maindefs').checkLink;
+const config = require('../mainDefs').config;
+const checkLink = require('../mainDefs').checkLink;
 const getUrls = require('get-urls');
 module.exports = message => {
   let urls = Array.from(getUrls(message.content));
@@ -27,7 +27,7 @@ module.exports = message => {
     cmd = client.commands.get(client.aliases.get(command));
   }
   if (cmd) {
-    if (perms < cmd.conf.permLevel) return message.reply('You do not have permisson to do this!');
+    if (perms < cmd.conf.permLevel) return message.reply('You do not have permission to do this!');
     cmd.run(client, message, params, perms);
   }
 

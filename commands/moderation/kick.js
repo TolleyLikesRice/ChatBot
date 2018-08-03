@@ -1,5 +1,5 @@
 const Discord = require('discord.js');
-const config = require('../../maindefs').config;
+const config = require('../../mainDefs').config;
 const winston = require('winston');
 const prolog = winston.loggers.get('prolog');
 exports.run = (client, message, args) => {
@@ -27,7 +27,7 @@ exports.conf = {
   enabled: true,
   guildOnly: false,
   aliases: [],
-  permLevel: config.Moderation.kickpermlevel
+  permLevel: config.Moderation.kicklevel
 };
 
 exports.help = {

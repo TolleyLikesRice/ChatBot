@@ -1,7 +1,7 @@
 /* eslint no-inner-declarations: 0 */
 const winston = require('winston');
 const fs = require('fs');
-const config = require('../maindefs').config;
+const config = require('../mainDefs').config;
 var newfile = false;
 console.log(config.test);
 

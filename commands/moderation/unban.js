@@ -1,4 +1,4 @@
-const config = require('../../maindefs').config;
+const config = require('../../mainDefs').config;
 const winston = require('winston');
 const prolog = winston.loggers.get('prolog');
 exports.run = (client, message, args) => {

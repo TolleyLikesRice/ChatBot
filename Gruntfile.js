@@ -4,25 +4,25 @@ module.exports = function (grunt) {
 
   grunt.initConfig({
     run: {
-      devcover: {
+      devCover: {
         exec: 'istanbul cover ./node_modules/mocha/bin/_mocha --report html -- -R spec'
       },
       lint: {
         exec: 'eslint .'
       },
-      lintfix: {
+      lintFix: {
         exec: 'eslint . --fix'
       },
       tsc: {
-        exec: 'tsc ./ts/maindefs --outDir ./'
+        exec: 'tsc ./ts/mainDefs --outDir ./'
       }
     }
   });
 
-  grunt.registerTask('default', [ 'run:tsc', 'run:lint', 'run:lintfix', 'run:devcover' ]);
-  grunt.registerTask('test', [ 'run:devcover' ]);
+  grunt.registerTask('default', [ 'run:tsc', 'run:lint', 'run:lintFix', 'run:devCover' ]);
+  grunt.registerTask('test', [ 'run:devCover' ]);
   grunt.registerTask('lint', [ 'run:lint' ]);
   grunt.registerTask('tsc', [ 'run:tsc' ]);
-  grunt.registerTask('lintfix', [ 'run:lintfix' ]);
+  grunt.registerTask('lintFix', [ 'run:lintFix' ]);
 
 };

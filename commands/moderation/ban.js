@@ -1,5 +1,5 @@
 const Discord = require('discord.js');
-const config = require('../../maindefs').config;
+const config = require('../../mainDefs').config;
 const winston = require('winston');
 const prolog = winston.loggers.get('prolog');
 

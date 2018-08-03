@@ -1,8 +1,6 @@
-**settings.json
-config.toml
-*.db
+**config.toml
 *.log
-node_modules/**
 *.bat
 **coverage/
 **temp.*
+**data/

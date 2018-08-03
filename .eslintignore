@@ -1,5 +1,5 @@
 *.*
 !*.js
-*maindefs.js
+*mainDefs.js
 node_modules/**
 coverage/**

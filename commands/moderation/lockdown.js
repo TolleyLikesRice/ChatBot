@@ -1,7 +1,7 @@
 const ms = require('ms');
 const winston = require('winston');
 const prolog = winston.loggers.get('prolog');
-const config = require('../../maindefs').config;
+const config = require('../../mainDefs').config;
 exports.run = (client, message, args) => {
   if (!client.lockit) client.lockit = [];
   let time = args.join(' ');

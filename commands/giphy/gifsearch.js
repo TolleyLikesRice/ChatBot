@@ -1,4 +1,4 @@
-const giphy = require('../../maindefs.js').giphy;
+const giphy = require('../../mainDefs.js').giphy;
 const Discord = require('discord.js');
 exports.run = (client, message, args) => {
   let st = args.join(' ');

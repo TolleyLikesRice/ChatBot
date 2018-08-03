@@ -1,5 +1,5 @@
 exports.run = (client, message) => {
-  const funcs = require('../../maindefs');
+  const funcs = require('../../mainDefs');
   var responces = funcs.textToArray('config/facts.txt');
   var show = responces[Math.floor(Math.random() * responces.length)];
   message.reply(`Did you Know? ${show}`);
