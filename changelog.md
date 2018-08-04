@@ -1,8 +1,8 @@
 # Changelog
 All notable changes to this project will be documented in this file as of 2018-08-03.
 
-This format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/).
-The Trello board for all the upcoming things for ChatBot is [here](https://trello.com/b/xvsSdqai/chatbot).
+This format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/).  
+The Trello board for all the upcoming things for ChatBot is [here](https://trello.com/b/xvsSdqai/chatbot).  
 The versioning scheme for this project is as follows:
 ```
 <Major>.<Minor>.<Patch> e.g 1.2.3
@@ -15,6 +15,13 @@ The versioning scheme for this project is as follows:
 
 
 
+
+## [2.1.3] - 2018-08-04
+### Added
+- Error Catching system when running commands
+
+### Fixed
+- Level Elevation System
 
 ## [2.1.2] - 2018-08-03
 ### Added
@@ -38,3 +45,4 @@ The versioning scheme for this project is as follows:
 - Level elevation system not detecting admin or moderator role
 
 [2.1.2]: https://github.com/TolleyB-J/ChatBot/compare/v2.0.4...v2.1.2
+[2.1.3]: https://github.com/TolleyB-J/ChatBot/compare/v2.1.2...v2.1.3

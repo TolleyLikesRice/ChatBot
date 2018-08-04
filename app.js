@@ -9,7 +9,7 @@ client.commands = new Discord.Collection();
 client.aliases = new Discord.Collection();
 
 //Create array of globally enabled modules
-client.enabledModules = ['main']
+client.enabledModules = ['main'];
 /* istanbul ignore next */
 if (config.Fun.enable) client.enabledModules.push('fun');
 /* istanbul ignore next */
@@ -173,11 +173,18 @@ function ele() {
   client.elevation = message => {
     /* This function should resolve to an ELEVATION level which
        is then sent to the command handler for verification */
+    try {
+    const admin = message.guild.roles.find('name', client.settings.getProp(message.member.guild.id, 'adminRole')).id;
+    const mod = message.guild.roles.find('name', client.settings.getProp(message.member.guild.id, 'modRole')).id;
     let permlvl = 1;
-    if (message.member.roles.has('name', client.settings.getProp(message.member.guild.id, "modRole"))) permlvl = 2;
-    if (message.member.roles.has('name', client.settings.getProp(message.member.guild.id, "adminRole"))) permlvl = 3;
+    if (message.member.roles.has(mod)) permlvl = 2;
+    if (message.member.roles.has(admin)) permlvl = 3;
     if (message.author.id === config.Bot.ownerid) permlvl = 4;
     return permlvl;
+    } catch(err) {
+      message.reply('Sorry an error has occurred please DM Tolley#3216 with the error message below\n```Elevation System: ' + err + '```')
+      return 'fail'
+    }
   };
 }
 
@@ -201,7 +208,7 @@ loadModule('main');
 if (config.Moderation.enable) loadModule('moderation');
 /* istanbul ignore next */
 if (config.Stats.enable) loadModule('stats');
-loadModule('utilites');
+if (config.Utilites.enable) loadModule('utilites');
 ele();
 /* istanbul ignore next */
 if (!fs.existsSync('./test.txt')) {

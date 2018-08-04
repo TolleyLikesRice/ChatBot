@@ -20,6 +20,7 @@ module.exports = message => {
   let command = message.content.split(' ')[0].slice(config.Bot.prefix.length);
   let params = message.content.split(' ').slice(1);
   let perms = client.elevation(message);
+  if (perms === 'fail') return;
   let cmd;
   if (client.commands.has(command)) {
     cmd = client.commands.get(command);
@@ -28,7 +29,11 @@ module.exports = message => {
   }
   if (cmd) {
     if (perms < cmd.conf.permLevel) return message.reply('You do not have permission to do this!');
-    cmd.run(client, message, params, perms);
+    try {
+      cmd.run(client, message, params, perms);
+    } catch (err) {
+      return message.reply('Sorry an error has occurred please DM Tolley#3216 with the error message below\n```Command Runner: ' + err + '```')
+    }
   }
 
 };
