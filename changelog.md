@@ -15,7 +15,7 @@ The versioning scheme for this project is as follows:
 
 
 
-## [2.1.4] - 2018-08-03
+## [2.1.4] - 2018-08-05
 
 ### Changed
 - Scripts for TravisCI
