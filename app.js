@@ -174,16 +174,16 @@ function ele() {
     /* This function should resolve to an ELEVATION level which
        is then sent to the command handler for verification */
     try {
-    const admin = message.guild.roles.find('name', client.settings.getProp(message.member.guild.id, 'adminRole')).id;
-    const mod = message.guild.roles.find('name', client.settings.getProp(message.member.guild.id, 'modRole')).id;
-    let permlvl = 1;
-    if (message.member.roles.has(mod)) permlvl = 2;
-    if (message.member.roles.has(admin)) permlvl = 3;
-    if (message.author.id === config.Bot.ownerid) permlvl = 4;
-    return permlvl;
+      const admin = message.guild.roles.find('name', client.settings.getProp(message.member.guild.id, 'adminRole')).id;
+      const mod = message.guild.roles.find('name', client.settings.getProp(message.member.guild.id, 'modRole')).id;
+      let permlvl = 1;
+      if (message.member.roles.has(mod)) permlvl = 2;
+      if (message.member.roles.has(admin)) permlvl = 3;
+      if (message.author.id === config.Bot.ownerid) permlvl = 4;
+      return permlvl;
     } catch(err) {
-      message.reply('Sorry an error has occurred please DM Tolley#3216 with the error message below\n```Elevation System: ' + err + '```')
-      return 'fail'
+      message.reply('Sorry an error has occurred please DM Tolley#3216 with the error message below\n```Elevation System: ' + err + '```');
+      return 'fail';
     }
   };
 }

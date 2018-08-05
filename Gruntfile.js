@@ -15,6 +15,9 @@ module.exports = function (grunt) {
       },
       tsc: {
         exec: 'tsc ./ts/mainDefs --outDir ./'
+      },
+      cover: {
+        exec: 'istanbul cover ./node_modules/mocha/bin/_mocha --report lcovonly -- -R spec && cat ./coverage/lcov.info | coveralls && rm -rf ./coverage'
       }
     }
   });
@@ -24,5 +27,6 @@ module.exports = function (grunt) {
   grunt.registerTask('lint', [ 'run:lint' ]);
   grunt.registerTask('tsc', [ 'run:tsc' ]);
   grunt.registerTask('lintFix', [ 'run:lintFix' ]);
+  grunt.registerTask('travis', [ 'run:tsc', 'run:lint', 'run:cover' ]);
 
 };

@@ -15,6 +15,18 @@ The versioning scheme for this project is as follows:
 
 
 
+## [2.1.4] - 2018-08-03
+
+### Changed
+- Scripts for TravisCI
+- Versioning to now include v in-front of version number
+
+### Fixed
+- TravisCI Build
+
+### Other
+- Linted Code
+
 
 ## [2.1.3] - 2018-08-04
 ### Added
@@ -22,6 +34,7 @@ The versioning scheme for this project is as follows:
 
 ### Fixed
 - Level Elevation System
+
 
 ## [2.1.2] - 2018-08-03
 ### Added
@@ -44,5 +57,6 @@ The versioning scheme for this project is as follows:
 ### Known Issues
 - Level elevation system not detecting admin or moderator role
 
-[2.1.2]: https://github.com/TolleyB-J/ChatBot/compare/v2.0.4...v2.1.2
-[2.1.3]: https://github.com/TolleyB-J/ChatBot/compare/v2.1.2...v2.1.3
+[2.1.2]: https://github.com/TolleyB-J/ChatBot/compare/v2.0.4...2.1.2
+[2.1.3]: https://github.com/TolleyB-J/ChatBot/compare/2.1.2...2.1.3
+[2.1.4]: https://github.com/TolleyB-J/ChatBot/compare/2.1.3...v2.1.4

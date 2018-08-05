@@ -9,12 +9,12 @@ install:
   - npm install -g istanbul
   - npm install -g typescript
   - npm install -g coveralls
-
-script:
   - mkdir logs
   - touch logs/dev.log
   - cp test/testconfig.toml config/config.toml
   - npm run tsc
+
+script:
   - npm run coverage
 
 notifications:

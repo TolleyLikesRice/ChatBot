@@ -32,7 +32,7 @@ module.exports = message => {
     try {
       cmd.run(client, message, params, perms);
     } catch (err) {
-      return message.reply('Sorry an error has occurred please DM Tolley#3216 with the error message below\n```Command Runner: ' + err + '```')
+      return message.reply('Sorry an error has occurred please DM Tolley#3216 with the error message below\n```Command Runner: ' + err + '```');
     }
   }
 
