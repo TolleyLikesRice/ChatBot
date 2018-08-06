@@ -16,11 +16,11 @@
     "capture-console": "^1.0.1",
     "chalk": "^2.4.1",
     "discord.js": "^11.3.2",
-    "enmap": "^2.7.2",
+    "enmap": "^3.0.2",
     "enmap-sqlite": "^2.0.3",
     "get-urls": "^7.2.0",
     "giphy-js-sdk-core": "^1.0.5",
-    "log4js": "^3.0.1",
+    "log4js": "^3.0.4",
     "money": "^0.2.0",
     "ms": "^2.1.1",
     "random-number": "0.0.9",
@@ -30,7 +30,7 @@
     "winston": "^2.4.3"
   },
   "devDependencies": {
-    "@types/node": "^10.5.5",
+    "@types/node": "^10.5.6",
     "chai": "^4.1.2",
     "coveralls": "^3.0.2",
     "grunt": "^1.0.3",

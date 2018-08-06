@@ -14,6 +14,17 @@ The versioning scheme for this project is as follows:
 ```
 
 
+## [2.2.0] 2018-08-06
+
+### Changed
+- Updated Enmap to 3.0.2 and changed relevant code
+- Updated log4js to 3.0.4
+- Updated @types/node to 10.5.6
+
+## [2.1.5] 2018-08-06
+
+### Fixed
+- Naming of mainDefs
 
 ## [2.1.4] - 2018-08-05
 
@@ -60,3 +71,4 @@ The versioning scheme for this project is as follows:
 [2.1.2]: https://github.com/TolleyB-J/ChatBot/compare/v2.0.4...2.1.2
 [2.1.3]: https://github.com/TolleyB-J/ChatBot/compare/2.1.2...2.1.3
 [2.1.4]: https://github.com/TolleyB-J/ChatBot/compare/2.1.3...v2.1.4
+[2.1.5]: https://github.com/TolleyB-J/ChatBot/compare/v2.1.4... v2.1.5

@@ -174,8 +174,8 @@ function ele() {
     /* This function should resolve to an ELEVATION level which
        is then sent to the command handler for verification */
     try {
-      const admin = message.guild.roles.find('name', client.settings.getProp(message.member.guild.id, 'adminRole')).id;
-      const mod = message.guild.roles.find('name', client.settings.getProp(message.member.guild.id, 'modRole')).id;
+      const admin = message.guild.roles.find('name', client.settings.get(message.member.guild.id, 'adminRole')).id;
+      const mod = message.guild.roles.find('name', client.settings.get(message.member.guild.id, 'modRole')).id;
       let permlvl = 1;
       if (message.member.roles.has(mod)) permlvl = 2;
       if (message.member.roles.has(admin)) permlvl = 3;
