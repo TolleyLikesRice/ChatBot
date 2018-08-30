@@ -38,6 +38,6 @@
     "istanbul": "^0.4.5",
     "mocha": "^5.2.0",
     "mocha-lcov-reporter": "^1.3.0",
-    "typescript": "^3.0.1"
+    "typescript": "^3.0.3"
   }
 }
