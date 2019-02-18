@@ -17,7 +17,7 @@
     "chalk": "^2.4.1",
     "discord.js": "^11.3.2",
     "enmap": "^3.0.2",
-    "enmap-sqlite": "^2.0.3",
+    "enmap-sqlite": "^2.0.5",
     "get-urls": "^7.2.0",
     "giphy-js-sdk-core": "^1.0.5",
     "log4js": "^3.0.4",
