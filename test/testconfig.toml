@@ -1,0 +1,108 @@
+#  ____        _      _____             __ _
+# |  _ \      | |    / ____|           / _(_)
+# | |_) | ___ | |_  | |     ___  _ __ | |_ _  __ _
+# |  _ < / _ \| __| | |    / _ \| '_ \|  _| |/ _` |
+# | |_) | (_) | |_  | |___| (_) | | | | | | | (_| |
+# |____/ \___/ \__|  \_____\___/|_| |_|_| |_|\__, |
+#                                             __/ |
+#                                            |___/
+#
+# This is your ChatBot config file. Here you can customize you bot.
+# For more information on configuring your bot go to https://github.com/TolleyB-J/ChatBot
+# Note: The permlevels are:
+# 1 = Everyone
+# 2 = Moderators
+# 3 = Admins
+# 4 = Owner/Dev Users
+
+[Bot]
+# These are your primary settings for your bot
+'token' = 'YOUR-BOT-TOKEN-HERE' # The token you get from https://discordapp.com/developers/applications/me
+'prefix' = ';' # The prefix for your bot. e.g If my prefix was '-' I would do -help
+'ownerid' = 'YOUR-ID-HERE' # Your account id here, this will give you full permissions for the bot.
+
+[Logging]
+# There are your settings of logging of console
+'logfile' = 'latest.log' # The name of your log file
+'debug' = false # Whether or not to enable extra logging in console
+
+[Roles]
+# These are the settings for you roles
+'modrole' = 'MOD-ROLE-ID-HERE' # The role whitch you give to your admins
+'adminrole' = 'ADMIN-ROLE-ID-HERE' # The role which you give to your moderators
+'devusers' = ['ID1', 'ID2'] # WARNING: PUTTING A USER'S ID IN THE DEVUSERS ARRAY WILL GIVE THEM FULL PERMISSIONS, DO THIS WITH CAUTION
+
+#  __  __           _       _         _____             __ _
+# |  \/  |         | |     | |       / ____|           / _(_)
+# | \  / | ___   __| |_   _| | ___  | |     ___  _ __ | |_ _  __ _
+# | |\/| |/ _ \ / _` | | | | |/ _ \ | |    / _ \| '_ \|  _| |/ _` |
+# | |  | | (_) | (_| | |_| | |  __/ | |___| (_) | | | | | | | (_| |
+# |_|  |_|\___/ \__,_|\__,_|_|\___|  \_____\___/|_| |_|_| |_|\__, |
+#                                                             __/ |
+#                                                            |___/
+
+
+[Moderation]
+# The config for the moderation module
+'enable' = true # Whether or not to enable moderation commands
+'banlevel' = 4 # Permlevel for ban command
+'unbanlevel' = 3 # Permlevel for unban command
+'kicklevel' = 3 # Permlevel for kick command
+'lockdownlevel' = 3 # Permlevel for lockdown command
+'mutelevel' = 2 # Permlevel for mute command
+'warnlevel' = 2 # Permlevel for warn command
+'purgelevel' = 2 # Permlevel for mute command
+'logid' = 'YOUR-LOG-ID-HERE' # The id for the moderation log channel
+
+[Fun]
+# NOTE: You can not change the permlevel of the fun commands you may only enable/disable them.
+'enable' = true # Whether or not to enable fun commands
+# Working on adding more options
+
+[Giphy]
+# Enable the gifhy module
+# NOTE: IF YOU PLAN TO USE THIS BOT ON MORE THAN 2 SERVERS
+# APPLY FOR A PRODUCTION KEY. FOR MORE INFO GO TO https://github.com/TolleyB-J/ChatBot
+'enable' = false # Whether or not to enable the giphy commands
+'apikey' = 'YOUR-API-KEY-HERE'
+
+[Botcmd]
+# The config for the bot commands
+# This module must be enabled
+'setgameenable' = 'true' # Whether to enable the the setgame command
+'setgamelevel' = '4' # Permlevel for setgame command
+'bootgame' = 'This bot is by TolleyB-J' # The bots default game on boot
+
+[Stats]
+# The the config for the server stats module - Here's what is looks like https://i.imgur.com/nJyvhWp.png
+'enable' = false # Whether or not to enable the Stats module
+'tusersid' = 'YOUR-TOTAL-USERS-ID-HERE' # Put the id of the voice channel for Total Users (dosent have to be called total users)
+'tuserstext' = 'Total Users:' # The text before the number of users
+'botsid' = 'YOUR-BOTS-ID-HERE' # Same as tusersid exept for bots
+'botstext' = 'Bot Count:' # Same as tuserstext exept for bots
+'memberid' = 'YOUR-MEMBERS-ID-HERE' # Same as tusersid but for members
+'membertext' = 'Member Count:' # Same as tuserstext but for members
+'updatepermlevel' = '4' # Permlevel for the updatestats command
+
+[PerServerDB]
+# The configuration for the per-server settings database
+'enable' = false
+
+#  ______           _          __    _____             __ _       _
+# |  ____|         | |        / _|  / ____|           / _(_)     | |
+# | |__   _ __   __| |   ___ | |_  | |     ___  _ __ | |_ _  __ _| |
+# |  __| | '_ \ / _` |  / _ \|  _| | |    / _ \| '_ \|  _| |/ _` | |
+# | |____| | | | (_| | | (_) | |   | |___| (_) | | | | | | | (_| |_|
+# |______|_| |_|\__,_|  \___/|_|    \_____\___/|_| |_|_| |_|\__, (_)
+#                                                            __/ |
+#                                                           |___/
+
+
+
+
+
+
+
+
+version = '2.0.0' # DO NOT EDIT THIS
+test = true # DO NOT EDIT THIS

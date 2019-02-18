@@ -5,7 +5,8 @@
     },
     "extends": "eslint:recommended",
     "parserOptions": {
-        "sourceType": "module"
+        "sourceType": "module",
+        "ecmaVersion": 6
     },
     "rules": {
         "no-console": "off",
@@ -17,8 +18,8 @@
             }
         ],
         "linebreak-style": [
-            "error",
-            "windows"
+            "warn",
+            "unix"
         ],
         "quotes": [
             "warn",
@@ -27,6 +28,7 @@
         "semi": [
             "warn",
             "always"
-        ]
+        ],
+        "no-unused-vars": "warn"
     }
 }

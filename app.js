@@ -1,21 +1,75 @@
+// cSpell:ignore Enmap, prolog
 const Discord = require('discord.js');
 const client = new Discord.Client();
 const fs = require('fs');
+const Enmap = require('enmap');
+const Provider = require('enmap-sqlite');
+const config = require('./mainDefs').config;
+client.commands = new Discord.Collection();
+client.aliases = new Discord.Collection();
+
+//Create array of globally enabled modules
+client.enabledModules = ['main'];
+/* istanbul ignore next */
+if (config.Fun.enable) client.enabledModules.push('fun');
+/* istanbul ignore next */
+if (config.Giphy.enable) client.enabledModules.push('giphy');
+/* istanbul ignore next */
+if (config.Moderation.enable) client.enabledModules.push('moderation');
+/* istanbul ignore next */
+if (config.Stats.enable) client.enabledModules.push('stats');
+
+//Set up enmap
+client.settings = new Enmap({ provider: new Provider({ name: 'settings' }) });
+/*client.defaultSettings = {
+  modRole: "Moderator",
+  adminRole: "Admin",
+  serverOwnerID: undefined,
+  enabledModules: client.enabledModules
+};*/
 
 //Get Logger
-require('./start_scripts/');
+require('./start_scripts');
 const winston = require('winston');
 const prolog = winston.loggers.get('prolog');
 
-const config = require('./defs/defineconfig').config;
 require('./util/eventLoader')(client);
 
-function inittest() {
-  prolog.info('Connecting...')
+//Print out lettering
+prolog.verbose('  _                     _ _             ');
+prolog.verbose(' | |                   | (_)            ');
+prolog.verbose(' | |     ___   __ _  __| |_ _ __   __ _ ');
+prolog.verbose(' | |    / _ \\ / _` |/ _` | | \'_ \\ / _` |');
+prolog.verbose(' | |___| (_) | (_| | (_| | | | | | (_| |');
+prolog.verbose(' |______\\___/ \\__,_|\\__,_|_|_| |_|\\__, |');
+prolog.verbose('                                   __/ |');
+prolog.verbose('                                  |___/');
+prolog.verbose('------------------------------------------------');
 
+function init() {
+  prolog.info('Connecting...');
 }
 
-function cmdtest() {
+function loadModule(ModuleFolder) {
+
+  let files;
+  try {
+    files = fs.readdirSync(`./commands/${ModuleFolder}/`);
+  } catch (error) {
+    throw new Error('Module Load Error');
+  }
+  prolog.verbose(`Loading a total of ${files.length} ${ModuleFolder} commands.`);
+  files.forEach(f => {
+    let props = require(`./commands/${ModuleFolder}/${f}`);
+    prolog.verbose(`Loading ${ModuleFolder} Command: ${props.help.name}. 👌`);
+    client.commands.set(props.help.name, props);
+    props.conf.aliases.forEach(alias => {
+      client.aliases.set(alias, props.help.name);
+    });
+  });
+  prolog.verbose('------------------------------------------------');
+}
+/*function cmd() {
   client.commands = new Discord.Collection();
   client.aliases = new Discord.Collection();
   //Load main commands
@@ -32,7 +86,7 @@ function cmdtest() {
     });
   });
   //Load Giphy commands
-  if (config.Giphy.enable == true) {
+  if (config.Giphy.enable === true) {
     fs.readdir('./commands/giphy/', (err, files) => {
       if (err) prolog.error(err);
       prolog.verbose(`Loading a total of ${files.length} giphy commands.`);
@@ -90,8 +144,10 @@ function cmdtest() {
         });
       });
     });
-  }
-  /*client.reload = command => {
+  } 
+
+
+  client.reload = command => {
     return new Promise((resolve, reject) => {
       try {
         delete require.cache[require.resolve(`./commands/${command}`)];
@@ -109,37 +165,56 @@ function cmdtest() {
         reject(e);
       }
     });
-  };*/
-}
+  };
+}*/
 
-function eletest() {
+function ele() {
+  /* istanbul ignore next */
   client.elevation = message => {
     /* This function should resolve to an ELEVATION level which
        is then sent to the command handler for verification */
-    let permlvl = 1;
-    if (message.member.roles.has(config.Roles.modrole)) permlvl = 2;
-    if (message.member.roles.has(config.Roles.adminrole)) permlvl = 3;
-    if (message.author.id === config.Bot.ownerid) permlvl = 4;
-    return permlvl;
+    try {
+      const admin = message.guild.roles.find('name', client.settings.get(message.member.guild.id, 'adminRole')).id;
+      const mod = message.guild.roles.find('name', client.settings.get(message.member.guild.id, 'modRole')).id;
+      let permlvl = 1;
+      if (message.member.roles.has(mod)) permlvl = 2;
+      if (message.member.roles.has(admin)) permlvl = 3;
+      if (message.author.id === config.Bot.ownerid) permlvl = 4;
+      return permlvl;
+    } catch(err) {
+      message.reply('Sorry an error has occurred please DM Tolley#3216 with the error message below\n```Elevation System: ' + err + '```');
+      return 'fail';
+    }
   };
 }
 
 module.exports = {
-  inittest: inittest,
-  cmdtest: cmdtest,
-  eletest: eletest,
+  inittest: init,
+  loadModule: loadModule,
+  eletest: ele,
 };
 
-inittest()
-cmdtest()
-eletest()
-if (config.Bot.token != "YOUR-BOT-TOKEN-HERE") {
-  try {
-    client.login(config.Bot.token);
-  } catch (error) {
-    console.log(error)
-    process.exit(1)
+
+prolog.debug('No test, starting ChatBot');
+init();
+prolog.verbose('------------------------------------------------');
+//Load in alphabetical order
+/* istanbul ignore next */
+if (config.Fun.enable) loadModule('fun');
+/* istanbul ignore next */
+if (config.Giphy.enable) loadModule('giphy');
+loadModule('main');
+/* istanbul ignore next */
+if (config.Moderation.enable) loadModule('moderation');
+/* istanbul ignore next */
+if (config.Stats.enable) loadModule('stats');
+if (config.Utilites.enable) loadModule('utilites');
+ele();
+/* istanbul ignore next */
+if (!fs.existsSync('./test.txt')) {
+  if (config.Bot.token != 'YOUR-BOT-TOKEN-HERE') {
+    client.login(config.Bot.token).catch(error => { prolog.error(`Error During Login. ${error}`); process.exit(1); });
+  } else {
+    prolog.error('No token in config.toml. Aborting...');
   }
-} else {
-  prolog.error('No token in config.toml. Aborting...')
 }

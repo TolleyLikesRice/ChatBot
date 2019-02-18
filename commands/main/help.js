@@ -1,4 +1,4 @@
-const config = require('../../defs/defineconfig').config;
+const config = require('../../mainDefs').config;
 exports.run = (client, message, params) => {
   if (!params[0]) {
     const commandNames = Array.from(client.commands.keys());
@@ -16,7 +16,7 @@ exports.run = (client, message, params) => {
 exports.conf = {
   enabled: true,
   guildOnly: false,
-  aliases: ['h', 'halp'],
+  aliases: ['h'],
   permLevel: 1
 };
 

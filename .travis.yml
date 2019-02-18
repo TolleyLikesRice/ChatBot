@@ -6,7 +6,16 @@ node_js:
 install:
   - npm install
   - npm install -g mocha
+  - npm install -g istanbul
+  - npm install -g typescript
+  - npm install -g coveralls
+  - mkdir logs
+  - touch logs/dev.log
+  - cp test/testconfig.toml config/config.toml
+  - npm run tsc
 
 script:
-  - cp example_config.toml config.toml
-  - npm test
+  - npm run coverage
+
+notifications:
+  webhooks: https://chatbot-travis-webhook.herokuapp.com/webhook
