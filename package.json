@@ -7,7 +7,7 @@
     "test": "mocha --reporter spec",
     "coverage": "istanbul cover ./node_modules/mocha/bin/_mocha --report lcovonly -- -R spec && cat ./coverage/lcov.info | coveralls && rm -rf ./coverage",
     "devCover": "npm run tsc && istanbul cover ./node_modules/mocha/bin/_mocha --report html -- -R spec",
-    "tsc": "tsc ./ts/mainDefs --outDir ./"
+    "tsc": "tsc ./ts/maindefs --outDir ./"
   },
   "repository": "https://github.com/TolleyB-J/ChatBot",
   "author": "Tolley-BJ",
