@@ -14,7 +14,7 @@
   "license": "MIT",
   "dependencies": {
     "capture-console": "^1.0.1",
-    "chalk": "^2.4.1",
+    "chalk": "^2.4.2",
     "discord.js": "^11.3.2",
     "enmap": "^3.0.2",
     "enmap-sqlite": "^2.0.3",
