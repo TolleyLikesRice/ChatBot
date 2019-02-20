@@ -4,3 +4,5 @@
 **coverage/
 **temp.*
 **data/
+**node_modules/
+**.vscode/
