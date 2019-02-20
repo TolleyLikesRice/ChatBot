@@ -84,6 +84,11 @@
 'membertext' = 'Member Count:' # Same as tuserstext but for members
 'updatepermlevel' = '4' # Permlevel for the updatestats command
 
+[Utilities]
+# The config for the utilities commands
+'enable' = true # Whether or not to enable fun commands
+# Working on adding more options
+
 [PerServerDB]
 # The configuration for the per-server settings database
 'enable' = false

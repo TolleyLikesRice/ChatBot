@@ -18,15 +18,22 @@ module.exports = function (grunt) {
       },
       cover: {
         exec: 'istanbul cover ./node_modules/mocha/bin/_mocha --report lcovonly -- -R spec && cat ./coverage/lcov.info | coveralls && rm -rf ./coverage'
+      },
+      testWin: {
+        exec: 'ren config\\config.toml config_.toml && copy test\\testconfig.toml config\\config.toml && mocha --reporter spec'
+      },
+      testWinCleanup: {
+        exec: 'del config\\config.toml && ren config\\config_.toml config.toml'
       }
     }
   });
 
-  grunt.registerTask('default', [ 'run:tsc', 'run:lint', 'run:lintFix', 'run:devCover' ]);
-  grunt.registerTask('test', [ 'run:devCover' ]);
+  grunt.registerTask('default', [ 'run:tsc', 'run:lint', 'run:lintFix']);
+  grunt.registerTask('devCover', [ 'run:devCover' ]);
   grunt.registerTask('lint', [ 'run:lint' ]);
   grunt.registerTask('tsc', [ 'run:tsc' ]);
   grunt.registerTask('lintFix', [ 'run:lint', 'run:lintFix' ]);
   grunt.registerTask('travis', [ 'run:tsc', 'run:lint', 'run:cover' ]);
+  grunt.registerTask('test', ['run:testWin', 'run:testWinCleanup']);
 
 };

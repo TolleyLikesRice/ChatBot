@@ -208,7 +208,7 @@ loadModule('main');
 if (config.Moderation.enable) loadModule('moderation');
 /* istanbul ignore next */
 if (config.Stats.enable) loadModule('stats');
-if (config.Utilites.enable) loadModule('utilites');
+if (config.Utilities.enable) loadModule('utilities');
 ele();
 /* istanbul ignore next */
 if (!fs.existsSync('./test.txt')) {
