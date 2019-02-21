@@ -182,7 +182,7 @@ function ele() {
       if (message.author.id === config.Bot.ownerid) permlvl = 4;
       return permlvl;
     } catch(err) {
-      message.reply('Sorry an error has occurred please DM Tolley#3216 with the error message below\n```Elevation System: ' + err + '```');
+      message.reply('Sorry an error has occurred please DM <@251055152667164676> with the error message below\n```Elevation System: ' + err + '```');
       return 'fail';
     }
   };

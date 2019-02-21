@@ -8,4 +8,5 @@ module.exports = client => {
   client.on('guildBanRemove', reqEvent('guildBanRemove'));
   client.on('guildCreate', reqEvent('guildCreate'));
   client.on('guildDelete', reqEvent('guildDelete'));
+  //process.on('uncaughtException', reqEvent('error'));
 };
