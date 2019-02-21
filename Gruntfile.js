@@ -28,12 +28,12 @@ module.exports = function (grunt) {
     }
   });
 
-  grunt.registerTask('default', [ 'run:tsc', 'run:lint', 'run:lintFix', 'run:lint']);
-  grunt.registerTask('devCover', [ 'run:devCover' ]);
-  grunt.registerTask('lint', [ 'run:lint' ]);
-  grunt.registerTask('tsc', [ 'run:tsc' ]);
-  grunt.registerTask('lintFix', [ 'run:lint', 'run:lintFix' ]);
-  grunt.registerTask('travis', [ 'run:tsc', 'run:lint', 'run:cover' ]);
-  grunt.registerTask('test', ['run:testWin', 'run:testWinCleanup']);
+  grunt.registerTask('default', ['run:tsc', 'run:lint', 'run:lintFix', 'run:lint']);
+  grunt.registerTask('devCover', ['run:tsc', 'run:devCover']);
+  grunt.registerTask('lint', ['run:lint']);
+  grunt.registerTask('tsc', ['run:tsc']);
+  grunt.registerTask('lintFix', ['run:lint', 'run:lintFix']);
+  grunt.registerTask('travis', ['run:tsc', 'run:lint', 'run:cover']);
+  grunt.registerTask('test', ['run:tsc', 'run:testWin', 'run:testWinCleanup']);
 
 };
