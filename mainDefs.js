@@ -5,6 +5,7 @@ var fs_1 = require("fs");
 var GphApiClient = require("giphy-js-sdk-core");
 var request_1 = require("request");
 var toml_1 = require("toml");
+var detectNewline = require("detect-newline");
 // Define Vars
 var config = toml_1.parse(fs_1.readFileSync("./config/config.toml", "utf-8"));
 exports.config = config;
@@ -15,7 +16,8 @@ function textToArray(path) {
         throw new TypeError("Path supplied is not a string");
     }
     var text = fs_1.readFileSync(path, "utf-8");
-    var textByLine = text.split("\n");
+    var lineEnding = detectNewline(text);
+    var textByLine = text.split(lineEnding);
     return textByLine;
 }
 exports.textToArray = textToArray;
