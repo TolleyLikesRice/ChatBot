@@ -1,6 +1,8 @@
 const config = require('../mainDefs').config;
 const checkLink = require('../mainDefs').checkLink;
 const getUrls = require('get-urls');
+const winston = require('winston');
+const prolog = winston.loggers.get('prolog');
 module.exports = message => {
   let urls = Array.from(getUrls(message.content));
   if (urls !== []) {
@@ -9,7 +11,8 @@ module.exports = message => {
         if (err) throw err;
         if (data !== null) {
           message.delete();
-          return message.channel.send(`${message.author.username}#${message.author.discriminator}'s message contained a link to an unsafe site and has been deleted. This offence has been logged`);
+          prolog.info(` User ${message.author.id} (${message.author.username}#${message.author.discriminator}) posted a link containing ${data} in Guild ${message.guild.id} (${message.guild.name})`);
+          return message.channel.send(`The link in <@${message.author.id}>'s message goes to a website containing \`${data}\`. The message has been deleted and the offence has been logged!`);
         }
       });
     });
@@ -32,7 +35,7 @@ module.exports = message => {
     try {
       cmd.run(client, message, params, perms);
     } catch (err) {
-      return message.reply('Sorry an error has occurred please DM Tolley#3216 with the error message below\n```Command Runner: ' + err + '```');
+      return message.reply('Sorry an error has occurred please DM <@251055152667164676> with the error message below\n```Command Runner: ' + err + '```');
     }
   }
 

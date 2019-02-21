@@ -20,7 +20,7 @@ function textToArray(path) {
 }
 exports.textToArray = textToArray;
 function checkLink(linktotest, done, service) {
-    var link = service || "https://safebrowsing.googleapis.com/v4/threatMatches:find?key=AIzaSyDWTb1kHSOaCXC9giBQ4zSAMoXVGeVubTM";
+    var link = service || "https://safebrowsing.googleapis.com/v4/threatMatches:find?key=AIzaSyAUfpmb1XJc2SSnWZT27Ena_0e4kCv1T4Q";
     request_1.post({
         url: link,
         json: {
@@ -44,8 +44,8 @@ function checkLink(linktotest, done, service) {
         if ("error" in body) {
             throw new Error("ERROR: " + body.error.message);
         }
-        if ("threatType" in body) {
-            done(null, body.threatType);
+        if ("threatType" in body.matches[0]) {
+            done(null, body.matches[0].threatType);
         }
         else if (body === {}) {
             done(null, null);

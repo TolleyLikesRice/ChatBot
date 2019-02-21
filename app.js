@@ -21,12 +21,12 @@ if (config.Stats.enable) client.enabledModules.push('stats');
 
 //Set up enmap
 client.settings = new Enmap({ provider: new Provider({ name: 'settings' }) });
-/*client.defaultSettings = {
-  modRole: "Moderator",
-  adminRole: "Admin",
+client.defaultSettings = {
+  modRole: 'Moderator',
+  adminRole: 'Admin',
   serverOwnerID: undefined,
   enabledModules: client.enabledModules
-};*/
+};
 
 //Get Logger
 require('./start_scripts');
