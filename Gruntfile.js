@@ -38,6 +38,5 @@ module.exports = function (grunt) {
   grunt.registerTask('lintFix', ['run:lint', 'run:lintFix']);
   grunt.registerTask('travis', ['run:tsc', 'run:lint', 'run:cover']);
   grunt.registerTask('test', ['run:tsc', 'run:testWin', 'run:testWinCleanup']);
-  grunt.registerTask('gitcom', ['run:tsc', 'run:lint', 'run:lintFix', 'run:lint', 'run:gitcom']);
 
 };
