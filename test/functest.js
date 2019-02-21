@@ -8,7 +8,7 @@ describe('Check functions/variables from mainDefs.js', function () {
     expect(array).to.be.a('array');
   });
   it('Checks if error is thrown when path is not a string', function () {
-    expect(funcs.textToArray.bind(funcs, { path: 'Hello World' })).to.throw('Path supplyed is not a string');
+    expect(funcs.textToArray.bind(funcs, { path: 'Hello World' })).to.throw('Path supplied is not a string');
   });
   it('Checks if a site is safe', function (done) {
     funcs.checkLink('https://google.com', function (err) {
@@ -31,7 +31,6 @@ describe('Check functions/variables from mainDefs.js', function () {
   it('Checks if a site is safe using a invalid api key', function (done) {
     expect(funcs.checkLink.bind(funcs, 'https://google.com', function (err, data) {
       if (err) throw err;
-      console.log(data);
     }, 'https://safebrowsing.googleapis.com/v4/threatMatches:find?key=boop'));
     done();
   });

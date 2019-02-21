@@ -12,7 +12,7 @@ var giphy = GphApiClient(config.Giphy.apikey);
 exports.giphy = giphy;
 function textToArray(path) {
     if (typeof path !== "string") {
-        throw new TypeError("Path supplyed is not a string");
+        throw new TypeError("Path supplied is not a string");
     }
     var text = fs_1.readFileSync(path, "utf-8");
     var textByLine = text.split("\n");
@@ -44,12 +44,13 @@ function checkLink(linktotest, done, service) {
         if ("error" in body) {
             throw new Error("ERROR: " + body.error.message);
         }
-        if ("threatType" in body.matches[0]) {
-            done(null, body.matches[0].threatType);
+        if ("matches" in body) {
+            if ("threatType" in body.matches[0]) {
+                done(null, body.matches[0].threatType);
+                return;
+            }
         }
-        else if (body === {}) {
-            done(null, null);
-        }
+        done(null, null);
     });
 }
 exports.checkLink = checkLink;
