@@ -9,7 +9,7 @@ install:
   - npm install -g istanbul
   - npm install -g coveralls
   - mkdir logs
-  - touch logs/dev.log
+  - touch logs/main.log
   - cp test/testconfig.toml config/config.toml
 
 script:

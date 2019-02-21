@@ -7,23 +7,23 @@ console.log(config.test);
 
 //Rotates Log File
 try {
-  fs.stat('./logs/dev.log', function (err) {
+  fs.stat('./logs/main.log', function (err) {
     if (err == null) {
       newfile = true;
-      fs.rename('./logs/dev.log', './logs/olddev.log', function () {
-        fs.stat('./logs/dev.log', function () {
+      fs.rename('./logs/main.log', './logs/oldmain.log', function () {
+        fs.stat('./logs/main.log', function () {
         });
       });
     } else if (err.code == 'ENOENT') {
       // file does not exist
-      console.log('Creating new dev.log');
+      console.log('Creating new main.log');
     } else {
       console.log('Some other error: ', err.code);
     }
   });
 } catch (err) {
   if (err.code == 'ENOENT') {
-    console.log('Creating new dev.log');
+    console.log('Creating new main.log');
   }
 }
 
@@ -37,7 +37,7 @@ if (config.Logging.debug) {
         json: false
       },
       file: {
-        filename: './logs/dev.log',
+        filename: './logs/main.log',
         level: 'silly',
         json: false,
         timestamp: true
@@ -59,7 +59,7 @@ if (config.Logging.debug) {
         json: false
       },
       file: {
-        filename: './logs/dev.log',
+        filename: './logs/main.log',
         level: 'silly',
         json: false,
         timestamp: true
