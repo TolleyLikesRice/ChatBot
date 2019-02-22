@@ -1,5 +1,5 @@
 const winston = require('winston');
-const prolog = winston.loggers.get('prolog');
+const main = winston.loggers.get('main');
 module.exports = () => {
-  prolog.warn('Reconnecting at ' + new Date());
+  main.warn('Reconnecting at ' + new Date());
 };

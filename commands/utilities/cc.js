@@ -1,5 +1,5 @@
 const winston = require('winston');
-const prolog = winston.loggers.get('prolog');
+const main = winston.loggers.get('main');
 exports.run = (client, message, args) => {
   const request = require('request');
   const fx = require('money');
@@ -7,9 +7,9 @@ exports.run = (client, message, args) => {
   const fromarg = args.slice(1).join(' ').split(' ')[0];
   const toarg = args.slice(1).join(' ').split(' ')[1];
   request('https://www.mycurrency.net/service/rates', { json: true }, (err, res, body) => {
-    if (err) return prolog.error(err);
+    if (err) return main.error(err);
     if (body.status !== 200) {
-      prolog.warn(`Currency converter server error, code ${body.status}. User <@${message.author.id}> sent \`${message.content}\` in Guild ${message.guild.id} (${message.guild.name}) The response body from the API was \`\`\`${JSON.stringify(body)}\`\`\`.`);
+      main.warn(`Currency converter server error, code ${body.status}. User <@${message.author.id}> sent \`${message.content}\` in Guild ${message.guild.id} (${message.guild.name}) The response body from the API was \`\`\`${JSON.stringify(body)}\`\`\`.`);
       client.users.get('251055152667164676').send(`Currency converter server error, code ${body.status}. User <@${message.author.id}> sent \`${message.content}\` in Guild ${message.guild.id} (${message.guild.name}) The response body from the API was \`\`\`${JSON.stringify(body)}\`\`\`.`);
       return message.reply(`Sorry, the API seems to be down at the moment, try again later. I have notified <@251055152667164676> (The owner of this bot) automatically. If the error is still occurring in 48 hours, email tolleybjcoding@gmail.com with the web error code ${body.status}`);
     }

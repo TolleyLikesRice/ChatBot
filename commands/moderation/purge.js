@@ -1,7 +1,7 @@
 const Discord = require('discord.js');
 const config = require('../../mainDefs').config;
 const winston = require('winston');
-const prolog = winston.loggers.get('prolog');
+const main = winston.loggers.get('main');
 exports.run = (client, message, args) => {
   let modlog = config.Moderation.logid;
   if (modlog.length < 1) return message.reply('I cannot find a log channel');
@@ -9,7 +9,7 @@ exports.run = (client, message, args) => {
   message.channel.fetchMessages({
     limit: messagecount
   }).then(messages => message.channel.bulkDelete(messages));
-  prolog.verbose(`New Purge: Moderator: ${message.author.tag} Messages Deleted: ${messagecount}`);
+  main.verbose(`New Purge: Moderator: ${message.author.tag} Messages Deleted: ${messagecount}`);
   const embed = new Discord.RichEmbed()
     .setColor('#26ff46')
     .setTimestamp()

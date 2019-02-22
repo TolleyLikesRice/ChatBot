@@ -1,5 +1,5 @@
 const winston = require('winston');
-const prolog = winston.loggers.get('prolog');
+const main = winston.loggers.get('main');
 module.exports = guild => {
-  prolog.info(`I just joined a discord server called: ${guild.name}`);
+  main.info(`I just joined a discord server called: ${guild.name}`);
 };

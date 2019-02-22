@@ -1,7 +1,7 @@
 const winston = require('winston');
-const prolog = winston.loggers.get('prolog');
+const main = winston.loggers.get('main');
 console.log('1');
 module.exports = () => {
-  prolog.warn('You have been disconnected at ' + new Date());
+  main.warn('You have been disconnected at ' + new Date());
   console.log('2');
 };

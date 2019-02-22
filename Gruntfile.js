@@ -19,24 +19,24 @@ module.exports = function (grunt) {
       cover: {
         exec: 'istanbul cover ./node_modules/mocha/bin/_mocha --report lcovonly -- -R spec && cat ./coverage/lcov.info | coveralls && rm -rf ./coverage'
       },
-      testWin: {
-        exec: 'ren config\\config.toml config_.toml && copy test\\testconfig.toml config\\config.toml && mocha --reporter spec'
+      testWinPrep: {
+        exec: 'ren config\\config.toml config_.toml && copy test\\testconfig.toml config\\config.toml'
+      },
+      test: {
+        exec: 'mocha --reporter spec'
       },
       testWinCleanup: {
         exec: 'del config\\config.toml && ren config\\config_.toml config.toml'
-      },
-      gitcom: {
-        exec: 'gitcom'
       }
     }
   });
 
   grunt.registerTask('default', ['run:tsc', 'run:lint', 'run:lintFix', 'run:lint']);
-  grunt.registerTask('devCover', ['run:tsc', 'run:devCover']);
+  grunt.registerTask('devCover', ['run:tsc', 'run:testWinPrep','run:devCover', 'run:testWinCleanup']);
   grunt.registerTask('lint', ['run:lint']);
   grunt.registerTask('tsc', ['run:tsc']);
   grunt.registerTask('lintFix', ['run:lint', 'run:lintFix']);
   grunt.registerTask('travis', ['run:tsc', 'run:lint', 'run:cover']);
-  grunt.registerTask('test', ['run:tsc', 'run:testWin', 'run:testWinCleanup']);
+  grunt.registerTask('test', ['run:tsc', 'run:testWinPrep', 'run:test','run:testWinCleanup']);
 
 };

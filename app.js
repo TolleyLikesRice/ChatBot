@@ -1,4 +1,4 @@
-// cSpell:ignore Enmap, prolog
+// cSpell:ignore Enmap, main
 const Discord = require('discord.js');
 const client = new Discord.Client();
 const fs = require('fs');
@@ -31,23 +31,23 @@ client.defaultSettings = {
 //Get Logger
 require('./start_scripts');
 const winston = require('winston');
-const prolog = winston.loggers.get('prolog');
+const main = winston.loggers.get('main');
 
 require('./util/eventLoader')(client);
 
 //Print out lettering
-prolog.verbose('  _                     _ _             ');
-prolog.verbose(' | |                   | (_)            ');
-prolog.verbose(' | |     ___   __ _  __| |_ _ __   __ _ ');
-prolog.verbose(' | |    / _ \\ / _` |/ _` | | \'_ \\ / _` |');
-prolog.verbose(' | |___| (_) | (_| | (_| | | | | | (_| |');
-prolog.verbose(' |______\\___/ \\__,_|\\__,_|_|_| |_|\\__, |');
-prolog.verbose('                                   __/ |');
-prolog.verbose('                                  |___/');
-prolog.verbose('------------------------------------------------');
+main.verbose('  _                     _ _             ');
+main.verbose(' | |                   | (_)            ');
+main.verbose(' | |     ___   __ _  __| |_ _ __   __ _ ');
+main.verbose(' | |    / _ \\ / _` |/ _` | | \'_ \\ / _` |');
+main.verbose(' | |___| (_) | (_| | (_| | | | | | (_| |');
+main.verbose(' |______\\___/ \\__,_|\\__,_|_|_| |_|\\__, |');
+main.verbose('                                   __/ |');
+main.verbose('                                  |___/');
+main.verbose('------------------------------------------------');
 
 function init() {
-  prolog.info('Connecting...');
+  main.info('Connecting...');
 }
 
 function loadModule(ModuleFolder) {
@@ -58,27 +58,27 @@ function loadModule(ModuleFolder) {
   } catch (error) {
     throw new Error('Module Load Error');
   }
-  prolog.verbose(`Loading a total of ${files.length} ${ModuleFolder} commands.`);
+  main.verbose(`Loading a total of ${files.length} ${ModuleFolder} commands.`);
   files.forEach(f => {
     let props = require(`./commands/${ModuleFolder}/${f}`);
-    prolog.verbose(`Loading ${ModuleFolder} Command: ${props.help.name}. 👌`);
+    main.verbose(`Loading ${ModuleFolder} Command: ${props.help.name}. 👌`);
     client.commands.set(props.help.name, props);
     props.conf.aliases.forEach(alias => {
       client.aliases.set(alias, props.help.name);
     });
   });
-  prolog.verbose('------------------------------------------------');
+  main.verbose('------------------------------------------------');
 }
 /*function cmd() {
   client.commands = new Discord.Collection();
   client.aliases = new Discord.Collection();
   //Load main commands
   fs.readdir('./commands/main/', (err, files) => {
-    if (err) prolog.error(err);
-    prolog.verbose(`Loading a total of ${files.length} main commands.`);
+    if (err) main.error(err);
+    main.verbose(`Loading a total of ${files.length} main commands.`);
     files.forEach(f => {
       let props = require(`./commands/main/${f}`);
-      prolog.verbose(`Loading Main Command: ${props.help.name}. 👌`);
+      main.verbose(`Loading Main Command: ${props.help.name}. 👌`);
       client.commands.set(props.help.name, props);
       props.conf.aliases.forEach(alias => {
         client.aliases.set(alias, props.help.name);
@@ -88,11 +88,11 @@ function loadModule(ModuleFolder) {
   //Load Giphy commands
   if (config.Giphy.enable === true) {
     fs.readdir('./commands/giphy/', (err, files) => {
-      if (err) prolog.error(err);
-      prolog.verbose(`Loading a total of ${files.length} giphy commands.`);
+      if (err) main.error(err);
+      main.verbose(`Loading a total of ${files.length} giphy commands.`);
       files.forEach(f => {
         let props = require(`./commands/giphy/${f}`);
-        prolog.verbose(`Loading Giphy Command: ${props.help.name}. 👌`);
+        main.verbose(`Loading Giphy Command: ${props.help.name}. 👌`);
         client.commands.set(props.help.name, props);
         props.conf.aliases.forEach(alias => {
           client.aliases.set(alias, props.help.name);
@@ -103,11 +103,11 @@ function loadModule(ModuleFolder) {
   //Load moderation commands
   if (config.Moderation.enable) {
     fs.readdir('./commands/moderation/', (err, files) => {
-      if (err) prolog.error(err);
-      prolog.verbose(`Loading a total of ${files.length} moderation commands.`);
+      if (err) main.error(err);
+      main.verbose(`Loading a total of ${files.length} moderation commands.`);
       files.forEach(f => {
         let props = require(`./commands/moderation/${f}`);
-        prolog.verbose(`Loading Moderation Command: ${props.help.name}. 👌`);
+        main.verbose(`Loading Moderation Command: ${props.help.name}. 👌`);
         client.commands.set(props.help.name, props);
         props.conf.aliases.forEach(alias => {
           client.aliases.set(alias, props.help.name);
@@ -118,11 +118,11 @@ function loadModule(ModuleFolder) {
   //Loading fun commands
   if (config.Fun.enable) {
     fs.readdir('./commands/fun/', (err, files) => {
-      if (err) prolog.error(err);
-      prolog.verbose(`Loading a total of ${files.length} fun commands.`);
+      if (err) main.error(err);
+      main.verbose(`Loading a total of ${files.length} fun commands.`);
       files.forEach(f => {
         let props = require(`./commands/fun/${f}`);
-        prolog.verbose(`Loading Fun Command: ${props.help.name}. 👌`);
+        main.verbose(`Loading Fun Command: ${props.help.name}. 👌`);
         client.commands.set(props.help.name, props);
         props.conf.aliases.forEach(alias => {
           client.aliases.set(alias, props.help.name);
@@ -133,11 +133,11 @@ function loadModule(ModuleFolder) {
   //Load stats command
   if (config.Stats.enable) {
     fs.readdir('./commands/stats/', (err, files) => {
-      if (err) prolog.error(err);
-      prolog.verbose(`Loading a total of ${files.length} stats commands.`);
+      if (err) main.error(err);
+      main.verbose(`Loading a total of ${files.length} stats commands.`);
       files.forEach(f => {
         let props = require(`./commands/stats/${f}`);
-        prolog.verbose(`Loading stats Command: ${props.help.name}. 👌`);
+        main.verbose(`Loading stats Command: ${props.help.name}. 👌`);
         client.commands.set(props.help.name, props);
         props.conf.aliases.forEach(alias => {
           client.aliases.set(alias, props.help.name);
@@ -195,9 +195,9 @@ module.exports = {
 };
 
 
-prolog.debug('No test, starting ChatBot');
+main.debug('No test, starting ChatBot');
 init();
-prolog.verbose('------------------------------------------------');
+main.verbose('------------------------------------------------');
 //Load in alphabetical order
 /* istanbul ignore next */
 if (config.Fun.enable) loadModule('fun');
@@ -213,8 +213,8 @@ ele();
 /* istanbul ignore next */
 if (!fs.existsSync('./test.txt')) {
   if (config.Bot.token != 'YOUR-BOT-TOKEN-HERE') {
-    client.login(config.Bot.token).catch(error => { prolog.error(`Error During Login. ${error}`); process.exit(1); });
+    client.login(config.Bot.token).catch(error => { main.error(`Error During Login. ${error}`); process.exit(1); });
   } else {
-    prolog.error('No token in config.toml. Aborting...');
+    main.error('No token in config.toml. Aborting...');
   }
 }

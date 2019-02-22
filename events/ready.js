@@ -1,9 +1,9 @@
 const chalk = require('chalk');
 const winston = require('winston');
-const prolog = winston.loggers.get('prolog');
+const main = winston.loggers.get('main');
 const config = require('../mainDefs').config;
 module.exports = client => {
-  prolog.info(chalk.green('Connected!'));
+  main.info(chalk.green('Connected!'));
   client.user.setActivity(config.Botcmd.bootgame, { type: 'PLAYING' });
   //Check every guild has a enmap config
   client.guilds.forEach(guild => {

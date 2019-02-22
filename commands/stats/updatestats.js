@@ -1,5 +1,5 @@
 const winston = require('winston');
-const prolog = winston.loggers.get('prolog');
+const main = winston.loggers.get('main');
 const config = require('../../mainDefs').config;
 exports.run = (client, message) => {
   if (config.Stats.enablestats === true) {
@@ -8,10 +8,10 @@ exports.run = (client, message) => {
     var channel = client.channels.get(config.Stats.tusersid);
     var bots = 0;
     channel.edit({ name: `${config.Stats.tuserstext} ${guildmembers}` })
-      .then(prolog.verbose)
-      .catch(prolog.error);
+      .then(main.verbose)
+      .catch(main.error);
     message.reply(`Set to: ${config.Stats.tuserstext}: ${guildmembers}`);
-    prolog.info(`Set ${config.Stats.tuserstext} to ${guildmembers}. For more info see verbose`);
+    main.info(`Set ${config.Stats.tuserstext} to ${guildmembers}. For more info see verbose`);
     //Set number of bots
     var Count;
     for (Count in client.users.array()) {
@@ -25,18 +25,18 @@ exports.run = (client, message) => {
     }
     channel = client.channels.get(config.Stats.botsid);
     channel.edit({ name: `${config.Stats.botstext} ${bots}` })
-      .then(prolog.verbose)
-      .catch(prolog.error);
+      .then(main.verbose)
+      .catch(main.error);
     message.reply(`Set to: ${config.Stats.botstext} ${bots}`);
-    prolog.info(`Set ${config.Stats.botstext} to ${bots}. For more info see verbose`);
+    main.info(`Set ${config.Stats.botstext} to ${bots}. For more info see verbose`);
     //Set Number of members
     var members = guildmembers - bots;
     channel = client.channels.get(config.Stats.memberid);
     channel.edit({name: `${config.Stats.membertext} ${members}`})
-      .then(prolog.verbose)
-      .catch(prolog.error);
+      .then(main.verbose)
+      .catch(main.error);
     message.reply(`Set to: ${config.Stats.membertext} ${members}`);
-    prolog.info(`Set ${config.Stats.membertext} to ${members}. For more info see verbose`);
+    main.info(`Set ${config.Stats.membertext} to ${members}. For more info see verbose`);
   }
 };
 

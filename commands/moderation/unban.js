@@ -1,6 +1,6 @@
 const config = require('../../mainDefs').config;
 const winston = require('winston');
-const prolog = winston.loggers.get('prolog');
+const main = winston.loggers.get('main');
 exports.run = (client, message, args) => {
   let reason = args.slice(1).join(' ');
   client.unbanReason = reason;
@@ -9,7 +9,7 @@ exports.run = (client, message, args) => {
   let modlog = config.Moderation.logid;
   if (modlog.length < 1) return message.reply('I cannot find a log channel');
   if (reason.length < 1) return message.reply('You must supply a reason for the unban.');
-  if (!user) return message.reply('You must supply a User Resolvable, such as a user id.').catch(prolog.error);
+  if (!user) return message.reply('You must supply a User Resolvable, such as a user id.').catch(main.error);
   message.guild.unban(user);
 };
 

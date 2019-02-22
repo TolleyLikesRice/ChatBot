@@ -1,6 +1,6 @@
 const ms = require('ms');
 const winston = require('winston');
-const prolog = winston.loggers.get('prolog');
+const main = winston.loggers.get('main');
 const config = require('../../mainDefs').config;
 exports.run = (client, message, args) => {
   if (!client.lockit) client.lockit = [];
@@ -16,7 +16,7 @@ exports.run = (client, message, args) => {
       clearTimeout(client.lockit[message.channel.id]);
       delete client.lockit[message.channel.id];
     }).catch(error => {
-      prolog.error(error);
+      main.error(error);
     });
   } else {
     message.channel.overwritePermissions(message.guild.id, {
@@ -27,12 +27,12 @@ exports.run = (client, message, args) => {
         client.lockit[message.channel.id] = setTimeout(() => {
           message.channel.overwritePermissions(message.guild.id, {
             SEND_MESSAGES: null
-          }).then(message.channel.send('Lockdown lifted.')).catch(prolog.error);
+          }).then(message.channel.send('Lockdown lifted.')).catch(main.error);
           delete client.lockit[message.channel.id];
         }, ms(time));
 
       }).catch(error => {
-        prolog.error(error);
+        main.error(error);
       });
     });
   }

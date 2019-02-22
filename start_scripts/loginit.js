@@ -3,7 +3,6 @@ const winston = require('winston');
 const fs = require('fs');
 const config = require('../mainDefs').config;
 var newfile = false;
-console.log(config.test);
 
 //Rotates Log File
 try {
@@ -28,8 +27,8 @@ try {
 }
 
 if (config.Logging.debug) {
-  function prologtest() {
-    winston.loggers.add('prolog', {
+  function maintest() {
+    winston.loggers.add('main', {
       console: {
         level: 'silly',
         colorize: true,
@@ -45,13 +44,13 @@ if (config.Logging.debug) {
     });
   }
   module.exports = {
-    prologtest: prologtest,
+    maintest: maintest,
   };
-  prologtest();
+  maintest();
 } else {
-  //Define logger Prolog
-  function prologtest() {
-    winston.loggers.add('prolog', {
+  //Define logger main
+  function maintest() {
+    winston.loggers.add('main', {
       console: {
         level: 'warn',
         colorize: true,
@@ -67,9 +66,9 @@ if (config.Logging.debug) {
     });
   }
   module.exports = {
-    prologtest: prologtest,
+    maintest: maintest,
   };
-  prologtest();
+  maintest();
 }
 
 /*
@@ -94,6 +93,6 @@ function devlogtest() {
 
 
 if (newfile) {
-  const prolog = winston.loggers.get('prolog');
-  prolog.info('Hello new log file :)');
+  const main = winston.loggers.get('main');
+  main.info('Hello new log file :)');
 }

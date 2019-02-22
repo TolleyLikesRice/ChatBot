@@ -1,18 +1,18 @@
 const Discord = require('discord.js');
 const config = require('../../mainDefs').config;
 const winston = require('winston');
-const prolog = winston.loggers.get('prolog');
+const main = winston.loggers.get('main');
 exports.run = (client, message, args) => {
   let reason = args.slice(1).join(' ');
   let user = message.mentions.users.first();
   let modlog = config.Moderation.logid;
   if (modlog.length < 1) return message.reply('I cannot find a log channel');
   if (reason.length < 1) return message.reply('You must supply a reason for the kick.');
-  if (message.mentions.users.size < 1) return message.reply('You must mention someone to kick them.').catch(prolog.error);
+  if (message.mentions.users.size < 1) return message.reply('You must mention someone to kick them.').catch(main.error);
 
   if (!message.guild.member(user).kickable) return message.reply('I cannot kick that member');
   message.guild.member(user).kick();
-  prolog.info(`New Kick: Target:${user.tag} Moderator:${message.author.tag} Reason:${reason}`);
+  main.info(`New Kick: Target:${user.tag} Moderator:${message.author.tag} Reason:${reason}`);
   const embed = new Discord.RichEmbed()
     .setColor('#ffff26')
     .setTimestamp()
