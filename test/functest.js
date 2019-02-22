@@ -43,7 +43,6 @@ describe('Check functions/variables from mainDefs.js', function () {
   });
   it('Checks if the Google Safe Browsing API returns an error when an invalid API key is used', function (done) {
     expect(funcs.checkLink('http://malware.wicar.org/data/eicar.com', function (err, data, body) {
-      if (err) throw err;
       expect(body.error.message).to.contain('API key not valid');
       done();
     }, 'https://safebrowsing.googleapis.com/v4/threatMatches:find?key=boop'));
