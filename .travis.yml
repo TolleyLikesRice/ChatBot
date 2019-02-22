@@ -13,7 +13,7 @@ install:
   - cp test/testconfig.toml config/config.toml
 
 script:
-  - istanbul cover mocha --report lcovonly -- -R spec
+  - npm run coverage
   - cat ./coverage/lcov.info | codacy-coverage
   - codecov
 
