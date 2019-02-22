@@ -22,7 +22,7 @@ function textToArray(path) {
 }
 exports.textToArray = textToArray;
 function checkLink(linktotest, done, service) {
-    var link = service || "https://safebrowsing.googleapis.com/v4/threatMatches:find?key=AIzaSyAUfpmb1XJc2SSnWZT27Ena_0e4kCv1T4Q";
+    var link = service || "https://safebrowsing.googleapis.com/v4/threatMatches:find?key=AIzaSyAUfpmb1XJc2SSnWZT27Ena_0e4kCv1TQ";
     request_1.post({
         url: link,
         json: {
@@ -43,16 +43,17 @@ function checkLink(linktotest, done, service) {
         if (err) {
             throw err;
         }
-        if ("error" in body) {
-            throw new Error("ERROR: " + body.error.message);
-        }
         if ("matches" in body) {
             if ("threatType" in body.matches[0]) {
-                done(null, body.matches[0].threatType);
+                done(null, body.matches[0].threatType, body);
                 return;
             }
         }
-        done(null, null);
+        if ("error" in body) {
+            done(body.error, null, body);
+            return;
+        }
+        done(null, null, body);
     });
 }
 exports.checkLink = checkLink;

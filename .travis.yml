@@ -7,13 +7,15 @@ install:
   - npm install
   - npm install -g mocha
   - npm install -g istanbul
-  - npm install -g coveralls
+  - npm install -g codecov
   - mkdir logs
   - touch logs/main.log
   - cp test/testconfig.toml config/config.toml
 
 script:
-  - npm run coverage
+  - istanbul cover _mocha --report lcovonly -- -R spec
+  - cat ./coverage/lcov.info | codacy-coverage
+  - codecov
 
 notifications:
   webhooks: https://chatbot-travis-webhook.herokuapp.com/webhook

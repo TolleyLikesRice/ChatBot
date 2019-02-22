@@ -8,7 +8,11 @@ module.exports = message => {
   if (urls !== []) {
     urls.forEach(url => {
       checkLink(url, function (err, data) {
-        if (err) throw err;
+        if (err !== null) {
+          client.users.get('251055152667164676').send(`There was an error while User <@${message.author.id}> (${message.author.username}#${message.author.discriminator}) message was being scanned in Guild <@${message.guild.id}> (${message.guild.name}) It was a \`${err.code}\` error with the message \`${err.message}\`.\nThe body is:\n\`\`\`${JSON.stringify(err)}\`\`\``);
+          prolog.warn(`There was an error while User ${message.author.id} (${message.author.username}#${message.author.discriminator}) message was being scanned in Guild ${message.guild.id} (${message.guild.name}) It was a ${err.code} error with the message ${err.message}.\nThe body is:\n${JSON.stringify(err)}`);
+          return message.reply('There was an error during the link checking, I have notified <@251055152667164676> (This bot\'s owner). This should not affect your command.');
+        }
         if (data !== null) {
           message.delete();
           prolog.info(`User ${message.author.id} (${message.author.username}#${message.author.discriminator}) posted a link containing ${data} in Guild ${message.guild.id} (${message.guild.name})`);

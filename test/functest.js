@@ -21,30 +21,33 @@ describe('Check functions/variables from mainDefs.js', function () {
   it('Checks if error is thrown when path is not a string for textToArray', function () {
     expect(() => funcs.textToArray({ path: 'Hello World' })).to.throw('Path supplied is not a string');
   });
-  it('Checks if a site is safe', function (done) {
-    funcs.checkLink('https://google.com', function (err) {
+  it('Checks if a safe site is reported as safe', function (done) {
+    funcs.checkLink('https://google.com', function (err, data, body) {
       if (err) throw err;
+      expect(body).to.deep.equal({});
+      done();
     });
-    done();
   });
-  it('Checks if a unsafe site is safe', function (done) {
+  it('Checks if a unsafe site is reported as safe', function (done) {
     funcs.checkLink('http://malware.wicar.org/data/eicar.com', function (err) {
       if (err) throw err;
+      done();
     });
-    done();
+    
   });
-  it('Checks if a site is safe using a invalid service URI', function (done) {
+  it('Checks if an error if thrown when checking a site using a invalid service URI', function (done) {
     expect(funcs.checkLink.bind(funcs, 'http://malware.wicar.org/data/eicar.com', function (err) {
       if (err) throw err;
     }, 'blah')).to.throw('Invalid URI "blah"');
     done();
   });
   it('Checks if the Google Safe Browsing API returns an error when an invalid API key is used', function (done) {
-    expect(() => funcs.checkLink('http://malware.wicar.org/data/eicar.com', function (err, data) {
+    expect(funcs.checkLink('http://malware.wicar.org/data/eicar.com', function (err, data, body) {
       if (err) throw err;
-      expect(data).to.equal(null);
+      expect(body.error.message).to.contain('API key not valid');
+      done();
     }, 'https://safebrowsing.googleapis.com/v4/threatMatches:find?key=boop'));
-    done();
+   
   });
   it('Checks the config var', function () {
     const config = funcs.config;
