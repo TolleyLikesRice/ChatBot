@@ -4,6 +4,7 @@ const getUrls = require('get-urls');
 const winston = require('winston');
 const prolog = winston.loggers.get('prolog');
 module.exports = message => {
+  let client = message.client;
   let urls = Array.from(getUrls(message.content));
   if (urls !== []) {
     urls.forEach(url => {
@@ -22,7 +23,6 @@ module.exports = message => {
     });
   }
   if (message.author.bot) return;
-  let client = message.client;
   if (!message.content.startsWith(config.Bot.prefix)) return;
   let command = message.content.split(' ')[0].slice(config.Bot.prefix.length);
   let params = message.content.split(' ').slice(1);

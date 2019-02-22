@@ -22,7 +22,7 @@ function textToArray(path) {
 }
 exports.textToArray = textToArray;
 function checkLink(linktotest, done, service) {
-    var link = service || "https://safebrowsing.googleapis.com/v4/threatMatches:find?key=AIzaSyAUfpmb1XJc2SSnWZT27Ena_0e4kCv1TQ";
+    var link = service || "https://safebrowsing.googleapis.com/v4/threatMatches:find?key=AIzaSyAUfpmb1XJc2SSnWZT27Ena_0e4kCv1T4Q";
     request_1.post({
         url: link,
         json: {
