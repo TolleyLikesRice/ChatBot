@@ -1,7 +1,8 @@
 const rn = require('random-number');
 exports.run = (client, message, args) => {
-  let num1 = parseInt(args.join(' '));
+  let num1 = args.slice(0).join(' ');
   let num2 = args.slice(1).join(' ');
+  if (num1.length < 1 || num2.length < 1) return message.reply('You must supply two numbers!');
   let num12 = parseInt(num1);
   let num22 = parseInt(num2);
   var options = {
@@ -10,7 +11,7 @@ exports.run = (client, message, args) => {
     , integer: true
   };
   var number = rn(options);
-  message.reply(`Your number between ${num1} and ${num2} is ${number}`);
+  message.reply(`Your number between ${num12} and ${num22} is ${number}`);
 };
 
 exports.conf = {
