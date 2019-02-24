@@ -71,6 +71,8 @@
 # This module must be enabled
 'setgameenable' = 'true' # Whether to enable the the setgame command
 'setgamelevel' = '4' # Permlevel for setgame command
+'serverlistenable' = 'true' # Whether to enable the the serverlist command
+'serverlistlevel' = '4' # Permlevel for serverlist command
 'bootgame' = 'This bot is by TolleyB-J' # The bots default game on boot
 
 [Stats]
@@ -90,7 +92,9 @@
 
 [PerServerDB]
 # The configuration for the per-server settings database
-'enable' = false
+'enable' = false # Enable Per server settings
+'dbNukeEnable' = 'false' # Don't enable this unless a dev told you to do it.
+'dbAudit' = 'false' # Same as above, don't use it without consulting a dev first.
 
 #  ______           _          __    _____             __ _       _
 # |  ____|         | |        / _|  / ____|           / _(_)     | |
