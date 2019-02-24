@@ -7,6 +7,8 @@ const Provider = require('enmap-sqlite');
 const config = require('./mainDefs').config;
 client.commands = new Discord.Collection();
 client.aliases = new Discord.Collection();
+const DBL = require("dblapi.js");
+const dbl = new DBL('eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjQ0OTYwMDM5Njc2ODMxMzM1NCIsImJvdCI6dHJ1ZSwiaWF0IjoxNTMzNjI1MzMxfQ.BqnsiY3YshbM_sW0asKugiOB9ezkZRsQhcxgIoQwx3A', client);
 
 //Create array of globally enabled modules
 client.enabledModules = ['main'];
