@@ -106,4 +106,6 @@
 #                                                           |___/
 
 
-test = false # DO NOT EDIT THIS
+'test' = false # DO NOT EDIT THIS
+'dblEnable' = false # DO NOT EDIT THIS
+'dblAPI' = '' # DO NOT EDIT THIS

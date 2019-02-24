@@ -4,11 +4,12 @@ const client = new Discord.Client();
 const fs = require('fs');
 const Enmap = require('enmap');
 const Provider = require('enmap-sqlite');
+const DiscordBotsList = require('dblapi.js');
 const config = require('./mainDefs').config;
 client.commands = new Discord.Collection();
 client.aliases = new Discord.Collection();
-const DBL = require("dblapi.js");
-const dbl = new DBL('eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjQ0OTYwMDM5Njc2ODMxMzM1NCIsImJvdCI6dHJ1ZSwiaWF0IjoxNTMzNjI1MzMxfQ.BqnsiY3YshbM_sW0asKugiOB9ezkZRsQhcxgIoQwx3A', client);
+let dbl;
+if (config.dblEnable === true) {dbl = new DiscordBotsList(config.dblAPI, client);}
 
 //Create array of globally enabled modules
 client.enabledModules = ['main'];
@@ -34,8 +35,7 @@ client.defaultSettings = {
 require('./start_scripts');
 const winston = require('winston');
 const main = winston.loggers.get('main');
-
-require('./util/eventLoader')(client);
+require('./util/eventLoader')(client, dbl);
 
 //Print out lettering
 main.verbose('  _                     _ _             ');

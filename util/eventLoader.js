@@ -1,5 +1,5 @@
 const reqEvent = (event) => require('../events/' + event);
-module.exports = client => {
+module.exports = (client, dbl) => {
   client.on('ready', () => reqEvent('ready')(client));
   client.on('reconnecting', () => reqEvent('reconnecting')(client));
   client.on('disconnect', () => reqEvent('disconnect'));
@@ -8,5 +8,5 @@ module.exports = client => {
   client.on('guildBanRemove', reqEvent('guildBanRemove'));
   client.on('guildCreate', reqEvent('guildCreate'));
   client.on('guildDelete', reqEvent('guildDelete'));
-  //process.on('uncaughtException', reqEvent('error'));
+  dbl.on('posted', reqEvent('dblPosted'));
 };

@@ -31,7 +31,7 @@ module.exports = function (grunt) {
     }
   });
 
-  grunt.registerTask('default', ['run:tsc', 'run:lint', 'run:lintFix', 'run:lint']);
+  grunt.registerTask('default', ['run:tsc', 'run:lintFix']);
   grunt.registerTask('devCover', ['run:tsc', 'run:testWinPrep','run:devCover', 'run:testWinCleanup']);
   grunt.registerTask('lint', ['run:lint']);
   grunt.registerTask('tsc', ['run:tsc']);
