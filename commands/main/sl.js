@@ -1,9 +1,10 @@
 const config = require('../../mainDefs').config;
 exports.run = (client, message) => {
-  message.reply('Servers:');
+  message.reply(`Servers (${client.guilds.array().length} servers):`);
   client.guilds.forEach((guild) => {
     message.channel.send(' - ' + guild.name);
   });
+  message.channel.send('Done!');
 };
   
 exports.conf = {
