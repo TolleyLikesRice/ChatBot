@@ -8,5 +8,5 @@ module.exports = (client, dbl) => {
   client.on('guildBanRemove', reqEvent('guildBanRemove'));
   client.on('guildCreate', reqEvent('guildCreate'));
   client.on('guildDelete', reqEvent('guildDelete'));
-  dbl.on('posted', reqEvent('dblPosted'));
+  if (dbl !== undefined) {dbl.on('posted', reqEvent('dblPosted'));}
 };
