@@ -4,7 +4,11 @@ const getUrls = require('get-urls');
 const winston = require('winston');
 const main = winston.loggers.get('main');
 module.exports = message => {
-    let client = message.client;
+    const client = message.client;
+    if (message.author.bot) return;
+    if (!message.guild) return message.reply('Sorry ChatBot does not supports commands from DMs at the moment.');
+    const guildConf = client.settings.ensure(message.guild.id, client.defaultSettings);
+    client.settings.set(message.guild.id, message.guild.ownerID, 'serverOwner');
     let urls = Array.from(getUrls(message.content));
     if (urls !== []) {
         urls.forEach(url => {
@@ -22,29 +26,29 @@ module.exports = message => {
             });
         });
     }
-    if (message.author.bot) return;
-    if (!message.content.startsWith(config.Bot.prefix)) return;
-    let command = message.content.split(' ')[0].slice(config.Bot.prefix.length);
-    let params = message.content.split(' ').slice(1);
-    let perms = client.elevation(message);
-    if (perms === 'fail') return;
+    //if (!message.content.startsWith(guildConf.prefix)) return;
+    if (!message.content.startsWith(guildConf.prefix)) return;
+    //let command = message.content.split(' ')[0].slice(guildConf.prefix.length);
+    //let args = message.content.split(' ').slice(guildConf.prefix.length);
+    const args = message.content.slice(guildConf.prefix.length).trim().split(/ +/g);
+    const command = args.shift().toLowerCase();
     let cmd;
     if (client.commands.has(command)) {
         cmd = client.commands.get(command);
     } else if (client.aliases.has(command)) {
         cmd = client.commands.get(client.aliases.get(command));
     } else {
-        return message.reply(':frowning: I don\'t recognize that command. Do ;help to see all of my commands. If you belive this is in error then dm <@251055152667164676>');
+        return message.reply(':frowning: I don\'t recognize that command. Do ' + guildConf.prefix + 'help to see all of my commands. If you belive this is in error then dm <@251055152667164676>');
     }
-    if (cmd) {
-        if (perms < cmd.conf.permLevel) return message.reply('You do not have permission to do this!');
-        try {
-            main.verbose(`User ${message.author.id} (${message.author.username}#${message.author.discriminator}) is running '${message.content}' in Guild ${message.guild.id} (${message.guild.name})`);
-            cmd.run(client, message, params, perms);
-        } catch (err) {
-            main.warn(`There was an error while User ${message.author.id} (${message.author.username}#${message.author.discriminator}) was running '${message.content}' in Guild ${message.guild.id} (${message.guild.name}) The content was\n${err}`);
-            return message.reply('Sorry an error has occurred please DM <@251055152667164676> with the error message below\n```Command Runner: ' + err + '```');
-        }
+    let perms = client.elevation(message, cmd.conf.permLevel);
+    if (perms === 'fail') return;
+    if (perms < cmd.conf.permLevel) return message.reply(`You do not have permission to do this! You need Permlevel ${cmd.conf.permLevel} but you only have Permlevel ${perms}`);
+    try {
+        main.verbose(`User ${message.author.id} (${message.author.username}#${message.author.discriminator}) is running '${message.content}' in Guild ${message.guild.id} (${message.guild.name})`);
+        cmd.run(client, message, args, guildConf, perms);
+    } catch (err) {
+        main.warn(`There was an error while User ${message.author.id} (${message.author.username}#${message.author.discriminator}) was running '${message.content}' in Guild ${message.guild.id} (${message.guild.name}) The content was\n${err}`);
+        return message.reply('Sorry an error has occurred please DM <@251055152667164676> with the error message below\n```Command Runner: ' + err + '```');
     }
 
 };

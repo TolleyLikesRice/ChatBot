@@ -16,21 +16,15 @@
 # 4 = Owner/Dev Users
 
 [Bot]
-# These are your primary settings for your bot
-'token' = 'YOUR-BOT-TOKEN-HERE' # The token you get from https://discordapp.com/developers/applications/me
-'prefix' = ';' # The prefix for your bot. e.g If my prefix was '-' I would do -help
-'ownerid' = 'YOUR-ID-HERE' # Your account id here, this will give you full permissions for the bot.
+# These are your primary settings for your bot stuff, prefix will only be used as the default prefix.
+'token' = 'TOKEN-HERE' # The token you get from https://discordapp.com/developers/applications/me
+'prefix' = 'd;' # The prefix for your bot. e.g If my prefix was '-' I would do -help
+'ownerid' = 'OWNER-ID-HERE' # Your account id here, this will give you full permissions for the bot.
 
 [Logging]
 # There are your settings of logging of console
 'logfile' = 'latest.log' # The name of your log file
 'debug' = false # Whether or not to enable extra logging in console
-
-[Roles]
-# These are the settings for you roles
-'modrole' = 'MOD-ROLE-ID-HERE' # The role whitch you give to your admins
-'adminrole' = 'ADMIN-ROLE-ID-HERE' # The role which you give to your moderators
-'devusers' = ['ID1', 'ID2'] # WARNING: PUTTING A USER'S ID IN THE DEVUSERS ARRAY WILL GIVE THEM FULL PERMISSIONS, DO THIS WITH CAUTION
 
 #  __  __           _       _         _____             __ _
 # |  \/  |         | |     | |       / ____|           / _(_)
@@ -52,7 +46,6 @@
 'mutelevel' = 2 # Permlevel for mute command
 'warnlevel' = 2 # Permlevel for warn command
 'purgelevel' = 2 # Permlevel for mute command
-'logid' = 'YOUR-LOG-ID-HERE' # The id for the moderation log channel
 
 [Fun]
 # NOTE: You can not change the permlevel of the fun commands you may only enable/disable them.
@@ -60,9 +53,8 @@
 # Working on adding more options
 
 [Giphy]
-# Enable the gifhy module
-# NOTE: IF YOU PLAN TO USE THIS BOT ON MORE THAN 2 SERVERS
-# APPLY FOR A PRODUCTION KEY. FOR MORE INFO GO TO https://github.com/TolleyB-J/ChatBot
+# Enable the giphy module
+# NOTE: IF YOU PLAN TO USE THIS BOT ON MORE THAN 2 SERVERS APPLY FOR A PRODUCTION KEY. FOR MORE INFO GO TO https://github.com/TolleyB-J/ChatBot
 'enable' = false # Whether or not to enable the giphy commands
 'apikey' = 'YOUR-API-KEY-HERE'
 
@@ -73,28 +65,12 @@
 'setgamelevel' = '4' # Permlevel for setgame command
 'serverlistenable' = 'true' # Whether to enable the the serverlist command
 'serverlistlevel' = '4' # Permlevel for serverlist command
-'bootgame' = 'This bot is by TolleyB-J' # The bots default game on boot
-
-[Stats]
-# The the config for the server stats module - Here's what is looks like https://i.imgur.com/nJyvhWp.png
-'enable' = false # Whether or not to enable the Stats module
-'tusersid' = 'YOUR-TOTAL-USERS-ID-HERE' # Put the id of the voice channel for Total Users (dosent have to be called total users)
-'tuserstext' = 'Total Users:' # The text before the number of users
-'botsid' = 'YOUR-BOTS-ID-HERE' # Same as tusersid exept for bots
-'botstext' = 'Bot Count:' # Same as tuserstext exept for bots
-'memberid' = 'YOUR-MEMBERS-ID-HERE' # Same as tusersid but for members
-'membertext' = 'Member Count:' # Same as tuserstext but for members
-'updatepermlevel' = '4' # Permlevel for the updatestats command
+'bootgame' = 'Type ;help in chat!' # The bots default game on boot
 
 [Utilities]
+# The config for the utilities commands
 'enable' = true # Whether or not to enable fun commands
 # Working on adding more options
-
-[PerServerDB]
-# The configuration for the per-server settings database
-'enable' = false # Enable Per server settings
-'dbNukeEnable' = 'false' # Don't enable this unless a dev told you to do it.
-'dbAudit' = 'false' # Same as above, don't use it without consulting a dev first.
 
 #  ______           _          __    _____             __ _       _
 # |  ____|         | |        / _|  / ____|           / _(_)     | |
@@ -104,6 +80,7 @@
 # |______|_| |_|\__,_|  \___/|_|    \_____\___/|_| |_|_| |_|\__, (_)
 #                                                            __/ |
 #                                                           |___/
+
 
 
 'test' = false # DO NOT EDIT THIS
