@@ -5,7 +5,6 @@
 **data/
 **node_modules/
 **.vscode/
-**package-lock.json
 **test.txt
 **config/config.toml
 *.ts
