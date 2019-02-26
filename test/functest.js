@@ -1,4 +1,5 @@
 /* eslint-env node, mocha */
+const wtf = require('wtfnode');
 const expect = require('chai').expect;
 const funcs = require('../mainDefs');
 
@@ -55,3 +56,4 @@ describe('Check functions/variables from mainDefs.js', function () {
         expect(giphy).to.be.a('object');
     });
 });
+wtf.dump()

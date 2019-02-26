@@ -1,4 +1,5 @@
 /* eslint-env node, mocha */
+const wtf = require('wtfnode');
 const fs = require('fs');
 const expect = require('chai').expect;
 fs.writeFileSync('./test.txt', 'Test active. When test completed please delete this file. :)');
@@ -36,3 +37,4 @@ describe('Bot Startup', function () {
         });
     });
 });
+wtf.dump()

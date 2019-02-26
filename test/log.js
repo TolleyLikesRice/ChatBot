@@ -1,4 +1,5 @@
 /* eslint-env node, mocha */
+const wtf = require('wtfnode');
 const expect = require('chai').expect;
 const winston = require('winston');
 const capcon = require('capture-console');
@@ -76,3 +77,4 @@ if (config.Logging.debug === false) {
         });
     });
 }
+wtf.dump()
