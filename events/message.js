@@ -26,11 +26,12 @@ module.exports = message => {
             });
         });
     }
+    let prefix = guildConf.prefix || config.prefix;
     //if (!message.content.startsWith(guildConf.prefix)) return;
-    if (!message.content.startsWith(guildConf.prefix)) return;
+    if (!message.content.startsWith(prefix)) return;
     //let command = message.content.split(' ')[0].slice(guildConf.prefix.length);
     //let args = message.content.split(' ').slice(guildConf.prefix.length);
-    const args = message.content.slice(guildConf.prefix.length).trim().split(/ +/g);
+    const args = message.content.slice(prefix.length).trim().split(/ +/g);
     const command = args.shift().toLowerCase();
     let cmd;
     if (client.commands.has(command)) {
@@ -38,7 +39,7 @@ module.exports = message => {
     } else if (client.aliases.has(command)) {
         cmd = client.commands.get(client.aliases.get(command));
     } else {
-        return message.reply(':frowning: I don\'t recognize that command. Do ' + guildConf.prefix + 'help to see all of my commands. If you belive this is in error then dm <@251055152667164676>');
+        return message.reply(':frowning: I don\'t recognize that command. Do ' + prefix + 'help to see all of my commands. If you belive this is in error then dm <@251055152667164676>');
     }
     let perms = client.elevation(message, cmd.conf.permLevel);
     if (perms === 'fail') return;
