@@ -26,7 +26,7 @@ module.exports = message => {
             });
         });
     }
-    let prefix = guildConf.prefix || config.prefix;
+    let prefix = guildConf.prefix || config.Bot.prefix;
     //if (!message.content.startsWith(guildConf.prefix)) return;
     if (!message.content.startsWith(prefix)) return;
     //let command = message.content.split(' ')[0].slice(guildConf.prefix.length);
