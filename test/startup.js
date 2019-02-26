@@ -18,8 +18,8 @@ describe('Bot Startup', function () {
     it('Load fun module', function () {
         appjs.loadModule('fun');
     });
-    it('Load stats module', function () {
-        appjs.loadModule('stats');
+    it('Load serverConfig module', function () {
+        appjs.loadModule('serverConfig');
     });
     it('Load giphy module', function () {
         appjs.loadModule('giphy');

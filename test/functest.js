@@ -14,8 +14,6 @@ describe('Check functions/variables from mainDefs.js', function () {
             'You are awesome!',
             'If you are reading this you are probably contributing, if you are thanks!',
             'this is some very long text to see if textToArray breaks when I make it too long blah blah blah I like cake and rice (not together), I dont know why I am telling you that. Why are you even reading this?'];
-        console.log(array);
-        console.log(expectedArray);
         expect(array).to.deep.equal(expectedArray);
     });
     it('Checks if error is thrown when path is not a string for textToArray', function () {
