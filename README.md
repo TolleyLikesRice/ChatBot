@@ -1,6 +1,6 @@
 ![ChatBot](Assets/Artwork/ChatBotReadme.png)
 
-[![Build Status](https://travis-ci.org/TolleyB-J/ChatBot.svg?branch=master)](https://travis-ci.org/TolleyB-J/ChatBot)[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT) [![Coverage Status](https://coveralls.io/repos/github/TolleyB-J/ChatBot/badge.svg?branch=master)](https://coveralls.io/github/TolleyB-J/ChatBot?branch=master) [![Codacy Badge](https://api.codacy.com/project/badge/Grade/69226337d08d4d43b4684f84d9c80301)](https://www.codacy.com/app/TolleyB-J/ChatBot?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=TolleyB-J/ChatBot&amp;utm_campaign=Badge_Grade)  
+[![Build Status](https://travis-ci.org/TolleyB-J/ChatBot.svg?branch=master)](https://travis-ci.org/TolleyB-J/ChatBot)[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT) [![codecov](https://codecov.io/gh/TolleyB-J/ChatBot/branch/master/graph/badge.svg)](https://codecov.io/gh/TolleyB-J/ChatBot) [![Codacy Badge](https://api.codacy.com/project/badge/Grade/69226337d08d4d43b4684f84d9c80301)](https://www.codacy.com/app/TolleyB-J/ChatBot?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=TolleyB-J/ChatBot&amp;utm_campaign=Badge_Grade)  
 
 [![Discord Bots](https://discordbots.org/api/widget/449600396768313354.svg)](https://discordbots.org/bot/449600396768313354)
 
