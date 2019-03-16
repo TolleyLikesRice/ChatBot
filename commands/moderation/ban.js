@@ -4,8 +4,7 @@ const winston = require('winston');
 const main = winston.loggers.get('main');
 
 exports.run = (client, message, args) => {
-    main.silly(`${message.author} running the command ban`);
-    let reason = args.slice(1).join(' ');
+    let reason = args[1];
     let user = message.mentions.users.first();
     let modlog = config.Moderation.logid;
     if (modlog.length < 1) return message.reply('I cannot find a log channel');
