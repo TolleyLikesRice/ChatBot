@@ -1,5 +1,5 @@
-exports.run = (client, message, args, guildConf) => {
-    let d = new Date();
+exports.run = (client, message) => {
+    const d = new Date();
     message.reply(`The current bot time is ${d}`);
 };
 

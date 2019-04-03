@@ -3,9 +3,9 @@ const config = require('../../mainDefs').config;
 const winston = require('winston');
 const main = winston.loggers.get('main');
 exports.run = (client, message, args) => {
-    let reason = args.slice(1).join(' ');
-    let user = message.mentions.users.first();
-    let modlog = config.Moderation.logid;
+    const reason = args.slice(1).join(' ');
+    const user = message.mentions.users.first();
+    const modlog = config.Moderation.logid;
     if (modlog.length < 1) return message.reply('I cannot find a log channel');
     if (reason.length < 1) return message.reply('You must supply a reason for the kick.');
     if (message.mentions.users.size < 1) return message.reply('You must mention someone to kick them.').catch(main.error);

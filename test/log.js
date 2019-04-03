@@ -7,30 +7,30 @@ const config = require('../mainDefs').config;
 const loginit = require('../start_scripts/loginit');
 
 
-describe('Winston Define', function () {
-    it('Define main', function () {
+describe('Winston Define', () => {
+    it('Define main', () => {
         loginit.maintest();
     });
 });
 require('../start_scripts/loginit');
 const main = winston.loggers.get('main');
 if (config.Logging.debug === true) {
-    describe('Winston main Debug', function () {
-        it('Print an error to main', function () {
-            var stderr = capcon.captureStderr(function scope() {
+    describe('Winston main Debug', () => {
+        it('Print an error to main', () => {
+            var stderr = capcon.captureStderr(() => {
                 main.error('Error Test');
             });
             expect(stderr).to.contain('[MAIN] Error Test');
         });
 
-        it('Print a warning to main', function () {
-            var stdout = capcon.captureStdout(function scope() {
+        it('Print a warning to main', () => {
+            var stdout = capcon.captureStdout(() => {
                 main.warn('Warn Test');
             });
             expect(stdout).to.contain('[MAIN] Warn Test');
         });
-        it('Print info to main', function () {
-            var stdout = capcon.captureStdout(function scope() {
+        it('Print info to main', () => {
+            var stdout = capcon.captureStdout(() => {
                 main.info('Info Test');
             });
             expect(stdout).to.contain('[MAIN] Info Test');
@@ -44,16 +44,16 @@ if (config.Logging.debug === true) {
              expect(stdout).to.contain('debug: [DEBUG] Debug Test\r\n')
       });*/
 
-        it('Print vebose to main', function () {
-            var stdout = capcon.captureStdout(function scope() {
+        it('Print vebose to main', () => {
+            var stdout = capcon.captureStdout(() => {
                 main.verbose('Verbose Test');
             });
             expect(stdout).to.contain('[MAIN] Verbose Test');
         });
 
 
-        it('Print silly to main', function () {
-            var stdout = capcon.captureStdout(function scope() {
+        it('Print silly to main', () => {
+            var stdout = capcon.captureStdout(() => {
                 main.silly('Silly Test');
             });
             expect(stdout).to.contain('[MAIN] Silly Test');
@@ -61,20 +61,20 @@ if (config.Logging.debug === true) {
     });
 } 
 if (config.Logging.debug === false) {
-    describe('Winston main', function () {
-        it('Print an error to main', function () {
-            var stderr = capcon.captureStderr(function scope() {
+    describe('Winston main', () => {
+        it('Print an error to main', () => {
+            var stderr = capcon.captureStderr(() => {
                 main.error('Error Test');
             });
             expect(stderr).to.contain('[MAIN] Error Test');
         });
 
-        it('Print a warning to main', function () {
-            var stdout = capcon.captureStdout(function scope() {
+        it('Print a warning to main', () => {
+            var stdout = capcon.captureStdout(() => {
                 main.warn('Warn Test');
             });
             expect(stdout).to.contain('[MAIN] Warn Test');
         });
     });
 }
-wtf.dump()
+wtf.dump();

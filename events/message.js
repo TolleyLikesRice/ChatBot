@@ -10,11 +10,11 @@ module.exports = message => {
     const guildConf = client.settings.ensure(message.guild.id, client.defaultSettings);
     //client.settings.set(message.guild.id, message.guild.ownerID, 'serverOwner');
     function find_diff(arr1, arr2) {
-        let diff = [];
-        let joined = arr1.concat(arr2);
+        const diff = [];
+        const joined = arr1.concat(arr2);
         let i;
         for (i = 0; i <= joined.length; i++) {
-            let current = joined[i];
+            const current = joined[i];
             if (joined.indexOf(current) == joined.lastIndexOf(current)) {
                 diff.push(current);
             }
@@ -57,14 +57,14 @@ module.exports = message => {
     var mins = d.getMinutes();
     if (hours.length == 1) {hours = parseInt(`0${hours}`);}
     if (mins.length == 1) {hours = parseInt(`0${mins}`);}
-    var time = `${hours}:${mins}`
+    var time = `${hours}:${mins}`;
     var start = guildConf.msgOffTimerStart;
-    var end = guildConf.msgOffTimerEnd
+    var end = guildConf.msgOffTimerEnd;
     if (guildConf.msgOffTimerEnable == 'true' && Date.parse(`01/01/2011 ${time}`) >= Date.parse(`01/01/2011 ${start}`) && Date.parse(`01/01/2011 ${time}`) < Date.parse(`01/01/2011 ${end}`)) {
         return;
     }
 
-    let prefix = guildConf.prefix || config.Bot.prefix;
+    const prefix = guildConf.prefix || config.Bot.prefix;
     //if (!message.content.startsWith(guildConf.prefix)) return;
     if (!message.content.startsWith(prefix)) return;
     //let command = message.content.split(' ')[0].slice(guildConf.prefix.length);
@@ -79,7 +79,7 @@ module.exports = message => {
     } else {
         return message.reply(':frowning: I don\'t recognize that command. Do ' + prefix + 'help to see all of my commands. If you belive this is in error then dm <@251055152667164676>');
     }
-    let perms = client.elevation(message, cmd.conf.permLevel);
+    const perms = client.elevation(message, cmd.conf.permLevel);
     if (perms === 'fail') return;
     if (perms < cmd.conf.permLevel) return message.reply(`You do not have permission to do this! You need Permlevel ${cmd.conf.permLevel} but you only have Permlevel ${perms}`);
     try {

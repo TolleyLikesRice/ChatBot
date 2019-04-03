@@ -18,10 +18,10 @@ exports.run = (client, message, args, guildConf) => {
         fx.base = body.base;
         fx.rates = rates;
         try {
-            var out = fx(amount).from(fromarg).to(toarg)
+            var out = fx(amount).from(fromarg).to(toarg);
             message.reply(`${amount} ${fromarg} is ${out} ${toarg}`);
         } catch (err) {
-            main.warn(err)
+            main.warn(err);
             return message.reply(`One of your arguments is in valid. Please use this format ${guildConf.prefix}cc <amount> <from> <to>`);
         }
     });

@@ -1,8 +1,8 @@
 const giphy = require('../../mainDefs.js').giphy;
 const Discord = require('discord.js');
 exports.run = (client, message, args) => {
-    let st = args.join(' ');
-    let res = args.slice(1).join(' ');
+    const st = args.join(' ');
+    const res = args.slice(1).join(' ');
     if (st.length < 1) return message.reply('You must supply a search term');
     if (res.length < 1) {
         giphy.search('gifs', { 'q': st, 'limit': 1, 'rating': 'pg' })

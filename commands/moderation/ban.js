@@ -4,9 +4,9 @@ const winston = require('winston');
 const main = winston.loggers.get('main');
 
 exports.run = (client, message, args) => {
-    let reason = args[1];
-    let user = message.mentions.users.first();
-    let modlog = config.Moderation.logid;
+    const reason = args[1];
+    const user = message.mentions.users.first();
+    const modlog = config.Moderation.logid;
     if (modlog.length < 1) return message.reply('I cannot find a log channel');
     if (reason.length < 1) return message.reply('You must supply a reason for the ban.');
     if (message.mentions.users.size < 1) return message.reply('You must mention someone to ban them.').catch(main.error);

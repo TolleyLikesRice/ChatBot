@@ -4,8 +4,8 @@ const main = winston.loggers.get('main');
 const config = require('../../mainDefs').config;
 exports.run = (client, message, args) => {
     if (!client.lockit) client.lockit = [];
-    let time = args.join(' ');
-    let validUnlocks = ['release', 'unlock'];
+    const time = args.join(' ');
+    const validUnlocks = ['release', 'unlock'];
     if (!time) return message.reply('You must set a duration for the lockdown in either hours, minutes or seconds');
 
     if (validUnlocks.includes(time)) {

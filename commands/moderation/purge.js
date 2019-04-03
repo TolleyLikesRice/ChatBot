@@ -3,9 +3,9 @@ const config = require('../../mainDefs').config;
 const winston = require('winston');
 const main = winston.loggers.get('main');
 exports.run = (client, message, args) => {
-    let modlog = config.Moderation.logid;
+    const modlog = config.Moderation.logid;
     if (modlog.length < 1) return message.reply('I cannot find a log channel');
-    let messagecount = parseInt(args.join(' '));
+    const messagecount = parseInt(args.join(' '));
     message.channel.fetchMessages({
         limit: messagecount
     }).then(messages => message.channel.bulkDelete(messages));

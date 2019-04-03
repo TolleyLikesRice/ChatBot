@@ -1,5 +1,5 @@
 exports.run = (client, message, args, guildConf) => {
-    let configProps = Object.keys(guildConf).map(prop => {
+    const configProps = Object.keys(guildConf).map(prop => {
         return `${prop}  :  ${guildConf[prop]}\n`;
     });
     message.channel.send(`The following are this server's current configuration:

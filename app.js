@@ -61,7 +61,7 @@ function loadModule(ModuleFolder) {
     }
     main.verbose(`Loading a total of ${files.length} ${ModuleFolder} commands.`);
     files.forEach(f => {
-        let props = require(`./commands/${ModuleFolder}/${f}`);
+        const props = require(`./commands/${ModuleFolder}/${f}`);
         main.verbose(`Loading ${ModuleFolder} Command: ${props.help.name}. 👌`);
         client.commands.set(props.help.name, props);
         props.conf.aliases.forEach(alias => {

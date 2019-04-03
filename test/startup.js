@@ -6,35 +6,35 @@ fs.writeFileSync('./test.txt', 'Test active. When test completed please delete t
 const appjs = require('../app.js');
 require('../start_scripts/');
 
-describe('Bot Startup', function () {
-    it('Initalize', function () {
+describe('Bot Startup', () => {
+    it('Initalize', () => {
         appjs.inittest();
     });
-    it('Load main module', function () {
+    it('Load main module', () => {
         appjs.loadModule('main');
     });
-    it('Load moderation module', function () {
+    it('Load moderation module', () => {
         appjs.loadModule('moderation');
     });
-    it('Load fun module', function () {
+    it('Load fun module', () => {
         appjs.loadModule('fun');
     });
-    it('Load serverConfig module', function () {
+    it('Load serverConfig module', () => {
         appjs.loadModule('serverConfig');
     });
-    it('Load giphy module', function () {
+    it('Load giphy module', () => {
         appjs.loadModule('giphy');
     });
-    it('Get error on load of a fake module', function () {
+    it('Get error on load of a fake module', () => {
         expect(appjs.loadModule.bind(appjs, 'fake')).to.throw('Module Load Error');
     });
-    it('Elevate Roles', function () {
+    it('Elevate Roles', () => {
         appjs.eletest();
     });
-    it('Cleaning up', function () {
+    it('Cleaning up', () => {
         fs.unlink('./test.txt', (err) => {
             if (err) throw err;
         });
     });
 });
-wtf.dump()
+wtf.dump();

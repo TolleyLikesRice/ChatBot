@@ -35,7 +35,7 @@ module.exports = function (grunt) {
     grunt.registerTask('devCover', ['run:tsc', 'run:testWinPrep','run:devCover', 'run:testWinCleanup']);
     grunt.registerTask('lint', ['run:lint']);
     grunt.registerTask('tsc', ['run:tsc']);
-    grunt.registerTask('lintFix', ['run:lint', 'run:lintFix']);
+    grunt.registerTask('lintFix', ['run:lintFix']);
     grunt.registerTask('travis', ['run:tsc', 'run:lint', 'run:cover']);
     grunt.registerTask('test', ['run:tsc', 'run:testWinPrep', 'run:test','run:testWinCleanup']);
 
