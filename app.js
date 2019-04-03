@@ -78,8 +78,8 @@ function ele() {
             const mod = message.guild.roles.find(role => role.name === client.settings.get(message.member.guild.id, 'modRole'));
             const admin = message.guild.roles.find(role => role.name === client.settings.get(message.member.guild.id, 'adminRole'));
             let permlvl = 1;
-            if (message.author.id === config.Bot.ownerid) permlvl = 4;
-            if (message.member.id == client.settings.get(message.member.guild.id, 'serverOwner')) permlvl = 4;
+            if (message.author.id === config.Bot.ownerid) return 4;
+            if (message.member.id == client.settings.get(message.member.guild.id, 'serverOwner')) return 4;
             if (lvl > 1 && permlvl === 1) {
                 if (mod == undefined) {
                     message.reply(`Sorry! We could not find the moderator role on your server, please ask one of your server admins to fix this by creating a role called ${client.settings.get(message.member.guild.id, 'modRole')} and then set the name of the Admin role you normally use with the setconf command`);
