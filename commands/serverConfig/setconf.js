@@ -1,6 +1,6 @@
 exports.run = (client, message, args) => {
     const value = args;
-    const prop = value.shift().toLowerCase();
+    const prop = value.shift();
     
     // We can check that the key exists to avoid having multiple useless, 
     // unused keys in the config:

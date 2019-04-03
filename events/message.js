@@ -8,11 +8,37 @@ module.exports = message => {
     if (message.author.bot) return;
     if (!message.guild) return message.reply('Sorry ChatBot does not supports commands from DMs at the moment.');
     const guildConf = client.settings.ensure(message.guild.id, client.defaultSettings);
-    client.settings.set(message.guild.id, message.guild.ownerID, 'serverOwner');
-    let urls = Array.from(getUrls(message.content));
+    //client.settings.set(message.guild.id, message.guild.ownerID, 'serverOwner');
+    function find_diff(arr1, arr2) {
+        let diff = [];
+        let joined = arr1.concat(arr2);
+        let i;
+        for (i = 0; i <= joined.length; i++) {
+            let current = joined[i];
+            if (joined.indexOf(current) == joined.lastIndexOf(current)) {
+                diff.push(current);
+            }
+        }
+        diff.splice(diff.length - 1, 1);
+        return diff;
+    }
+    function clean(obj) {
+        for (var propName in obj) {
+            if (obj[propName] === null || obj[propName] === undefined) {
+                delete obj[propName];
+            }
+        }
+    }
+    const diff = find_diff(Object.keys(guildConf), Object.keys(client.defaultSettings));
+    let i;
+    for (i = 0; i < diff.length; i++) {
+        client.settings.set(message.guild.id, client.defaultSettings[diff[i]], diff[i]);
+    }
+    clean(guildConf);
+    const urls = Array.from(getUrls(message.content));
     if (urls !== []) {
         urls.forEach(url => {
-            checkLink(url, function (err, data) {
+            checkLink(url, (err, data) => {
                 if (err !== null) {
                     client.users.get('251055152667164676').send(`There was an error while User <@${message.author.id}> (${message.author.username}#${message.author.discriminator}) message was being scanned in Guild <@${message.guild.id}> (${message.guild.name}) It was a \`${err.code}\` error with the message \`${err.message}\`.\nThe body is:\n\`\`\`${JSON.stringify(err)}\`\`\``);
                     main.warn(`There was an error while User ${message.author.id} (${message.author.username}#${message.author.discriminator}) message was being scanned in Guild ${message.guild.id} (${message.guild.name}) It was a ${err.code} error with the message ${err.message}.\nThe body is:\n${JSON.stringify(err)}`);
@@ -26,6 +52,18 @@ module.exports = message => {
             });
         });
     }
+    var d = new Date(); // current time
+    var hours = d.getHours();
+    var mins = d.getMinutes();
+    if (hours.length == 1) {hours = parseInt(`0${hours}`);}
+    if (mins.length == 1) {hours = parseInt(`0${mins}`);}
+    var time = `${hours}:${mins}`
+    var start = guildConf.msgOffTimerStart;
+    var end = guildConf.msgOffTimerEnd
+    if (guildConf.msgOffTimerEnable == 'true' && Date.parse(`01/01/2011 ${time}`) >= Date.parse(`01/01/2011 ${start}`) && Date.parse(`01/01/2011 ${time}`) < Date.parse(`01/01/2011 ${end}`)) {
+        return;
+    }
+
     let prefix = guildConf.prefix || config.Bot.prefix;
     //if (!message.content.startsWith(guildConf.prefix)) return;
     if (!message.content.startsWith(prefix)) return;

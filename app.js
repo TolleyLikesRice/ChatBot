@@ -24,7 +24,10 @@ client.defaultSettings = {
     adminRole: 'Administrator',
     serverOwner: 0,
     welcomeChannel: 'general',
-    welcomeMessage: 'Say hello to {{user}}, everyone! We all need a warm welcome sometimes :D'
+    welcomeMessage: 'Say hello to {{user}}, everyone! We all need a warm welcome sometimes :D',
+    msgOffTimerEnable: 'false',
+    msgOffTimerStart: '00:00',
+    msgOffTimerEnd: '00:00'
 };
 
 //Get Logger

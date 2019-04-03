@@ -29,6 +29,8 @@
             "warn",
             "always"
         ],
-        "no-unused-vars": "warn"
+        "no-unused-vars": "warn",
+        "prefer-arrow-callback": "warn",
+        "prefer-const": "warn"
     }
 }
