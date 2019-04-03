@@ -17,6 +17,7 @@
               "SwitchCase": 1
             }
         ],
+        "linebreak-style": "off",
         "quotes": [
             "warn",
             "single"
