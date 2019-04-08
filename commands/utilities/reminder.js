@@ -2,7 +2,6 @@
 // Copyright (c) CustomWorld 2019. (Almost) all rights reserved.
 
 exports.run = (client, message, args) => {
-    message.delete();
     let remind = args.slice(2).join(' ');
     if (!remind) remind = 'This is the reminder you asked me to send';
     if (isNaN(args[0]) == 'false') return message.channel.send(`"${args[0]}" is not a number.`);
