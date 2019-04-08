@@ -6,23 +6,13 @@ var newfile = false;
 
 //Rotates Log File
 try {
-    fs.stat('./logs/main.log', (err) => {
-        if (err == null) {
-            newfile = true;
-            fs.rename('./logs/main.log', './logs/oldmain.log', () => {
-                fs.stat('./logs/main.log', () => {
-                });
-            });
-        } else if (err.code == 'ENOENT') {
-            // file does not exist
-            console.log('Creating new main.log');
-        } else {
-            console.log('Some other error: ', err.code);
-        }
-    });
+    fs.accessSync('etc/passwd', fs.constants.R_OK | fs.constants.W_OK);
+    newfile = true;
+    fs.renameSync('./logs/main.log', './logs/oldmain.log');
 } catch (err) {
-    if (err.code == 'ENOENT') {
-        console.log('Creating new main.log');
+    console.log('Creating new main.log');
+    if (!fs.existsSync('./logs')){
+        fs.mkdirSync('./logs');
     }
 }
 
