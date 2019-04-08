@@ -4,7 +4,7 @@
 
 [![Discord Bots](https://discordbots.org/api/widget/449600396768313354.svg)](https://discordbots.org/bot/449600396768313354)
 
-ChatBot is a Work-In-Progress All-In-One bot. I am aiming to add everything from Memes to Admin commands. It is designed to be highly configurable and customizable. It is written in javascript and typescript using the discord.js library. You can self-host if you want that extra level of customization but if you can't be bothered to shell out some money for a server or a raspberry pi (What I use for hosting the bot) then you [invite ChatBot to your server](https://discordapp.com/api/oauth2/authorize?client_id=449600396768313354&permissions=8&scope=bot). There are many features to come. For sneak peeks for whats coming next check out the [ChatBot Trello Board](https://trello.com/b/xvsSdqai/chatbot) to see whats happening.
+ChatBot is a Work-In-Progress All-In-One bot. I am aiming to add everything from Memes to Admin commands. It is designed to be highly configurable and customizable. It is written in javascript and typescript using the discord.js library. You can self-host if you want that extra level of customization but if you can't be bothered to shell out some money for a server or a raspberry pi then you [invite ChatBot to your server](https://discordapp.com/api/oauth2/authorize?client_id=449600396768313354&permissions=8&scope=bot). There are many features to come. For sneak peeks for whats coming next check out the [ChatBot Trello Board](https://trello.com/b/xvsSdqai/chatbot) to see whats happening.
 
 ## Ideas
 
