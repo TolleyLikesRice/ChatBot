@@ -8,7 +8,7 @@ exports.run = (client, message) => {
 };
   
 exports.conf = {
-    enabled: true,
+    enabled: false,
     guildOnly: false,
     aliases: ['sl'],
     permLevel: config.Botcmd.serverlistlevel
