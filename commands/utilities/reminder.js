@@ -41,7 +41,7 @@ exports.conf = {
   enabled: true,
   guildOnly: false,
   aliases: ["remind", "reminder", "setremind", "setreminder"],
-  permLevel: null //u might want to change this idk
+  permLevel: 1
 };
 
 exports.help = {
