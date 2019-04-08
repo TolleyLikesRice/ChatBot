@@ -26,6 +26,7 @@ If you have a suggestion or idea please open an issue with the naming scheme: [I
 ## Contributors
 
 - TolleyB-J - Owner, Maintainer, Primary Programmer
+- xCustomWorld - Remind Me command
 - Arslanshn - Logo
 
 ## Contributing
