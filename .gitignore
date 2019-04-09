@@ -1,0 +1,10 @@
+*.log
+*.bat
+**coverage/
+**temp.*
+**data/
+**node_modules/
+**.vscode/
+**test.txt
+**config/config.toml
+*.ts
