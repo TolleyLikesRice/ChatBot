@@ -122,6 +122,7 @@ loadModule('serverConfig');
 /* istanbul ignore next */
 if (config.Utilities.enable) loadModule('utilities');
 ele();
+
 /* istanbul ignore next */
 if (!fs.existsSync('./test.txt')) {
     if (config.Bot.token != 'YOUR-BOT-TOKEN-HERE') {

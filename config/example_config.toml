@@ -61,10 +61,6 @@
 [Botcmd]
 # The config for the bot commands
 # This module must be enabled
-'setgameenable' = 'true' # Whether to enable the the setgame command
-'setgamelevel' = '4' # Permlevel for setgame command
-'serverlistenable' = 'true' # Whether to enable the the serverlist command
-'serverlistlevel' = '4' # Permlevel for serverlist command
 'bootgame' = 'Type ;help in chat!' # The bots default game on boot
 
 [Utilities]

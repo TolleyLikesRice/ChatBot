@@ -1,6 +1,7 @@
 const config = require('../mainDefs').config;
 const checkLink = require('../mainDefs').checkLink;
 const getUrls = require('get-urls');
+const chatHandler = require('../util/chatHandler');
 const winston = require('winston');
 const main = winston.loggers.get('main');
 module.exports = message => {
@@ -55,8 +56,8 @@ module.exports = message => {
     var d = new Date(); // current time
     var hours = d.getHours();
     var mins = d.getMinutes();
-    if (hours.length == 1) {hours = parseInt(`0${hours}`);}
-    if (mins.length == 1) {hours = parseInt(`0${mins}`);}
+    if (hours.length == 1) { hours = parseInt(`0${hours}`); }
+    if (mins.length == 1) { hours = parseInt(`0${mins}`); }
     var time = `${hours}:${mins}`;
     var start = guildConf.msgOffTimerStart;
     var end = guildConf.msgOffTimerEnd;
@@ -64,6 +65,10 @@ module.exports = message => {
         return;
     }
 
+    if (message.isMentioned(client.user)) {
+        chatHandler.run(client, message);
+        return;
+    }
     const prefix = guildConf.prefix || config.Bot.prefix;
     //if (!message.content.startsWith(guildConf.prefix)) return;
     if (!message.content.startsWith(prefix)) return;
@@ -77,7 +82,7 @@ module.exports = message => {
     } else if (client.aliases.has(command)) {
         cmd = client.commands.get(client.aliases.get(command));
     } else {
-        return message.reply(':frowning: I don\'t recognize that command. Do ' + prefix + 'help to see all of my commands. If you belive this is in error then dm <@251055152667164676>');
+        return message.reply(':frowning: I don\'t recognize that command. Do ' + prefix + 'help to see all of my commands. If you believe this is in error then dm <@251055152667164676>');
     }
     const perms = client.elevation(message, cmd.conf.permLevel);
     if (perms === 'fail') return;

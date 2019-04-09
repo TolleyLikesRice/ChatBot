@@ -12,7 +12,7 @@ module.exports = member => {
   
     // we'll send to the welcome channel.
     member.guild.channels
-        .find('name', client.settings.get(member.guild.id, 'welcomeChannel'))
+        .find(channel => channel.name == client.settings.get(member.guild.id, 'welcomeChannel'))
         .send(welcomeMessage)
         .catch(console.error);
 };
