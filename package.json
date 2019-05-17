@@ -21,7 +21,7 @@
     "detect-newline": "^2.1.0",
     "discord.js": "^11.4.2",
     "enmap": "^4.8.7",
-    "express": "^4.16.4",
+    "express": "^4.17.0",
     "get-urls": "^9.0.0",
     "giphy-js-sdk-core": "^1.0.6",
     "money": "^0.2.0",
