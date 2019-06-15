@@ -3,7 +3,7 @@ const config = require('../../mainDefs').config;
 exports.run = (client, message) => {
     message.reply(`I am in ${client.guilds.array().length} servers! I'll put a list of them in a text file for you. Wait a sec :)`);
     client.guilds.forEach((guild) => {
-        fs.appendFileSync(`./serverList${message.author.id}.txt`, ` - ${guild.name}`);
+        fs.appendFileSync(`./serverList${message.author.id}.txt`, ` - ${guild.name}\n`);
     });
     message.reply('Done! Here it is.', {files: [`serverList${message.author.id}.txt`]});
     setTimeout(() => {
