@@ -1,19 +1,23 @@
+const fs = require('fs');
 const config = require('../../mainDefs').config;
 exports.run = (client, message) => {
-    message.reply(`Servers (${client.guilds.array().length} servers):`);
+    message.reply(`I am in ${client.guilds.array().length} servers! I'll put a list of them in a text file for you. Wait a sec :)`);
     client.guilds.forEach((guild) => {
-        message.channel.send(' - ' + guild.name);
+        fs.appendFileSync(`./serverList${message.author.id}.txt`, ` - ${guild.name}`);
     });
-    message.channel.send('Done!');
+    message.reply('Done! Here it is.', {files: [`serverList${message.author.id}.txt`]});
+    setTimeout(() => {
+        fs.unlinkSync(`./serverList${message.author.id}.txt`);
+    }, 1000);
 };
-  
+
 exports.conf = {
-    enabled: false,
+    enabled: true,
     guildOnly: false,
     aliases: ['sl'],
     permLevel: config.Botcmd.serverlistlevel
 };
-  
+
 exports.help = {
     name: 'serverlist',
     description: 'Lists all the servers that the bot is connected to.',

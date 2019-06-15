@@ -65,7 +65,7 @@ module.exports = message => {
         return;
     }
 
-    if (message.isMentioned(client.user)) {
+    if (message.content.startsWith(`<@${client.user.id}>`)) {
         chatHandler.run(client, message);
         return;
     }

@@ -4,24 +4,12 @@ const rn = require('random-number');
 
 var numOptions = {
     min: 200
-    , max: 1500
+    , max: 1000
     , integer: true
 };
 exports.run = async (client, message) => {
-    if (message.content.includes('Cancel')) {
-        var request = chat.deleteContextsRequest({ // here we introduce the "request" to the computer
-            sessionId: message.author.id
-        });
 
-        request.on('error', (error) => {
-            console.log(error);
-        });
-
-        request.end();
-        return;
-    }
-
-    request = chat.textRequest(message.content, { // here we introduce the "request" to the computer
+    const request = chat.textRequest(message.content, { // here we introduce the "request" to the computer
         sessionId: message.author.id
     });
 
