@@ -22,7 +22,7 @@
     "discord.js": "^11.5.1",
     "enmap": "^4.8.4",
     "express": "^4.17.1",
-    "get-urls": "^9.1.0",
+    "get-urls": "^9.2.0",
     "giphy-js-sdk-core": "^1.0.6",
     "money": "^0.2.0",
     "ms": "^2.1.2",
