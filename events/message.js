@@ -36,23 +36,6 @@ module.exports = message => {
         client.settings.set(message.guild.id, client.defaultSettings[diff[i]], diff[i]);
     }
     clean(guildConf);
-    const urls = Array.from(getUrls(message.content));
-    if (urls !== []) {
-        urls.forEach(url => {
-            checkLink(url, (err, data) => {
-                if (err !== null) {
-                    client.users.get('251055152667164676').send(`There was an error while User <@${message.author.id}> (${message.author.username}#${message.author.discriminator}) message was being scanned in Guild <@${message.guild.id}> (${message.guild.name}) It was a \`${err.code}\` error with the message \`${err.message}\`.\nThe body is:\n\`\`\`${JSON.stringify(err)}\`\`\``);
-                    main.warn(`There was an error while User ${message.author.id} (${message.author.username}#${message.author.discriminator}) message was being scanned in Guild ${message.guild.id} (${message.guild.name}) It was a ${err.code} error with the message ${err.message}.\nThe body is:\n${JSON.stringify(err)}`);
-                    return message.reply('There was an error during the link checking, I have notified <@251055152667164676> (This bot\'s owner). This should not affect your command.');
-                }
-                if (data !== null) {
-                    message.delete();
-                    main.info(`User ${message.author.id} (${message.author.username}#${message.author.discriminator}) posted a link containing ${data} in Guild ${message.guild.id} (${message.guild.name})`);
-                    return message.channel.send(`The link in <@${message.author.id}>'s message goes to a website containing \`${data}\`. The message has been deleted and the offence has been logged!`);
-                }
-            });
-        });
-    }
     var d = new Date(); // current time
     var hours = d.getHours();
     var mins = d.getMinutes();

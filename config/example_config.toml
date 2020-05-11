@@ -18,7 +18,7 @@
 [Bot]
 # These are your primary settings for your bot stuff, prefix will only be used as the default prefix.
 'token' = 'TOKEN-HERE' # The token you get from https://discordapp.com/developers/applications/me
-'prefix' = 'd;' # The prefix for your bot. e.g If my prefix was '-' I would do -help
+'prefix' = '+' # The prefix for your bot. e.g If my prefix was '-' I would do -help
 'ownerid' = 'OWNER-ID-HERE' # Your account id here, this will give you full permissions for the bot.
 
 [Logging]

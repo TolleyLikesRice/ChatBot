@@ -9,7 +9,7 @@ exports.conf = {
     enabled: false,
     guildOnly: false,
     aliases: [],
-    permLevel: config.Botcmd.setgamelevel
+    permLevel: 4
 };
 
 exports.help = {
