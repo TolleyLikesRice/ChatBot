@@ -17,7 +17,7 @@ exports.run = async (client, message) => {
         console.log(`${message.guild.name} (${message.guild.id}) made an oopsie: ${error}`); // log the error, I don't know what logger do you use
     });
 
-    request.on('response', async (response) => { // here we async initialize the request        
+    request.on('response', async (response) => { // here we async initialize the request
         const reply = response.result.fulfillment.speech; // grab the response from DialogFlow API
         await message.channel.startTyping(); // nice effect to make the bot look like it's "typing"
         await setTimeout(() => {
