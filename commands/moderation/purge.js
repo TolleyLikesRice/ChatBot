@@ -14,7 +14,7 @@ exports.run = (client, message, args) => {
         .setColor('#26ff46')
         .setTimestamp()
         .addField('Action:', 'Purge')
-        .addField('Moderator:', `${message.author.tag}`) 
+        .addField('Moderator:', `${message.author.tag}`)
         .addField('Messages Deleted', `${messagecount}`);
     return client.channels.get(modlog).send({ embed });
 };

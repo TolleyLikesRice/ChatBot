@@ -4,7 +4,7 @@ exports.run = (client, message, args, guildConf) => {
     });
     message.channel.send(`The following are this server's current configuration:
         \`\`\`${configProps}\`\`\``);
-    
+
 };
 exports.conf = {
     enabled: true,

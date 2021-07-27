@@ -32,7 +32,7 @@ describe('Check functions/variables from mainDefs.js', () => {
             if (err) throw err;
             done();
         });
-    
+
     });
     it('Checks if an error if thrown when checking a site using a invalid service URI', (done) => {
         expect(funcs.checkLink.bind(funcs, 'http://malware.wicar.org/data/eicar.com', (err) => {
@@ -45,7 +45,7 @@ describe('Check functions/variables from mainDefs.js', () => {
             expect(body.error.message).to.contain('API key not valid');
             done();
         }, 'https://safebrowsing.googleapis.com/v4/threatMatches:find?key=boop'));
-   
+
     });
     it('Checks the config var', () => {
         const config = funcs.config;

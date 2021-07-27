@@ -59,7 +59,7 @@ if (config.Logging.debug === true) {
             expect(stdout).to.contain('[MAIN] Silly Test');
         });
     });
-} 
+}
 if (config.Logging.debug === false) {
     describe('Winston main', () => {
         it('Print an error to main', () => {
