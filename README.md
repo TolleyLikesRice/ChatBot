@@ -1,3 +1,5 @@
+# Since this still seems to get alot of traffic. This is no longer developed, most of it is broken due to discord API changes, and Node, and everything. I was working on a rewrite, although that never really happened. I'll happily merge PRs if anyone manages to fix this spagetti :)
+
 ![ChatBot](Assets/Artwork/ChatBotReadme.png)
 
 [![Build Status](https://travis-ci.org/TolleyB-J/ChatBot.svg?branch=master)](https://travis-ci.org/TolleyB-J/ChatBot)[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT) [![codecov](https://codecov.io/gh/TolleyB-J/ChatBot/branch/master/graph/badge.svg)](https://codecov.io/gh/TolleyB-J/ChatBot) [![Codacy Badge](https://api.codacy.com/project/badge/Grade/69226337d08d4d43b4684f84d9c80301)](https://www.codacy.com/app/TolleyB-J/ChatBot?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=TolleyB-J/ChatBot&amp;utm_campaign=Badge_Grade)
